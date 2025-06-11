@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://paqakerb7hpd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_84qf3"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"all_scenes",
+"speed": 0.0
+}]
+
+[node name="Backgrounds" type="Node"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_84qf3")
+animation = &"all_scenes"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://da68xd05gb81l"]
+
+[ext_resource type="Texture2D" uid="uid://pr0cthc4epfc" path="res://Art/Candida.png" id="1_57vdp"]
+[ext_resource type="Script" path="res://candida.gd" id="1_wyo30"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a63yc"]
+radius = 26.9039
+height = 200.736
+
+[node name="Candida" type="Node2D"]
+script = ExtResource("1_wyo30")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(7, -4)
+scale = Vector2(0.695313, 0.703125)
+texture = ExtResource("1_57vdp")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(7, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-7, 6)
+rotation = -0.717019
+shape = SubResource("CapsuleShape2D_a63yc")

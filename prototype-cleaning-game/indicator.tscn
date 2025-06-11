@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://nnvxc2h6ijs7"]
+
+[ext_resource type="Script" path="res://indicator.gd" id="1_ley5o"]
+[ext_resource type="Texture2D" uid="uid://w0ixn887webi" path="res://Art/Incomplete.png" id="2_e0lv5"]
+[ext_resource type="Texture2D" uid="uid://cdjydm1g8r4cf" path="res://Art/Complete.png" id="3_mejjn"]
+
+[node name="Indicator" type="Node2D"]
+script = ExtResource("1_ley5o")
+
+[node name="Incomplete" type="Sprite2D" parent="."]
+texture = ExtResource("2_e0lv5")
+
+[node name="Complete" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_mejjn")

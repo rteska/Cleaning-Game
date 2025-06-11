@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=10 format=3 uid="uid://dwiv2lfc7s5cb"]
+
+[ext_resource type="Script" path="res://Inv_slot.gd" id="2_cduvh"]
+[ext_resource type="Script" path="res://inventory.gd" id="2_i3f25"]
+[ext_resource type="Resource" uid="uid://csaxyb0l66f3f" path="res://Inventory/Items/Cleaner_blue_slot.tres" id="3_khqfp"]
+[ext_resource type="Resource" uid="uid://dwvwc7fo4atsh" path="res://Inventory/Items/Cleaner_red_slot.tres" id="3_ygidr"]
+[ext_resource type="Resource" uid="uid://n0kak43e6vif" path="res://Inventory/Items/Cloth_dry_blue_slot.tres" id="4_hldfh"]
+[ext_resource type="Resource" uid="uid://cj2t1dy6yxiws" path="res://Inventory/Items/Cloth_dry_red_slot.tres" id="4_wp1gv"]
+
+[sub_resource type="Resource" id="Resource_gmqp7"]
+script = ExtResource("2_cduvh")
+
+[sub_resource type="Resource" id="Resource_a8jor"]
+script = ExtResource("2_cduvh")
+
+[sub_resource type="Resource" id="Resource_7ciki"]
+script = ExtResource("2_cduvh")
+
+[resource]
+script = ExtResource("2_i3f25")
+slots = Array[ExtResource("2_cduvh")]([ExtResource("3_khqfp"), ExtResource("4_hldfh"), ExtResource("3_ygidr"), ExtResource("4_wp1gv"), SubResource("Resource_gmqp7"), SubResource("Resource_a8jor"), SubResource("Resource_7ciki")])

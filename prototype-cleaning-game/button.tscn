@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://1o33582sbs5k"]
+
+[ext_resource type="Script" path="res://button.gd" id="1_cdpkl"]
+[ext_resource type="Texture2D" uid="uid://c3rq730kp1acs" path="res://Art/Move_arrow.png" id="1_uackv"]
+[ext_resource type="AudioStream" uid="uid://cfd4rsgodkfqs" path="res://Sounds/footstep-1-83098.mp3" id="3_3qgc1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2assf"]
+size = Vector2(150, 224)
+
+[node name="button" type="Node2D"]
+script = ExtResource("1_cdpkl")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -73.0
+offset_top = -120.0
+offset_right = 77.0
+offset_bottom = 103.0
+flat = true
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -10)
+shape = SubResource("RectangleShape2D_2assf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uackv")
+
+[node name="Footstep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3qgc1")
+volume_db = -20.0
+bus = &"SFX"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

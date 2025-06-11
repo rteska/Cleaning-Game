@@ -1,0 +1,27 @@
+﻿key,en,es
+Title,Clean the Hospital,
+Start_Button,Levels,
+Difficulty_Button,Difficulty,
+Instructions_Button,Instructions,
+Back_Button,Back,
+Body_Text,"Use the left mouse button to interact with the environment around you.
+
+Click on the button in the bottom left to open your inventory.
+
+You can click on objects, furniture, vents, and more!
+
+Your goal is to clean the entire room using the proper chemicals and cloths. 
+
+You gain points for proper cleaning and sanitization, and will receive a score at the end.
+
+BE CAREFUL: improper combinations of cloth and bacteria will make you lose points. 
+
+Missing objects also deducts these points.
+
+TIP: You can combine items!",
+Difficulty_Text,"Really test your skills and make the bacteria invisible!
+
+Just click on the button below to increase the difficulty.",
+Hide_Bacteria_Text,Hide bacteria,
+Links_text,Links to Chemicals,
+Level_select_text,Click a room image to start the game!,

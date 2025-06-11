@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://y1j4grkketue"]
+
+[ext_resource type="Script" path="res://inventory_ui.gd" id="1_uipdm"]
+[ext_resource type="Texture2D" uid="uid://g741fhsl8puh" path="res://Art/Inventory.png" id="2_pf356"]
+[ext_resource type="PackedScene" uid="uid://ckv56eoxf6nmg" path="res://Inventory/inv_ui_slot.tscn" id="3_gwect"]
+[ext_resource type="AudioStream" uid="uid://dbv1jac7xfykf" path="res://Sounds/spray-puff-272431.mp3" id="4_qbjn4"]
+
+[node name="Inventory_UI" type="Control"]
+custom_minimum_size = Vector2(203, 28)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 203.0
+offset_bottom = 28.0
+scale = Vector2(3.6615, 3.28115)
+mouse_filter = 1
+script = ExtResource("1_uipdm")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 203.0
+offset_bottom = 27.0
+texture = ExtResource("2_pf356")
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -12.0
+offset_right = 97.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 7
+
+[node name="Inv_UI_slot" parent="NinePatchRect/GridContainer" instance=ExtResource("3_gwect")]
+layout_mode = 2
+
+[node name="Inv_UI_slot2" parent="NinePatchRect/GridContainer" instance=ExtResource("3_gwect")]
+layout_mode = 2
+
+[node name="Inv_UI_slot3" parent="NinePatchRect/GridContainer" instance=ExtResource("3_gwect")]
+layout_mode = 2
+
+[node name="Inv_UI_slot4" parent="NinePatchRect/GridContainer" instance=ExtResource("3_gwect")]
+layout_mode = 2
+
+[node name="Inv_UI_slot5" parent="NinePatchRect/GridContainer" instance=ExtResource("3_gwect")]
+layout_mode = 2
+
+[node name="Inv_UI_slot6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_gwect")]
+layout_mode = 2
+
+[node name="Inv_UI_slot7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_gwect")]
+layout_mode = 2
+
+[node name="SpraySFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qbjn4")
+bus = &"SFX"

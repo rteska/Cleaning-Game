@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=4 format=3 uid="uid://d0ch5fb5qtiwj"]
+
+[ext_resource type="Script" path="res://Inventory/inventory_item.gd" id="1_1doqs"]
+[ext_resource type="Texture2D" uid="uid://ckx0ehhu6r2hy" path="res://Art/Cloth_wet_red_item.png" id="1_1y2t7"]
+[ext_resource type="Texture2D" uid="uid://nxkyj4o4vw7s" path="res://Art/Cloth_dry_red_item.png" id="2_r87w4"]
+
+[resource]
+script = ExtResource("1_1doqs")
+name = "Cloth_dry_red"
+texture = ExtResource("2_r87w4")
+cleans = "C_diff"
+combines_with = "Cleaner_red"
+base_texture = ExtResource("2_r87w4")
+alt_item_image = ExtResource("1_1y2t7")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3jydaepj8dgh"]
+
+[ext_resource type="Script" path="res://c_diff.gd" id="1_q36rk"]
+[ext_resource type="Texture2D" uid="uid://c6g4l6af3k1o7" path="res://Art/C_diff_spritesheet.png" id="1_qtche"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ouyw"]
+atlas = ExtResource("1_qtche")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryguy"]
+atlas = ExtResource("1_qtche")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ovgn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ouyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryguy")
+}],
+"loop": true,
+"name": &"wiggle",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bns8k"]
+radius = 40.8534
+
+[node name="C_diff" type="Node2D"]
+script = ExtResource("1_q36rk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.309, 0.309)
+sprite_frames = SubResource("SpriteFrames_7ovgn")
+animation = &"wiggle"
+frame_progress = 0.00816815
+
+[node name="C_diff" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="C_diff"]
+shape = SubResource("CircleShape2D_bns8k")

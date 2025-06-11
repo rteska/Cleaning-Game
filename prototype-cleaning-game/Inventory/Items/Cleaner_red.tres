@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://b2utpbmkq8cn8"]
+
+[ext_resource type="Script" path="res://Inventory/inventory_item.gd" id="1_xamxn"]
+[ext_resource type="Texture2D" uid="uid://b78h45lknokht" path="res://Art/Cleaner_red_item.png" id="2_errbj"]
+
+[resource]
+script = ExtResource("1_xamxn")
+name = "Cleaner_red"
+texture = ExtResource("2_errbj")
+cleans = "C_diff"
+combines_with = "Cloth_dry_red"
+base_texture = ExtResource("2_errbj")

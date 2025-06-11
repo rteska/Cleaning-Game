@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://baikkymwi5xvr"]
+
+[ext_resource type="Texture2D" uid="uid://yvsq04opxfjp" path="res://Art/Stop.png" id="1_5eniq"]
+[ext_resource type="Script" path="res://stop.gd" id="1_ccsh8"]
+
+[node name="Stop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccsh8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5eniq")
+
+[node name="AliveTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="AliveTimer" to="." method="_on_alive_timer_timeout"]

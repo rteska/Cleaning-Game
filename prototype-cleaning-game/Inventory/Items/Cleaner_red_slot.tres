@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InvSlot" load_steps=3 format=3 uid="uid://dwvwc7fo4atsh"]
+
+[ext_resource type="Resource" uid="uid://b2utpbmkq8cn8" path="res://Inventory/Items/Cleaner_red.tres" id="1_75yw1"]
+[ext_resource type="Script" path="res://Inv_slot.gd" id="1_yys1y"]
+
+[resource]
+script = ExtResource("1_yys1y")
+item = ExtResource("1_75yw1")

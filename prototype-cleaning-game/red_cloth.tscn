@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw738r4k6rte2"]
+
+[ext_resource type="Texture2D" uid="uid://nxkyj4o4vw7s" path="res://Art/Cloth_dry_red_item.png" id="1_7vpxm"]
+[ext_resource type="Script" path="res://pickups.gd" id="1_o0j4h"]
+[ext_resource type="Resource" uid="uid://d0ch5fb5qtiwj" path="res://Inventory/Items/Cloth_dry_red.tres" id="2_7wqus"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tg2xc"]
+size = Vector2(20, 26)
+
+[node name="red_cloth" type="Area2D"]
+monitoring = false
+monitorable = false
+script = ExtResource("1_o0j4h")
+item = ExtResource("2_7wqus")
+item_texture = ExtResource("1_7vpxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tg2xc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7vpxm")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

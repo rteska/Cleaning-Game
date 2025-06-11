@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=4 format=3 uid="uid://b7b36rjy0d1km"]
+
+[ext_resource type="Script" path="res://Inventory/inventory_item.gd" id="1_tukf6"]
+[ext_resource type="Texture2D" uid="uid://6vg1upcyndkb" path="res://Art/Cloth_wet_blue.png" id="2_ya268"]
+[ext_resource type="Texture2D" uid="uid://y4ih0diyn1uv" path="res://Art/Cloth_wet_blue_item.png" id="3_7s2k5"]
+
+[resource]
+script = ExtResource("1_tukf6")
+name = "Cloth_wet_blue"
+texture = ExtResource("3_7s2k5")
+cleans = "Staph"
+combines_with = "None"
+cursor_texture = ExtResource("2_ya268")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://copxoui4wmsjm"]
+
+[ext_resource type="Script" path="res://cleaner.gd" id="1_ma7xq"]
+[ext_resource type="Texture2D" uid="uid://b78h45lknokht" path="res://Art/Cleaner_red_item.png" id="1_yr7h2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4fhb3"]
+size = Vector2(30, 32)
+
+[node name="cleaner_red" type="Area2D"]
+scale = Vector2(1.75944, 1.79151)
+input_pickable = false
+monitoring = false
+monitorable = false
+script = ExtResource("1_ma7xq")
+item_name = "Cleaner red"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4fhb3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.00001, 0)
+scale = Vector2(1.46875, 1.25977)
+texture = ExtResource("1_yr7h2")

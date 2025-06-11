@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=6 format=3 uid="uid://dot5oxgfsfrv3"]
+
+[ext_resource type="Script" path="res://Inventory/inventory_item.gd" id="1_2fjir"]
+[ext_resource type="Texture2D" uid="uid://dmg5u48jywo3o" path="res://Art/Cloth_dry_blue.png" id="1_k77xc"]
+[ext_resource type="Texture2D" uid="uid://6vg1upcyndkb" path="res://Art/Cloth_wet_blue.png" id="1_m1h2i"]
+[ext_resource type="Texture2D" uid="uid://y4ih0diyn1uv" path="res://Art/Cloth_wet_blue_item.png" id="2_kstdp"]
+[ext_resource type="Texture2D" uid="uid://b7u8uc54bp0r3" path="res://Art/Cloth_dry_blue_item.png" id="3_4an74"]
+
+[resource]
+script = ExtResource("1_2fjir")
+name = "Cloth_dry_blue"
+texture = ExtResource("3_4an74")
+cleans = "Staph"
+combines_with = "Cleaner_blue"
+cursor_texture = ExtResource("1_k77xc")
+alt_item_image = ExtResource("2_kstdp")
+alt_cursor_image = ExtResource("1_m1h2i")

@@ -1,0 +1,602 @@
+[gd_scene load_steps=45 format=3 uid="uid://b21koa6ft10pe"]
+
+[ext_resource type="Texture2D" uid="uid://br5plmykxn0ws" path="res://Art/Diversey Small escape room-01.jpg" id="1_t3s4l"]
+[ext_resource type="Script" path="res://main.gd" id="1_u3rmy"]
+[ext_resource type="Texture2D" uid="uid://doom6r43jhbug" path="res://Art/Diversey Small escape room-02.jpg" id="2_jng6v"]
+[ext_resource type="Texture2D" uid="uid://dbrpn5mh08dt0" path="res://Art/Door_closed.png" id="2_qqx4w"]
+[ext_resource type="PackedScene" uid="uid://baikkymwi5xvr" path="res://stop.tscn" id="2_yimi7"]
+[ext_resource type="PackedScene" uid="uid://cckje4qp5kt7d" path="res://score.tscn" id="3_3nf87"]
+[ext_resource type="Texture2D" uid="uid://iu8rcxl641cc" path="res://Art/Chair_desk.png" id="4_0ipb7"]
+[ext_resource type="Texture2D" uid="uid://bux5sbtqw6j2y" path="res://Art/Chair_desk_close.png" id="5_iul6n"]
+[ext_resource type="Script" path="res://sink.gd" id="5_loatk"]
+[ext_resource type="Script" path="res://information_button.gd" id="6_j821f"]
+[ext_resource type="Script" path="res://chair_desk_close.gd" id="6_kw064"]
+[ext_resource type="Texture2D" uid="uid://clcv4txmt7h7h" path="res://Art/Sink.png" id="8_rt3oa"]
+[ext_resource type="PackedScene" uid="uid://1o33582sbs5k" path="res://button.tscn" id="8_vodrk"]
+[ext_resource type="PackedScene" uid="uid://y1j4grkketue" path="res://inventory_ui.tscn" id="10_ots8x"]
+[ext_resource type="PackedScene" uid="uid://dh3iy40aw3ptt" path="res://blue_cloth.tscn" id="11_j1xui"]
+[ext_resource type="PackedScene" uid="uid://bqi67562awwev" path="res://cleaner_blue.tscn" id="12_ptx7q"]
+[ext_resource type="Texture2D" uid="uid://b7u8uc54bp0r3" path="res://Art/Cloth_dry_blue_item.png" id="12_yuigg"]
+[ext_resource type="Script" path="res://inventory_animation.gd" id="13_pvycw"]
+[ext_resource type="PackedScene" uid="uid://nnvxc2h6ijs7" path="res://indicator.tscn" id="14_ai1i5"]
+[ext_resource type="Texture2D" uid="uid://cgjr6wodrpci1" path="res://Art/Face_south.png" id="14_dwxw4"]
+[ext_resource type="PackedScene" uid="uid://gp86wyj3lxh0" path="res://hud.tscn" id="14_klcq4"]
+[ext_resource type="Texture2D" uid="uid://bi8qetp360hi2" path="res://Art/Door_to_bathroom.png" id="15_3ievj"]
+[ext_resource type="PackedScene" uid="uid://daogtf4o2sjqw" path="res://cursor.tscn" id="15_su7o2"]
+[ext_resource type="PackedScene" uid="uid://blybpqug72ibk" path="res://player.tscn" id="16_6thqb"]
+[ext_resource type="Texture2D" uid="uid://dlxirsu46fd2y" path="res://Art/Bathroom_entry.png" id="16_ae2rv"]
+[ext_resource type="Texture2D" uid="uid://b72pvs81v7au5" path="res://Art/Bathroom_east.png" id="18_w8ihn"]
+[ext_resource type="Texture2D" uid="uid://oes88sq0lg0w" path="res://Art/Sink_interactable.png" id="20_dopjo"]
+[ext_resource type="PackedScene" uid="uid://copxoui4wmsjm" path="res://cleaner_red.tscn" id="22_cjkwi"]
+[ext_resource type="PackedScene" uid="uid://dw738r4k6rte2" path="res://red_cloth.tscn" id="23_u8skn"]
+[ext_resource type="Texture2D" uid="uid://7qkt4dwu738t" path="res://Art/Cart.png" id="25_ore6f"]
+[ext_resource type="Script" path="res://info_button.gd" id="28_brrnq"]
+[ext_resource type="AudioStream" uid="uid://v4vdv3bh7i4e" path="res://Sounds/hospital_ambience_waiting-room_crowd_01-23524.mp3" id="28_ftn7r"]
+[ext_resource type="AudioStream" uid="uid://cfd4rsgodkfqs" path="res://Sounds/footstep-1-83098.mp3" id="28_h7cqc"]
+[ext_resource type="AudioStream" uid="uid://vp6m008efnya" path="res://Sounds/perfect-beauty-191271.mp3" id="29_eslky"]
+
+[sub_resource type="Animation" id="Animation_kkojn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inventory_UI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(203, 672)]
+}
+
+[sub_resource type="Animation" id="Animation_0oriv"]
+resource_name = "move_ui_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inventory_UI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(209, 540), Vector2(209, 673)]
+}
+
+[sub_resource type="Animation" id="Animation_etfhr"]
+resource_name = "move_ui_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Inventory_UI:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(203, 672), Vector2(211, 543)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c4vi7"]
+_data = {
+"RESET": SubResource("Animation_kkojn"),
+"move_ui_down": SubResource("Animation_0oriv"),
+"move_ui_up": SubResource("Animation_etfhr")
+}
+
+[sub_resource type="Animation" id="Animation_xh4m5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nsu82"]
+resource_name = "repeat_fade"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.894118, 0, 0, 0), Color(1, 0, 0, 1), Color(0.894118, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ec72f"]
+_data = {
+"RESET": SubResource("Animation_xh4m5"),
+"repeat_fade": SubResource("Animation_nsu82")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_joia4"]
+size = Vector2(281, 533)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udqw1"]
+size = Vector2(162, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shobl"]
+size = Vector2(129.161, 227.341)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_u3rmy")
+
+[node name="Score" parent="." instance=ExtResource("3_3nf87")]
+
+[node name="Canvas_inventory" type="CanvasLayer" parent="."]
+
+[node name="CartButton" type="ColorRect" parent="Canvas_inventory"]
+offset_left = 15.0
+offset_top = 561.0
+offset_right = 55.0
+offset_bottom = 601.0
+scale = Vector2(1.94955, 1.83812)
+color = Color(0.156506, 0.346631, 0.110011, 1)
+
+[node name="ColorRect" type="Sprite2D" parent="Canvas_inventory/CartButton"]
+position = Vector2(20.4519, 20.9964)
+scale = Vector2(1.27825, 1.31228)
+texture = ExtResource("25_ore6f")
+
+[node name="Cart_button" type="Button" parent="Canvas_inventory/CartButton"]
+modulate = Color(1, 1, 1, 0.619608)
+self_modulate = Color(1, 1, 1, 0.384314)
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 11.0
+scale = Vector2(3.50451, 3.51198)
+focus_mode = 0
+
+[node name="Inventory_UI" parent="Canvas_inventory" instance=ExtResource("10_ots8x")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -373.0
+offset_top = 348.0
+offset_right = -170.0
+offset_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Inventory_animation" type="AnimationPlayer" parent="Canvas_inventory"]
+libraries = {
+"": SubResource("AnimationLibrary_c4vi7")
+}
+speed_scale = 2.0
+script = ExtResource("13_pvycw")
+
+[node name="UI_timer" type="Timer" parent="Canvas_inventory/Inventory_animation"]
+wait_time = 0.75
+
+[node name="InformationButton" type="ColorRect" parent="Canvas_inventory"]
+offset_left = 16.0
+offset_top = 484.0
+offset_right = 56.0
+offset_bottom = 524.0
+scale = Vector2(1.88313, 1.73739)
+color = Color(0, 0.736811, 0.934272, 1)
+script = ExtResource("6_j821f")
+
+[node name="Label" type="Label" parent="Canvas_inventory/InformationButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -20.0
+offset_right = 21.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.956672, 0.583121)
+theme_override_font_sizes/font_size = 50
+text = "i"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Info_button" type="Button" parent="Canvas_inventory/InformationButton"]
+modulate = Color(1, 1, 1, 0.419608)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("28_brrnq")
+
+[node name="Highlight" type="ColorRect" parent="Canvas_inventory/InformationButton"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -2.12412
+offset_top = -2.3023
+offset_right = 37.8759
+offset_bottom = 37.6977
+scale = Vector2(1.09998, 1.10248)
+mouse_filter = 2
+color = Color(0.768627, 0, 0.0588235, 1)
+
+[node name="Highlight_animation" type="AnimationPlayer" parent="Canvas_inventory/InformationButton/Highlight"]
+libraries = {
+"": SubResource("AnimationLibrary_ec72f")
+}
+
+[node name="Idle_timer" type="Timer" parent="Canvas_inventory/InformationButton"]
+wait_time = 5.0
+one_shot = true
+
+[node name="BodyText_Game" type="Label" parent="Canvas_inventory"]
+visible = false
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = -268.0
+offset_right = 1097.0
+offset_bottom = 208.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Body_Text"
+
+[node name="ColorRect" type="ColorRect" parent="Canvas_inventory/BodyText_Game"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -11.0
+offset_right = -17.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.341176, 0.498039, 1)
+
+[node name="Chair_desk_close" type="Node2D" parent="."]
+visible = false
+position = Vector2(561, 296)
+script = ExtResource("6_kw064")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Chair_desk_close"]
+position = Vector2(0, 31)
+scale = Vector2(2.72266, 2.72266)
+texture = ExtResource("5_iul6n")
+
+[node name="Chair_desk_close_area" type="Area2D" parent="Chair_desk_close"]
+visible = false
+input_pickable = false
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Chair_desk_close/Chair_desk_close_area"]
+visible = false
+build_mode = 1
+polygon = PackedVector2Array(-221, 109, -185, -7, -170, -231, -134, -259, -105, -249, -102, -231, -44, -249, 10, -252, 72, -248, 116, -238, 134, -259, 161, -258, 177, -238, 185, -177, 184, -92, 181, -23, 207, -6, 215, 45, 224, 193, 214, 230, 198, 244, 174, 304, 149, 305, 119, 247, -112, 254, -129, 315, -151, 312, -182, 242, -212, 220, -223, 161)
+
+[node name="Leave_chair_desk" parent="Chair_desk_close" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+visible = false
+position = Vector2(468, 242)
+rotation = -3.13686
+scale = Vector2(0.593383, 0.732829)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_east")
+
+[node name="Background" type="ColorRect" parent="Chair_desk_close"]
+show_behind_parent = true
+offset_left = -557.0
+offset_top = -294.0
+offset_right = -517.0
+offset_bottom = -254.0
+scale = Vector2(28.5588, 16.0919)
+mouse_filter = 2
+color = Color(1, 0.972549, 0.972549, 1)
+
+[node name="Line1" type="ColorRect" parent="Chair_desk_close"]
+offset_left = -558.0
+offset_top = 41.0
+offset_right = -518.0
+offset_bottom = 81.0
+scale = Vector2(8.69989, 0.509038)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Line2" type="ColorRect" parent="Chair_desk_close"]
+offset_left = 211.0
+offset_top = 31.0
+offset_right = 251.0
+offset_bottom = 71.0
+scale = Vector2(9.49115, 0.569899)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sink" type="Node2D" parent="."]
+visible = false
+position = Vector2(545, 299)
+script = ExtResource("5_loatk")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Sink"]
+position = Vector2(30.0001, 25.5)
+scale = Vector2(0.551429, 0.432667)
+texture = ExtResource("8_rt3oa")
+
+[node name="Leave_sink" parent="Sink" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(519, 237)
+rotation = 3.13898
+scale = Vector2(0.664207, 0.655082)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_east")
+
+[node name="Outside_room" type="Node2D" parent="."]
+visible = false
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Outside_room"]
+position = Vector2(576.5, 322.5)
+scale = Vector2(0.600521, 0.602778)
+texture = ExtResource("1_t3s4l")
+
+[node name="Door_interact" type="Node2D" parent="Outside_room"]
+position = Vector2(519, 303)
+
+[node name="Sprite2D" type="Sprite2D" parent="Outside_room/Door_interact"]
+position = Vector2(60, -16)
+scale = Vector2(2.21875, 2.38281)
+texture = ExtResource("2_qqx4w")
+
+[node name="Door_interact" type="Area2D" parent="Outside_room/Door_interact"]
+position = Vector2(63, 19)
+monitoring = false
+monitorable = false
+
+[node name="Door_interact" type="CollisionShape2D" parent="Outside_room/Door_interact/Door_interact"]
+position = Vector2(4, 4.5)
+shape = SubResource("RectangleShape2D_joia4")
+
+[node name="Door_entrance_ind" parent="Outside_room" instance=ExtResource("14_ai1i5")]
+position = Vector2(586, 326)
+
+[node name="Face_east" type="Node2D" parent="."]
+visible = false
+metadata/_edit_group_ = true
+
+[node name="Face_east_room_sprite" type="Sprite2D" parent="Face_east"]
+position = Vector2(575, 322)
+scale = Vector2(0.602083, 0.601852)
+texture = ExtResource("2_jng6v")
+
+[node name="Chair_desk" type="Node2D" parent="Face_east"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Face_east/Chair_desk"]
+position = Vector2(299, 458)
+scale = Vector2(0.976563, 1.04688)
+texture = ExtResource("4_0ipb7")
+
+[node name="Chair_desk" type="Area2D" parent="Face_east/Chair_desk"]
+position = Vector2(299, 458)
+scale = Vector2(0.976563, 1.04688)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Face_east/Chair_desk/Chair_desk"]
+position = Vector2(11.2639, 16.2388)
+scale = Vector2(1.024, 0.955224)
+shape = SubResource("RectangleShape2D_udqw1")
+
+[node name="Chair_desk_ind" parent="Face_east/Chair_desk" instance=ExtResource("14_ai1i5")]
+position = Vector2(304, 470)
+
+[node name="Blue_cloth" parent="Face_east" instance=ExtResource("11_j1xui")]
+visible = false
+position = Vector2(532, 484)
+scale = Vector2(3.14742, 2.83554)
+item_texture = ExtResource("12_yuigg")
+
+[node name="Cleaner_blue" parent="Face_east" instance=ExtResource("12_ptx7q")]
+visible = false
+position = Vector2(132, 362)
+scale = Vector2(1.37253, 1.49633)
+
+[node name="Turn_south" parent="Face_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(1056, 99)
+rotation = 1.56042
+scale = Vector2(0.47311, 0.576715)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_south")
+
+[node name="Face_south" type="Node2D" parent="."]
+visible = false
+position = Vector2(579, 360)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Face_south"]
+position = Vector2(-3.5001, -36)
+scale = Vector2(0.54619, 0.434667)
+texture = ExtResource("14_dwxw4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Face_south"]
+position = Vector2(169, -35)
+scale = Vector2(2.33817, 1.86944)
+texture = ExtResource("15_3ievj")
+
+[node name="Door_to_bathroom" type="Area2D" parent="Face_south"]
+visible = false
+position = Vector2(166, -31)
+scale = Vector2(2.33817, 1.86944)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Face_south/Door_to_bathroom"]
+position = Vector2(0.855377, -1.87224)
+shape = SubResource("RectangleShape2D_shobl")
+
+[node name="Turn_east" parent="Face_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-451, -269)
+rotation = -1.56712
+scale = Vector2(0.526803, 0.701616)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_east")
+
+[node name="Face_south_ind" parent="Face_south" instance=ExtResource("14_ai1i5")]
+visible = false
+position = Vector2(167, -35)
+
+[node name="Towards_bathroom" parent="Face_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(164, -57)
+rotation = -0.00440692
+scale = Vector2(0.592778, 0.590741)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_entry")
+
+[node name="Bathroom_entry" type="Node2D" parent="."]
+visible = false
+position = Vector2(579, 360)
+scale = Vector2(0.999998, 0.999999)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Bathroom_entry"]
+position = Vector2(1.99998, -35.5)
+scale = Vector2(0.550476, 0.434)
+texture = ExtResource("16_ae2rv")
+
+[node name="Back_from_bathroom" parent="Bathroom_entry" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(470.001, 187)
+rotation = 3.13924
+scale = Vector2(0.54449, 0.684767)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_south")
+
+[node name="Turn_left_bathroom" parent="Bathroom_entry" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-13, -205)
+rotation = -1.56741
+scale = Vector2(0.549322, 0.656513)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_east")
+
+[node name="Turn_right_bathroom" parent="Bathroom_entry" instance=ExtResource("8_vodrk")]
+visible = false
+position = Vector2(175, -267)
+rotation = 1.56507
+scale = Vector2(0.430783, 0.589431)
+
+[node name="Bathroom_east" type="Node2D" parent="."]
+visible = false
+position = Vector2(529, 302)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Bathroom_east"]
+position = Vector2(49, 22)
+scale = Vector2(0.550476, 0.430667)
+texture = ExtResource("18_w8ihn")
+
+[node name="Sink_interactable" type="Node2D" parent="Bathroom_east"]
+position = Vector2(318, 235)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bathroom_east/Sink_interactable"]
+position = Vector2(13, 11)
+scale = Vector2(1.83285, 1.72299)
+texture = ExtResource("20_dopjo")
+
+[node name="Sink_interactable" type="Area2D" parent="Bathroom_east/Sink_interactable"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Bathroom_east/Sink_interactable/Sink_interactable"]
+position = Vector2(11.5, 1.5)
+polygon = PackedVector2Array(-213.5, -65.5, -52.5, -61.5, -49.5, -70.5, -18.5, -72.5, -15.5, -96.5, -5.5, -98.5, 4.5, -96.5, 4.5, -76.5, 33.5, -70.5, 39.5, -62.5, 43.5, -57.5, 176.5, -58.5, 223.5, -18.5, 211.5, 98.5, -196.5, 94.5, -229.5, 44.5)
+
+[node name="Sink_ind" parent="Bathroom_east/Sink_interactable" instance=ExtResource("14_ai1i5")]
+
+[node name="Return_from_bathroom" parent="Bathroom_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-438, -124)
+rotation = -1.56831
+scale = Vector2(0.556292, 0.698065)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_entry")
+
+[node name="cleaner_red" parent="Bathroom_east" instance=ExtResource("22_cjkwi")]
+visible = false
+z_index = 1
+position = Vector2(-309, -238)
+scale = Vector2(3.04111, 2.69739)
+
+[node name="red_cloth" parent="Bathroom_east" instance=ExtResource("23_u8skn")]
+visible = false
+z_index = 1
+position = Vector2(430, 142)
+scale = Vector2(3.21887, 3.12479)
+
+[node name="Start_page" parent="." instance=ExtResource("14_klcq4")]
+
+[node name="Cursor" parent="." instance=ExtResource("15_su7o2")]
+metadata/_edit_group_ = true
+
+[node name="Player" parent="." instance=ExtResource("16_6thqb")]
+
+[node name="Stop" parent="." instance=ExtResource("2_yimi7")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Background_sound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(554, 366)
+stream = ExtResource("28_ftn7r")
+volume_db = -20.44
+parameters/looping = true
+
+[node name="StepSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_h7cqc")
+volume_db = -20.0
+bus = &"SFX"
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_eslky")
+volume_db = -25.0
+parameters/looping = false
+
+[connection signal="spawn_chair_desk_close_bacteria" from="." to="Chair_desk_close" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_sink_bacteria" from="." to="Sink" method="_on_main_spawn_bacteria"]
+[connection signal="pressed" from="Canvas_inventory/CartButton/Cart_button" to="Canvas_inventory/Inventory_animation" method="_on_cart_button_pressed"]
+[connection signal="pressed" from="Canvas_inventory/InformationButton/Info_button" to="Canvas_inventory/InformationButton" method="button_clicked"]
+[connection signal="pressed" from="Canvas_inventory/InformationButton/Info_button" to="Canvas_inventory/InformationButton/Info_button" method="_on_pressed"]
+[connection signal="timeout" from="Canvas_inventory/InformationButton/Idle_timer" to="Canvas_inventory/InformationButton" method="_on_idle_timer_timeout"]
+[connection signal="completed" from="Chair_desk_close" to="Face_east/Chair_desk/Chair_desk_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="Chair_desk_close/Leave_chair_desk" to="Chair_desk_close" method="_on_leave_chair_desk_hide_bacteria"]
+[connection signal="completed" from="Sink" to="Bathroom_east/Sink_interactable/Sink_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="Sink/Leave_sink" to="Sink" method="_on_leave_sink_hide_bacteria"]
+[connection signal="input_event" from="Outside_room/Door_interact/Door_interact" to="." method="_on_door_interact_input_event"]
+[connection signal="input_event" from="Face_east/Chair_desk/Chair_desk" to="." method="_on_chair_desk_input_event"]
+[connection signal="input_event" from="Face_east/Blue_cloth" to="." method="_on_cleaner_blue_cloth_input_event"]
+[connection signal="input_event" from="Face_east/Cleaner_blue" to="." method="_on_cleaner_blue_input_event"]
+[connection signal="input_event" from="Face_south/Door_to_bathroom" to="." method="_on_door_to_bathroom_input_event"]
+[connection signal="input_event" from="Bathroom_east/Sink_interactable/Sink_interactable" to="." method="_on_sink_interactable_input_event"]
+[connection signal="input_event" from="Bathroom_east/cleaner_red" to="." method="_on_cleaner_red_input_event"]
+[connection signal="input_event" from="Bathroom_east/red_cloth" to="." method="_on_red_cloth_input_event"]
+[connection signal="start_game" from="Start_page" to="." method="start_game"]
+[connection signal="start_game" from="Start_page" to="Canvas_inventory/InformationButton" method="game_started"]
+[connection signal="add_point_desk_chair" from="Player" to="Chair_desk_close" method="add_score"]
+[connection signal="add_point_sink" from="Player" to="Sink" method="add_score"]
+[connection signal="remove_point_desk_chair" from="Player" to="Chair_desk_close" method="remove_score"]
+[connection signal="remove_point_sink" from="Player" to="Sink" method="remove_score"]
+[connection signal="stop_sign" from="Player" to="Stop" method="show_up"]
