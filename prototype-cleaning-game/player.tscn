@@ -31,13 +31,13 @@ shape = SubResource("CircleShape2D_v4xrf")
 
 [node name="WipeCorrectSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_cp1lx")
-volume_db = -20.048
+volume_db = -3.759
 pitch_scale = 0.9
 bus = &"SFX"
 
 [node name="WipeIncorrectSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_3lw00")
-volume_db = -20.243
+volume_db = -3.759
 bus = &"SFX"
 
 [node name="SpraySFX" type="AudioStreamPlayer" parent="."]

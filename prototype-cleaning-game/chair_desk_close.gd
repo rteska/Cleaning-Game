@@ -2,11 +2,20 @@ extends Node2D
 
 const bacteriaPath = preload("res://staph.tscn")
 
+@export var back_rest_bl = Node2D
+@export var back_rest_tr = Node2D
+@export var arm_rest_bl_left = Node2D
+@export var arm_rest_tr_left = Node2D
+@export var arm_rest_bl_right = Node2D
+@export var arm_rest_tr_right = Node2D
+@export var seat_bl = Node2D
+@export var seat_tr = Node2D
+
 var centerPos = global_position
 var Chair_desk_close_cleaned = false
 var alreadyGenerated = false
 
-var total = 40
+var total = 30
 var chair_desk_score = 0
 var score_added = false
 
@@ -24,20 +33,35 @@ func _process(delta: float) -> void:
 func _on_main_spawn_bacteria() -> void:
 	
 	if !Chair_desk_close_cleaned && !alreadyGenerated:
-		for i in range(30): #Create a bacteria cluster on the seat and arm rests
+			
+		for i in range(5): #Create a bacteria cluster on the backrest
 			var bacteria = bacteriaPath.instantiate()
 			
 			bacteria.rotate_random()
-			bacteria.position = position + Vector2(randf_range(-750, -375), randf_range(-275,-100))
+			bacteria.position = Vector2(randf_range(back_rest_bl.position.x, back_rest_tr.position.x), randf_range(back_rest_bl.position.y, back_rest_tr.position.y)) 
 			add_child(bacteria)
 			
-		for i in range(10): #Create a bacteria cluster on the backrest
+		for i in range(10): #Create a bacteria cluster on the left arm rest
 			var bacteria = bacteriaPath.instantiate()
 			
 			bacteria.rotate_random()
-			bacteria.position = position + Vector2(randf_range(-700, -375), randf_range(-500, -350)) #X = [-850, -375] Y = [-350, -500]
+			bacteria.position = Vector2(randf_range(arm_rest_bl_left.position.x, arm_rest_tr_left.position.x), randf_range(arm_rest_bl_left.position.y, arm_rest_tr_left.position.y))
 			add_child(bacteria)
 			
+		for i in range(10): #Create a bacteria cluster on the right arm rest
+			var bacteria = bacteriaPath.instantiate()
+			
+			bacteria.rotate_random()
+			bacteria.position = Vector2(randf_range(arm_rest_bl_right.position.x, arm_rest_tr_right.position.x), randf_range(arm_rest_bl_right.position.y, arm_rest_tr_right.position.y))
+			add_child(bacteria)
+		
+		for i in range(5): #Create a bacteria cluster on the seat
+			var bacteria = bacteriaPath.instantiate()
+			
+			bacteria.rotate_random()
+			bacteria.position = Vector2(randf_range(seat_bl.position.x, seat_tr.position.x), randf_range(seat_bl.position.y, seat_tr.position.y))
+			add_child(bacteria)
+		
 		alreadyGenerated = true
 	
 	if alreadyGenerated:

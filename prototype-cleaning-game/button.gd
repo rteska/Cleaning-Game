@@ -16,6 +16,10 @@ func _process(delta: float) -> void:
 
 # When arrow button is pressed, switch scenes and hide current one
 func _on_button_pressed() -> void:
+	$Cooldown.start()
+
+
+func _on_cooldown_timeout() -> void:
 	currentScene.visible = false
 	nextScene.visible = true
 	Globals.current_scene = nextScene

@@ -1,39 +1,82 @@
-[gd_scene load_steps=45 format=3 uid="uid://b21koa6ft10pe"]
+[gd_scene load_steps=104 format=3 uid="uid://b21koa6ft10pe"]
 
-[ext_resource type="Texture2D" uid="uid://br5plmykxn0ws" path="res://Art/Diversey Small escape room-01.jpg" id="1_t3s4l"]
 [ext_resource type="Script" path="res://main.gd" id="1_u3rmy"]
-[ext_resource type="Texture2D" uid="uid://doom6r43jhbug" path="res://Art/Diversey Small escape room-02.jpg" id="2_jng6v"]
 [ext_resource type="Texture2D" uid="uid://dbrpn5mh08dt0" path="res://Art/Door_closed.png" id="2_qqx4w"]
 [ext_resource type="PackedScene" uid="uid://baikkymwi5xvr" path="res://stop.tscn" id="2_yimi7"]
 [ext_resource type="PackedScene" uid="uid://cckje4qp5kt7d" path="res://score.tscn" id="3_3nf87"]
 [ext_resource type="Texture2D" uid="uid://iu8rcxl641cc" path="res://Art/Chair_desk.png" id="4_0ipb7"]
-[ext_resource type="Texture2D" uid="uid://bux5sbtqw6j2y" path="res://Art/Chair_desk_close.png" id="5_iul6n"]
 [ext_resource type="Script" path="res://sink.gd" id="5_loatk"]
 [ext_resource type="Script" path="res://information_button.gd" id="6_j821f"]
 [ext_resource type="Script" path="res://chair_desk_close.gd" id="6_kw064"]
-[ext_resource type="Texture2D" uid="uid://clcv4txmt7h7h" path="res://Art/Sink.png" id="8_rt3oa"]
 [ext_resource type="PackedScene" uid="uid://1o33582sbs5k" path="res://button.tscn" id="8_vodrk"]
+[ext_resource type="Texture2D" uid="uid://c5j6g6u53lqqq" path="res://New Art/escape room - flat images/fotel drugi.png" id="9_7dasa"]
 [ext_resource type="PackedScene" uid="uid://y1j4grkketue" path="res://inventory_ui.tscn" id="10_ots8x"]
 [ext_resource type="PackedScene" uid="uid://dh3iy40aw3ptt" path="res://blue_cloth.tscn" id="11_j1xui"]
 [ext_resource type="PackedScene" uid="uid://bqi67562awwev" path="res://cleaner_blue.tscn" id="12_ptx7q"]
 [ext_resource type="Texture2D" uid="uid://b7u8uc54bp0r3" path="res://Art/Cloth_dry_blue_item.png" id="12_yuigg"]
 [ext_resource type="Script" path="res://inventory_animation.gd" id="13_pvycw"]
 [ext_resource type="PackedScene" uid="uid://nnvxc2h6ijs7" path="res://indicator.tscn" id="14_ai1i5"]
-[ext_resource type="Texture2D" uid="uid://cgjr6wodrpci1" path="res://Art/Face_south.png" id="14_dwxw4"]
 [ext_resource type="PackedScene" uid="uid://gp86wyj3lxh0" path="res://hud.tscn" id="14_klcq4"]
 [ext_resource type="Texture2D" uid="uid://bi8qetp360hi2" path="res://Art/Door_to_bathroom.png" id="15_3ievj"]
 [ext_resource type="PackedScene" uid="uid://daogtf4o2sjqw" path="res://cursor.tscn" id="15_su7o2"]
 [ext_resource type="PackedScene" uid="uid://blybpqug72ibk" path="res://player.tscn" id="16_6thqb"]
-[ext_resource type="Texture2D" uid="uid://dlxirsu46fd2y" path="res://Art/Bathroom_entry.png" id="16_ae2rv"]
-[ext_resource type="Texture2D" uid="uid://b72pvs81v7au5" path="res://Art/Bathroom_east.png" id="18_w8ihn"]
+[ext_resource type="Texture2D" uid="uid://boueqxag7i3ce" path="res://New Art/escape room - flat images/widok pokoj poczatek copy.png" id="16_bdfux"]
 [ext_resource type="Texture2D" uid="uid://oes88sq0lg0w" path="res://Art/Sink_interactable.png" id="20_dopjo"]
+[ext_resource type="Texture2D" uid="uid://by226sbk4t4jx" path="res://New Art/escape room - flat images/widok do pokoju (5) copy.png" id="21_57t6q"]
+[ext_resource type="Texture2D" uid="uid://bqol3sjuw4wrt" path="res://New Art/escape room - flat images/lazienka drzwi uchylone copy.png" id="21_ffdb3"]
 [ext_resource type="PackedScene" uid="uid://copxoui4wmsjm" path="res://cleaner_red.tscn" id="22_cjkwi"]
 [ext_resource type="PackedScene" uid="uid://dw738r4k6rte2" path="res://red_cloth.tscn" id="23_u8skn"]
+[ext_resource type="Texture2D" uid="uid://b7ykcewawtnl6" path="res://New Art/escape room - flat images/rog pokoju copy.png" id="25_b5tan"]
 [ext_resource type="Texture2D" uid="uid://7qkt4dwu738t" path="res://Art/Cart.png" id="25_ore6f"]
+[ext_resource type="Script" path="res://computer_screen.gd" id="26_pt38l"]
+[ext_resource type="Texture2D" uid="uid://crtpa631jxhec" path="res://New Art/escape room - flat images/komputer top copy.png" id="26_s74ji"]
+[ext_resource type="Texture2D" uid="uid://ct3u0r5d32nhi" path="res://New Art/escape room - flat images/lozko copy.png" id="26_y2di4"]
+[ext_resource type="Texture2D" uid="uid://b5m2v8b1m8ht4" path="res://New Art/escape room - flat images/komputer bottom copy.png" id="27_eelqm"]
+[ext_resource type="Texture2D" uid="uid://bbeu0k5qi4x5o" path="res://New Art/escape room - flat images/rog pokoju z szafa copy.png" id="27_kg7rk"]
+[ext_resource type="Script" path="res://computer.gd" id="27_whuj8"]
+[ext_resource type="Texture2D" uid="uid://lx4d8k4o0oqp" path="res://New Art/escape room - flat images/fotel3 copy.png" id="28_67f2v"]
 [ext_resource type="Script" path="res://info_button.gd" id="28_brrnq"]
 [ext_resource type="AudioStream" uid="uid://v4vdv3bh7i4e" path="res://Sounds/hospital_ambience_waiting-room_crowd_01-23524.mp3" id="28_ftn7r"]
 [ext_resource type="AudioStream" uid="uid://cfd4rsgodkfqs" path="res://Sounds/footstep-1-83098.mp3" id="28_h7cqc"]
+[ext_resource type="Script" path="res://chair_bed.gd" id="29_4eckb"]
 [ext_resource type="AudioStream" uid="uid://vp6m008efnya" path="res://Sounds/perfect-beauty-191271.mp3" id="29_eslky"]
+[ext_resource type="Texture2D" uid="uid://diarucmj687b5" path="res://New Art/escape room - flat images/widok do pokoju drzwi zamkniete copy.png" id="29_vbt4n"]
+[ext_resource type="Texture2D" uid="uid://bavuayncceltb" path="res://New Art/escape room - flat images/brudy na scianie copy_bez brudu.png" id="30_ki4oq"]
+[ext_resource type="Script" path="res://light_switch.gd" id="32_1yphj"]
+[ext_resource type="Texture2D" uid="uid://dikh7s58ymifw" path="res://New Art/escape room - flat images/door handle closed.png" id="32_lyo01"]
+[ext_resource type="Script" path="res://front_door.gd" id="32_s5jsu"]
+[ext_resource type="Texture2D" uid="uid://cyvhio4hb13r2" path="res://New Art/escape room - flat images/widok do pokoju drzwi uchylone copy.png" id="32_ve5uu"]
+[ext_resource type="Texture2D" uid="uid://dm33igd2suuw6" path="res://New Art/escape room - flat images/wlacznik copy.png" id="33_68gqg"]
+[ext_resource type="Texture2D" uid="uid://d2khwyhul26pp" path="res://New Art/escape room - flat images/lazienka full copy.png" id="33_nalfl"]
+[ext_resource type="Texture2D" uid="uid://c2cbh7j6urla3" path="res://New Art/escape room - flat images/szafka front copy.png" id="34_uy4wv"]
+[ext_resource type="Script" path="res://nightstand_above.gd" id="34_v6exu"]
+[ext_resource type="Texture2D" uid="uid://c2ubwufljer6k" path="res://New Art/escape room - flat images/lazienka widok lustro i prysznic copy.png" id="34_yf5h4"]
+[ext_resource type="PackedScene" uid="uid://b8dxylqb5i44l" path="res://correct_incorrect.tscn" id="35_01srr"]
+[ext_resource type="Texture2D" uid="uid://yqw0gib2f1uw" path="res://New Art/escape room - flat images/szafka widok top copy.png" id="35_3tqwc"]
+[ext_resource type="Texture2D" uid="uid://ctfxglkj2e1kf" path="res://New Art/escape room - flat images/szafa copy.png" id="35_b6khv"]
+[ext_resource type="Script" path="res://closet.gd" id="35_m6lfn"]
+[ext_resource type="Texture2D" uid="uid://bfajptqsq0i4" path="res://New Art/escape room - flat images/telefon zdjety.png" id="36_80d8d"]
+[ext_resource type="Script" path="res://phone.gd" id="36_pmwk2"]
+[ext_resource type="Texture2D" uid="uid://dqeiv2lqkml6y" path="res://New Art/escape room - flat images/szafka otwarta copy.png" id="37_cipim"]
+[ext_resource type="Texture2D" uid="uid://6qpgtwknl7yn" path="res://New Art/escape room - flat images/lazienka klapa opuszczona copy.png" id="38_5ctbj"]
+[ext_resource type="Texture2D" uid="uid://dxhdbsa2olbmp" path="res://New Art/escape room - flat images/smietnik copy.png" id="38_a5gyu"]
+[ext_resource type="Texture2D" uid="uid://1e1nposbdhcu" path="res://New Art/escape room - flat images/stolik przy lozku copy.png" id="38_fu1h0"]
+[ext_resource type="Script" path="res://sharps_bin.gd" id="38_tw460"]
+[ext_resource type="Script" path="res://nightstand_below.gd" id="39_5nxeo"]
+[ext_resource type="Texture2D" uid="uid://bl535hcqctkq4" path="res://New Art/escape room - flat images/smietniki2 copy.png" id="39_a0f2u"]
+[ext_resource type="Texture2D" uid="uid://bm74mikuu1prr" path="res://New Art/escape room - flat images/sterowanie lozka copy.png" id="39_ng7jl"]
+[ext_resource type="Script" path="res://trash_bin.gd" id="40_c5gln"]
+[ext_resource type="Texture2D" uid="uid://oadv4557c1l4" path="res://New Art/escape room - flat images/stolik copy.png" id="40_wi8ry"]
+[ext_resource type="Script" path="res://side_table_above.gd" id="41_fkjrc"]
+[ext_resource type="Script" path="res://desk.gd" id="42_3wue6"]
+[ext_resource type="Texture2D" uid="uid://cueihk4si0ni3" path="res://New Art/escape room - flat images/lazienka zlew copy.png" id="42_bo6ri"]
+[ext_resource type="Texture2D" uid="uid://x54267f3na6" path="res://New Art/escape room - flat images/lazienka drzwi galka copy.png" id="42_ceyth"]
+[ext_resource type="Script" path="res://rail_controls.gd" id="43_osx02"]
+[ext_resource type="Texture2D" uid="uid://bhjr2ldtkst6x" path="res://New Art/escape room - flat images/lazienka lustro copy.png" id="70_yt41p"]
+[ext_resource type="Texture2D" uid="uid://cp1t5ksq1tk4u" path="res://New Art/escape room - flat images/prysznic wlacznik copy.png" id="71_ex2i8"]
+[ext_resource type="Texture2D" uid="uid://d2b7rv0o5kfuh" path="res://New Art/escape room - flat images/lazienka prysznic konewka copy.png" id="72_6jhia"]
+[ext_resource type="Texture2D" uid="uid://cyuob76p1sgmr" path="res://New Art/escape room - flat images/lazienka zaslonka zdjeta copy.png" id="73_oqgd7"]
+[ext_resource type="Texture2D" uid="uid://pcv3jsd3guqw" path="res://New Art/escape room - flat images/lazienka mydlo2 copy.png" id="74_qku3v"]
 
 [sub_resource type="Animation" id="Animation_kkojn"]
 length = 0.001
@@ -125,13 +168,61 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_joia4"]
-size = Vector2(281, 533)
+size = Vector2(455, 650)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_udqw1"]
-size = Vector2(162, 176)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rd774"]
+size = Vector2(229, 196.206)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3fe6l"]
+size = Vector2(196, 259.7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tp3rx"]
+size = Vector2(143.831, 88.7373)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fq07d"]
+size = Vector2(141.227, 201.283)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7wrq"]
+size = Vector2(482.115, 157.407)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0278"]
+size = Vector2(243, 266)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ck7n"]
+size = Vector2(269, 338)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_merxf"]
+size = Vector2(287, 527)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3aeax"]
+size = Vector2(29, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shobl"]
 size = Vector2(129.161, 227.341)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4gcw"]
+size = Vector2(199, 232)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2my6"]
+size = Vector2(58, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deo8o"]
+size = Vector2(100, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ait3"]
+size = Vector2(53, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8hdao"]
+size = Vector2(170, 238)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvs4u"]
+radius = 36.3456
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x16l"]
+size = Vector2(211, 186)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ek826"]
+size = Vector2(200.426, 198.634)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_u3rmy")
@@ -269,295 +360,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.184314, 0.341176, 0.498039, 1)
 
-[node name="Chair_desk_close" type="Node2D" parent="."]
-visible = false
-position = Vector2(561, 296)
-script = ExtResource("6_kw064")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Chair_desk_close"]
-position = Vector2(0, 31)
-scale = Vector2(2.72266, 2.72266)
-texture = ExtResource("5_iul6n")
-
-[node name="Chair_desk_close_area" type="Area2D" parent="Chair_desk_close"]
-visible = false
-input_pickable = false
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Chair_desk_close/Chair_desk_close_area"]
-visible = false
-build_mode = 1
-polygon = PackedVector2Array(-221, 109, -185, -7, -170, -231, -134, -259, -105, -249, -102, -231, -44, -249, 10, -252, 72, -248, 116, -238, 134, -259, 161, -258, 177, -238, 185, -177, 184, -92, 181, -23, 207, -6, 215, 45, 224, 193, 214, 230, 198, 244, 174, 304, 149, 305, 119, 247, -112, 254, -129, 315, -151, 312, -182, 242, -212, 220, -223, 161)
-
-[node name="Leave_chair_desk" parent="Chair_desk_close" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-visible = false
-position = Vector2(468, 242)
-rotation = -3.13686
-scale = Vector2(0.593383, 0.732829)
-currentScene = NodePath("..")
-nextScene = NodePath("../../Face_east")
-
-[node name="Background" type="ColorRect" parent="Chair_desk_close"]
-show_behind_parent = true
-offset_left = -557.0
-offset_top = -294.0
-offset_right = -517.0
-offset_bottom = -254.0
-scale = Vector2(28.5588, 16.0919)
-mouse_filter = 2
-color = Color(1, 0.972549, 0.972549, 1)
-
-[node name="Line1" type="ColorRect" parent="Chair_desk_close"]
-offset_left = -558.0
-offset_top = 41.0
-offset_right = -518.0
-offset_bottom = 81.0
-scale = Vector2(8.69989, 0.509038)
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Line2" type="ColorRect" parent="Chair_desk_close"]
-offset_left = 211.0
-offset_top = 31.0
-offset_right = 251.0
-offset_bottom = 71.0
-scale = Vector2(9.49115, 0.569899)
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Sink" type="Node2D" parent="."]
-visible = false
-position = Vector2(545, 299)
-script = ExtResource("5_loatk")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Sink"]
-position = Vector2(30.0001, 25.5)
-scale = Vector2(0.551429, 0.432667)
-texture = ExtResource("8_rt3oa")
-
-[node name="Leave_sink" parent="Sink" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(519, 237)
-rotation = 3.13898
-scale = Vector2(0.664207, 0.655082)
-currentScene = NodePath("..")
-nextScene = NodePath("../../Bathroom_east")
-
-[node name="Outside_room" type="Node2D" parent="."]
-visible = false
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Outside_room"]
-position = Vector2(576.5, 322.5)
-scale = Vector2(0.600521, 0.602778)
-texture = ExtResource("1_t3s4l")
-
-[node name="Door_interact" type="Node2D" parent="Outside_room"]
-position = Vector2(519, 303)
-
-[node name="Sprite2D" type="Sprite2D" parent="Outside_room/Door_interact"]
-position = Vector2(60, -16)
-scale = Vector2(2.21875, 2.38281)
-texture = ExtResource("2_qqx4w")
-
-[node name="Door_interact" type="Area2D" parent="Outside_room/Door_interact"]
-position = Vector2(63, 19)
-monitoring = false
-monitorable = false
-
-[node name="Door_interact" type="CollisionShape2D" parent="Outside_room/Door_interact/Door_interact"]
-position = Vector2(4, 4.5)
-shape = SubResource("RectangleShape2D_joia4")
-
-[node name="Door_entrance_ind" parent="Outside_room" instance=ExtResource("14_ai1i5")]
-position = Vector2(586, 326)
-
-[node name="Face_east" type="Node2D" parent="."]
-visible = false
-metadata/_edit_group_ = true
-
-[node name="Face_east_room_sprite" type="Sprite2D" parent="Face_east"]
-position = Vector2(575, 322)
-scale = Vector2(0.602083, 0.601852)
-texture = ExtResource("2_jng6v")
-
-[node name="Chair_desk" type="Node2D" parent="Face_east"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Face_east/Chair_desk"]
-position = Vector2(299, 458)
-scale = Vector2(0.976563, 1.04688)
-texture = ExtResource("4_0ipb7")
-
-[node name="Chair_desk" type="Area2D" parent="Face_east/Chair_desk"]
-position = Vector2(299, 458)
-scale = Vector2(0.976563, 1.04688)
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Face_east/Chair_desk/Chair_desk"]
-position = Vector2(11.2639, 16.2388)
-scale = Vector2(1.024, 0.955224)
-shape = SubResource("RectangleShape2D_udqw1")
-
-[node name="Chair_desk_ind" parent="Face_east/Chair_desk" instance=ExtResource("14_ai1i5")]
-position = Vector2(304, 470)
-
-[node name="Blue_cloth" parent="Face_east" instance=ExtResource("11_j1xui")]
-visible = false
-position = Vector2(532, 484)
-scale = Vector2(3.14742, 2.83554)
-item_texture = ExtResource("12_yuigg")
-
-[node name="Cleaner_blue" parent="Face_east" instance=ExtResource("12_ptx7q")]
-visible = false
-position = Vector2(132, 362)
-scale = Vector2(1.37253, 1.49633)
-
-[node name="Turn_south" parent="Face_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(1056, 99)
-rotation = 1.56042
-scale = Vector2(0.47311, 0.576715)
-currentScene = NodePath("..")
-nextScene = NodePath("../../Face_south")
-
-[node name="Face_south" type="Node2D" parent="."]
-visible = false
-position = Vector2(579, 360)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Face_south"]
-position = Vector2(-3.5001, -36)
-scale = Vector2(0.54619, 0.434667)
-texture = ExtResource("14_dwxw4")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Face_south"]
-position = Vector2(169, -35)
-scale = Vector2(2.33817, 1.86944)
-texture = ExtResource("15_3ievj")
-
-[node name="Door_to_bathroom" type="Area2D" parent="Face_south"]
-visible = false
-position = Vector2(166, -31)
-scale = Vector2(2.33817, 1.86944)
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Face_south/Door_to_bathroom"]
-position = Vector2(0.855377, -1.87224)
-shape = SubResource("RectangleShape2D_shobl")
-
-[node name="Turn_east" parent="Face_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(-451, -269)
-rotation = -1.56712
-scale = Vector2(0.526803, 0.701616)
-currentScene = NodePath("..")
-nextScene = NodePath("../../Face_east")
-
-[node name="Face_south_ind" parent="Face_south" instance=ExtResource("14_ai1i5")]
-visible = false
-position = Vector2(167, -35)
-
-[node name="Towards_bathroom" parent="Face_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(164, -57)
-rotation = -0.00440692
-scale = Vector2(0.592778, 0.590741)
-currentScene = NodePath("..")
-nextScene = NodePath("../../Bathroom_entry")
-
-[node name="Bathroom_entry" type="Node2D" parent="."]
-visible = false
-position = Vector2(579, 360)
-scale = Vector2(0.999998, 0.999999)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Bathroom_entry"]
-position = Vector2(1.99998, -35.5)
-scale = Vector2(0.550476, 0.434)
-texture = ExtResource("16_ae2rv")
-
-[node name="Back_from_bathroom" parent="Bathroom_entry" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(470.001, 187)
-rotation = 3.13924
-scale = Vector2(0.54449, 0.684767)
-currentScene = NodePath("..")
-nextScene = NodePath("../../Face_south")
-
-[node name="Turn_left_bathroom" parent="Bathroom_entry" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(-13, -205)
-rotation = -1.56741
-scale = Vector2(0.549322, 0.656513)
-currentScene = NodePath("..")
-nextScene = NodePath("../../Bathroom_east")
-
-[node name="Turn_right_bathroom" parent="Bathroom_entry" instance=ExtResource("8_vodrk")]
-visible = false
-position = Vector2(175, -267)
-rotation = 1.56507
-scale = Vector2(0.430783, 0.589431)
-
-[node name="Bathroom_east" type="Node2D" parent="."]
-visible = false
-position = Vector2(529, 302)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Bathroom_east"]
-position = Vector2(49, 22)
-scale = Vector2(0.550476, 0.430667)
-texture = ExtResource("18_w8ihn")
-
-[node name="Sink_interactable" type="Node2D" parent="Bathroom_east"]
-position = Vector2(318, 235)
-
-[node name="Sprite2D" type="Sprite2D" parent="Bathroom_east/Sink_interactable"]
-position = Vector2(13, 11)
-scale = Vector2(1.83285, 1.72299)
-texture = ExtResource("20_dopjo")
-
-[node name="Sink_interactable" type="Area2D" parent="Bathroom_east/Sink_interactable"]
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Bathroom_east/Sink_interactable/Sink_interactable"]
-position = Vector2(11.5, 1.5)
-polygon = PackedVector2Array(-213.5, -65.5, -52.5, -61.5, -49.5, -70.5, -18.5, -72.5, -15.5, -96.5, -5.5, -98.5, 4.5, -96.5, 4.5, -76.5, 33.5, -70.5, 39.5, -62.5, 43.5, -57.5, 176.5, -58.5, 223.5, -18.5, 211.5, 98.5, -196.5, 94.5, -229.5, 44.5)
-
-[node name="Sink_ind" parent="Bathroom_east/Sink_interactable" instance=ExtResource("14_ai1i5")]
-
-[node name="Return_from_bathroom" parent="Bathroom_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(-438, -124)
-rotation = -1.56831
-scale = Vector2(0.556292, 0.698065)
-currentScene = NodePath("..")
-nextScene = NodePath("../../Bathroom_entry")
-
-[node name="cleaner_red" parent="Bathroom_east" instance=ExtResource("22_cjkwi")]
-visible = false
-z_index = 1
-position = Vector2(-309, -238)
-scale = Vector2(3.04111, 2.69739)
-
-[node name="red_cloth" parent="Bathroom_east" instance=ExtResource("23_u8skn")]
-visible = false
-z_index = 1
-position = Vector2(430, 142)
-scale = Vector2(3.21887, 3.12479)
-
 [node name="Start_page" parent="." instance=ExtResource("14_klcq4")]
 
 [node name="Cursor" parent="." instance=ExtResource("15_su7o2")]
 metadata/_edit_group_ = true
 
 [node name="Player" parent="." instance=ExtResource("16_6thqb")]
-
-[node name="Stop" parent="." instance=ExtResource("2_yimi7")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 
 [node name="Background_sound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(554, 366)
@@ -575,28 +383,1703 @@ stream = ExtResource("29_eslky")
 volume_db = -25.0
 parameters/looping = false
 
-[connection signal="spawn_chair_desk_close_bacteria" from="." to="Chair_desk_close" method="_on_main_spawn_bacteria"]
-[connection signal="spawn_sink_bacteria" from="." to="Sink" method="_on_main_spawn_bacteria"]
+[node name="Correct_Incorrect" parent="." instance=ExtResource("35_01srr")]
+
+[node name="PatientRoom1" type="Node2D" parent="."]
+
+[node name="Outside_room" type="Node2D" parent="PatientRoom1"]
+visible = false
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Outside_room"]
+position = Vector2(576.5, 322.5)
+scale = Vector2(0.600521, 0.602778)
+texture = ExtResource("21_57t6q")
+
+[node name="Door_interact" type="Node2D" parent="PatientRoom1/Outside_room"]
+position = Vector2(436, 320)
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Outside_room/Door_interact"]
+visible = false
+position = Vector2(60, -16)
+scale = Vector2(2.21875, 2.38281)
+texture = ExtResource("2_qqx4w")
+
+[node name="Door_interact" type="Area2D" parent="PatientRoom1/Outside_room/Door_interact"]
+position = Vector2(63, 19)
+monitoring = false
+monitorable = false
+
+[node name="Door_interact" type="CollisionShape2D" parent="PatientRoom1/Outside_room/Door_interact/Door_interact"]
+position = Vector2(-8.5, -17)
+shape = SubResource("RectangleShape2D_joia4")
+
+[node name="Door_entrance_ind" parent="PatientRoom1/Outside_room" instance=ExtResource("14_ai1i5")]
+position = Vector2(497, 326)
+
+[node name="Face_east" type="Node2D" parent="PatientRoom1"]
+visible = false
+metadata/_edit_group_ = true
+
+[node name="Face_east_room_sprite" type="Sprite2D" parent="PatientRoom1/Face_east"]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("16_bdfux")
+
+[node name="Chair_desk" type="Node2D" parent="PatientRoom1/Face_east"]
+position = Vector2(66, -132)
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Face_east/Chair_desk"]
+visible = false
+position = Vector2(299, 458)
+scale = Vector2(0.976563, 1.04688)
+texture = ExtResource("4_0ipb7")
+
+[node name="Chair_desk" type="Area2D" parent="PatientRoom1/Face_east/Chair_desk"]
+position = Vector2(299, 458)
+scale = Vector2(0.976563, 1.04688)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="PatientRoom1/Face_east/Chair_desk/Chair_desk"]
+position = Vector2(11.2639, 16.2388)
+scale = Vector2(1.024, 0.955224)
+polygon = PackedVector2Array(-3.99991, 93.9995, 4.00009, 94.9995, 11.0001, 93.9995, 12.0001, 83.9995, 17.0001, 77.9996, 28.0001, 78.9995, 73.0001, 68.9996, 73.0001, 77.9996, 81.0001, 78.9995, 87.0001, 77.9996, 86.0001, 66.9996, 90.0001, 64.9996, 91.0001, 58.9997, 90.0001, -16, 85.0001, -32.9999, 77.0001, -43.9998, 64.0001, -53.9998, 49.0001, -56.9998, 17.0001, -57.9998, 6.00009, -53.9998, -0.999908, -110, -5.99991, -112, -62.9999, -109, -95.9998, -105, -96.9998, -102, -90.9998, -20, -40.9999, -19, -39.9999, -3.00003, -46.9999, 0.999939, -44.9999, 79.9995, -3.99991, 84.9995)
+
+[node name="Chair_desk_ind" parent="PatientRoom1/Face_east/Chair_desk" instance=ExtResource("14_ai1i5")]
+position = Vector2(304, 470)
+
+[node name="Blue_cloth" parent="PatientRoom1/Face_east" instance=ExtResource("11_j1xui")]
+visible = false
+position = Vector2(532, 484)
+scale = Vector2(3.14742, 2.83554)
+item_texture = ExtResource("12_yuigg")
+
+[node name="Cleaner_blue" parent="PatientRoom1/Face_east" instance=ExtResource("12_ptx7q")]
+visible = false
+position = Vector2(132, 362)
+scale = Vector2(1.37253, 1.49633)
+
+[node name="Turn_south" parent="PatientRoom1/Face_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(1054, 70)
+rotation = 1.56042
+scale = Vector2(0.47311, 0.576715)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_south")
+
+[node name="Turn_north" parent="PatientRoom1/Face_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(85, 94)
+rotation = -1.57191
+scale = Vector2(0.476177, 0.568348)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_north")
+
+[node name="Go_east" parent="PatientRoom1/Face_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(500, 92)
+scale = Vector2(0.663932, 0.593785)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_east")
+
+[node name="ColorRect" type="ColorRect" parent="PatientRoom1/Face_east"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 467.0
+offset_top = 397.0
+offset_right = 507.0
+offset_bottom = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.79873, 0.191372)
+color = Color(0.831373, 0.52549, 0.45098, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="PatientRoom1/Face_east"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 587.0
+offset_top = 398.0
+offset_right = 627.0
+offset_bottom = 438.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.242287, 0.207027)
+color = Color(0.831373, 0.52549, 0.45098, 1)
+
+[node name="Chair_desk_close" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("back_rest_bl", "back_rest_tr", "arm_rest_bl_left", "arm_rest_tr_left", "arm_rest_bl_right", "arm_rest_tr_right", "seat_bl", "seat_tr")]
+visible = false
+position = Vector2(561, 296)
+script = ExtResource("6_kw064")
+back_rest_bl = NodePath("Chair_back_bl")
+back_rest_tr = NodePath("Chair_back_tr")
+arm_rest_bl_left = NodePath("Arm_rest_bl_left")
+arm_rest_tr_left = NodePath("Arm_rest_tr_left")
+arm_rest_bl_right = NodePath("Arm_rest_bl_right")
+arm_rest_tr_right = NodePath("Arm_rest_tr_right")
+seat_bl = NodePath("Seat_bl")
+seat_tr = NodePath("Seat_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Chair_desk_close"]
+position = Vector2(15, 28)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("9_7dasa")
+
+[node name="Leave_chair_desk" parent="PatientRoom1/Chair_desk_close" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(468, 242)
+rotation = -3.13686
+scale = Vector2(0.593383, 0.732829)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_east")
+
+[node name="Chair_desk_close_area" type="Area2D" parent="PatientRoom1/Chair_desk_close"]
+visible = false
+input_pickable = false
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="PatientRoom1/Chair_desk_close/Chair_desk_close_area"]
+visible = false
+build_mode = 1
+polygon = PackedVector2Array(-221, 109, -185, -7, -170, -231, -134, -259, -105, -249, -102, -231, -44, -249, 10, -252, 72, -248, 116, -238, 134, -259, 161, -258, 177, -238, 185, -177, 184, -92, 181, -23, 207, -6, 215, 45, 224, 193, 214, 230, 198, 244, 174, 304, 149, 305, 119, 247, -112, 254, -129, 315, -151, 312, -182, 242, -212, 220, -223, 161)
+
+[node name="Chair_back_bl" type="Node2D" parent="PatientRoom1/Chair_desk_close"]
+position = Vector2(-116, 36)
+
+[node name="Chair_back_tr" type="Node2D" parent="PatientRoom1/Chair_desk_close"]
+position = Vector2(111, -248)
+
+[node name="Arm_rest_bl_left" type="Node2D" parent="PatientRoom1/Chair_desk_close"]
+position = Vector2(-191, 162)
+
+[node name="Arm_rest_tr_left" type="Node2D" parent="PatientRoom1/Chair_desk_close"]
+position = Vector2(-135, -64)
+
+[node name="Arm_rest_bl_right" type="Node2D" parent="PatientRoom1/Chair_desk_close"]
+position = Vector2(125, 158)
+
+[node name="Arm_rest_tr_right" type="Node2D" parent="PatientRoom1/Chair_desk_close"]
+position = Vector2(157, -68)
+
+[node name="Seat_bl" type="Node2D" parent="PatientRoom1/Chair_desk_close"]
+position = Vector2(-129, 218)
+
+[node name="Seat_tr" type="Node2D" parent="PatientRoom1/Chair_desk_close"]
+position = Vector2(100, 40)
+
+[node name="Wall_east" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(558, 367)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Wall_east"]
+position = Vector2(18, -43)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("25_b5tan")
+
+[node name="Turn_north" parent="PatientRoom1/Wall_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-472, -274)
+rotation = -1.56771
+scale = Vector2(0.585496, 0.656751)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_north")
+
+[node name="Turn_south" parent="PatientRoom1/Wall_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(474, -280)
+rotation = 1.57782
+scale = Vector2(0.593573, 0.687728)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_south")
+
+[node name="Back_east" parent="PatientRoom1/Wall_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(498, 182)
+rotation = -3.12797
+scale = Vector2(0.678336, 0.634522)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_east")
+
+[node name="ColorRect" type="ColorRect" parent="PatientRoom1/Wall_east"]
+offset_left = 111.0
+offset_top = 169.0
+offset_right = 151.0
+offset_bottom = 209.0
+rotation = 1.33423
+scale = Vector2(0.982383, 12.1244)
+color = Color(0.780392, 0.498039, 0.435294, 1)
+
+[node name="Computer_monitor" type="Area2D" parent="PatientRoom1/Wall_east"]
+position = Vector2(-406, -109)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Wall_east/Computer_monitor"]
+position = Vector2(-6.2939, -21.9031)
+rotation = -0.0572363
+shape = SubResource("RectangleShape2D_rd774")
+
+[node name="Computer_monitor_ind" parent="PatientRoom1/Wall_east" instance=ExtResource("14_ai1i5")]
+position = Vector2(-411, -131)
+
+[node name="Computer" type="Area2D" parent="PatientRoom1/Wall_east"]
+position = Vector2(-385, 69)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Wall_east/Computer"]
+position = Vector2(19.4703, 27.2969)
+rotation = -0.0723136
+shape = SubResource("RectangleShape2D_3fe6l")
+
+[node name="Computer_ind" parent="PatientRoom1/Wall_east" instance=ExtResource("14_ai1i5")]
+position = Vector2(-344, 105)
+
+[node name="Chair_bed" type="Area2D" parent="PatientRoom1/Wall_east"]
+position = Vector2(294, 39)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Wall_east/Chair_bed"]
+polygon = PackedVector2Array(-78, -203, -54, -203, -14, -203, 27, -203, 71, -200, 72, -95, 86, -106, 104, -103, 118, -76, 121, 6, 118, 32, 88, 38, 60, 44, 56, 69, 73, 81, 91, 91, 111, 102, 112, 107, 88, 97, 70, 97, -69, 126, -100, 136, -113, 134, -122, 102, -111, -106, -97, -110, -81, -107)
+
+[node name="Chair_bed_ind" parent="PatientRoom1/Wall_east" instance=ExtResource("14_ai1i5")]
+position = Vector2(294, 37)
+
+[node name="Computer_screen" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("screen_bl", "screen_tr", "mouse_bl", "mouse_tr", "keyboard_bl", "keyboard_tr")]
+visible = false
+position = Vector2(554, 369)
+script = ExtResource("26_pt38l")
+screen_bl = NodePath("Computer_screen_bl")
+screen_tr = NodePath("Computer_screen_tr")
+mouse_bl = NodePath("Mouse_bl")
+mouse_tr = NodePath("Mouse_tr")
+keyboard_bl = NodePath("Keyboard_bl")
+keyboard_tr = NodePath("Keyboard_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Computer_screen"]
+position = Vector2(22, -45)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("26_s74ji")
+
+[node name="Return_wall_east" parent="PatientRoom1/Computer_screen" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(546, 203)
+rotation = 3.14083
+scale = Vector2(0.525892, 0.478229)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_east")
+
+[node name="Computer_screen_bl" type="Node2D" parent="PatientRoom1/Computer_screen"]
+position = Vector2(-175, -45)
+
+[node name="Computer_screen_tr" type="Node2D" parent="PatientRoom1/Computer_screen"]
+position = Vector2(268, -318)
+
+[node name="Mouse_bl" type="Node2D" parent="PatientRoom1/Computer_screen"]
+position = Vector2(170, 117)
+
+[node name="Mouse_tr" type="Node2D" parent="PatientRoom1/Computer_screen"]
+position = Vector2(209, 61)
+
+[node name="Keyboard_bl" type="Node2D" parent="PatientRoom1/Computer_screen"]
+position = Vector2(-108, 137)
+
+[node name="Keyboard_tr" type="Node2D" parent="PatientRoom1/Computer_screen"]
+position = Vector2(125, 65)
+
+[node name="Computer" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("computer_bl", "computer_tr")]
+visible = false
+position = Vector2(553, 369)
+script = ExtResource("27_whuj8")
+computer_bl = NodePath("Computer_bl")
+computer_tr = NodePath("Computer_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Computer"]
+position = Vector2(23, -45)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("27_eelqm")
+
+[node name="Computer_bl" type="Node2D" parent="PatientRoom1/Computer"]
+position = Vector2(84, 134)
+
+[node name="Computer_tr" type="Node2D" parent="PatientRoom1/Computer"]
+position = Vector2(192, -148)
+
+[node name="Return_wall_east" parent="PatientRoom1/Computer" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(525, 187)
+rotation = -3.14034
+scale = Vector2(0.581902, 0.548072)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_east")
+
+[node name="Chair_bed" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("back_rest_bl", "back_rest_tr", "arm_rest_left_bl", "arm_rest_left_tr", "arm_rest_right_bl", "arm_rest_right_tr", "seat_bl", "seat_tr")]
+visible = false
+position = Vector2(554, 366)
+script = ExtResource("29_4eckb")
+back_rest_bl = NodePath("Chair_back_bl")
+back_rest_tr = NodePath("Chair_back_tr")
+arm_rest_left_bl = NodePath("Chair_armrest_left_bl")
+arm_rest_left_tr = NodePath("Chair_armrest_left_tr")
+arm_rest_right_bl = NodePath("Chair_armrest_right_bl")
+arm_rest_right_tr = NodePath("Chair_armrest_right_bl2")
+seat_bl = NodePath("Chair_seat_bl")
+seat_tr = NodePath("Chair_seat_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Chair_bed"]
+position = Vector2(22, -42)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("28_67f2v")
+
+[node name="Chair_back_bl" type="Node2D" parent="PatientRoom1/Chair_bed"]
+position = Vector2(-22, -36)
+
+[node name="Chair_back_tr" type="Node2D" parent="PatientRoom1/Chair_bed"]
+position = Vector2(160, -316)
+
+[node name="Chair_armrest_left_bl" type="Node2D" parent="PatientRoom1/Chair_bed"]
+position = Vector2(-57, 79)
+
+[node name="Chair_armrest_left_tr" type="Node2D" parent="PatientRoom1/Chair_bed"]
+position = Vector2(-57, -133)
+
+[node name="Chair_armrest_right_bl" type="Node2D" parent="PatientRoom1/Chair_bed"]
+position = Vector2(178, -178)
+
+[node name="Chair_armrest_right_bl2" type="Node2D" parent="PatientRoom1/Chair_bed"]
+position = Vector2(296, -34)
+
+[node name="Chair_seat_bl" type="Node2D" parent="PatientRoom1/Chair_bed"]
+position = Vector2(3, 111)
+
+[node name="Chair_seat_tr" type="Node2D" parent="PatientRoom1/Chair_bed"]
+position = Vector2(165, -59)
+
+[node name="Return_wall_east" parent="PatientRoom1/Chair_bed" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(528, 206)
+rotation = -3.1269
+scale = Vector2(0.616258, 0.493456)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_east")
+
+[node name="Wall_south" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 366)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Wall_south"]
+position = Vector2(22, -42)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("26_y2di4")
+
+[node name="Turn_east" parent="PatientRoom1/Wall_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-458, -274)
+rotation = -1.55847
+scale = Vector2(0.590978, 0.710774)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_east")
+
+[node name="Nightstand_above" type="Area2D" parent="PatientRoom1/Wall_south"]
+position = Vector2(-513, -151)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Wall_south/Nightstand_above"]
+position = Vector2(20.4896, 14.8967)
+rotation = -0.0610711
+shape = SubResource("RectangleShape2D_tp3rx")
+
+[node name="Nightstand_above_ind" parent="PatientRoom1/Wall_south" instance=ExtResource("14_ai1i5")]
+position = Vector2(-509, -144)
+
+[node name="Nightstand_below" type="Area2D" parent="PatientRoom1/Wall_south"]
+position = Vector2(-511, 3)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Wall_south/Nightstand_below"]
+position = Vector2(19.4403, 5.9798)
+rotation = -0.0584469
+shape = SubResource("RectangleShape2D_fq07d")
+
+[node name="Nightstand_below_ind" parent="PatientRoom1/Wall_south" instance=ExtResource("14_ai1i5")]
+position = Vector2(-489, 0)
+
+[node name="Side_table_above" type="Area2D" parent="PatientRoom1/Wall_south"]
+position = Vector2(-133, -5)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Wall_south/Side_table_above"]
+polygon = PackedVector2Array(-168, -23, -151, -30, -118, -35, -63, -39, 0, -45, 67, -51, 121, -56, 160, -53, 193, -29, 218, -11, 224, -6, 221, 19, 193, 27, -107, 58, -128, 56, -142, 50, -168, -2)
+
+[node name="Side_table_above_ind" parent="PatientRoom1/Wall_south" instance=ExtResource("14_ai1i5")]
+position = Vector2(-117, -6)
+
+[node name="Side_table_below" type="Area2D" parent="PatientRoom1/Wall_south"]
+visible = false
+position = Vector2(-253, 173)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Wall_south/Side_table_below"]
+polygon = PackedVector2Array(-11, 109, -23, -129, -18, -125, -4, -120, 12, -119, 24, 108)
+
+[node name="Side_table_below_ind" parent="PatientRoom1/Wall_south" instance=ExtResource("14_ai1i5")]
+visible = false
+position = Vector2(-255, 173)
+
+[node name="Rail_controls" type="Area2D" parent="PatientRoom1/Wall_south"]
+position = Vector2(-263, -100)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Wall_south/Rail_controls"]
+position = Vector2(193.379, -35.8929)
+rotation = -0.084183
+shape = SubResource("RectangleShape2D_l7wrq")
+
+[node name="Rail_controls_ind" parent="PatientRoom1/Wall_south" instance=ExtResource("14_ai1i5")]
+position = Vector2(-265, -102)
+
+[node name="Nightstand_above" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("top1_bl", "top1_tr", "top2_bl", "top2_tr")]
+visible = false
+position = Vector2(553, 367)
+script = ExtResource("34_v6exu")
+top1_bl = NodePath("Top1_bl")
+top1_tr = NodePath("Top1_tr")
+top2_bl = NodePath("Top2_bl")
+top2_tr = NodePath("Top2_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Nightstand_above"]
+position = Vector2(23, -43)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("35_3tqwc")
+
+[node name="Phone" type="Area2D" parent="PatientRoom1/Nightstand_above"]
+position = Vector2(113, -53)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Nightstand_above/Phone"]
+position = Vector2(2.5, -4)
+shape = SubResource("RectangleShape2D_c0278")
+
+[node name="Phone_ind" parent="PatientRoom1/Nightstand_above" instance=ExtResource("14_ai1i5")]
+position = Vector2(117, -54)
+
+[node name="Return_wall_south" parent="PatientRoom1/Nightstand_above" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(537, 216)
+rotation = -3.14128
+scale = Vector2(0.478864, 0.421702)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_south")
+
+[node name="Top1_bl" type="Node2D" parent="PatientRoom1/Nightstand_above"]
+position = Vector2(-284, 163)
+
+[node name="Top1_tr" type="Node2D" parent="PatientRoom1/Nightstand_above"]
+position = Vector2(-34, -215)
+
+[node name="Top2_bl" type="Node2D" parent="PatientRoom1/Nightstand_above"]
+position = Vector2(-284, 151)
+
+[node name="Top2_tr" type="Node2D" parent="PatientRoom1/Nightstand_above"]
+position = Vector2(284, 89)
+
+[node name="Phone" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("phone_bl", "phone_tr", "phone_holder_bl", "phone_holder_tr", "receiver_bl", "receiver_tr")]
+visible = false
+position = Vector2(553, 367)
+script = ExtResource("36_pmwk2")
+phone_bl = NodePath("Phone_bl")
+phone_tr = NodePath("Phone_tr")
+phone_holder_bl = NodePath("Phone_holder_bl")
+phone_holder_tr = NodePath("Phone_holder_tr")
+receiver_bl = NodePath("Receiver_bl")
+receiver_tr = NodePath("Receiver_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Phone"]
+position = Vector2(23, -43)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("36_80d8d")
+
+[node name="Return_nightstand_above" parent="PatientRoom1/Phone" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(529, 209)
+rotation = 3.14126
+scale = Vector2(0.442424, 0.448076)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Nightstand_above")
+
+[node name="Phone_bl" type="Node2D" parent="PatientRoom1/Phone"]
+position = Vector2(-98, 44)
+
+[node name="Phone_tr" type="Node2D" parent="PatientRoom1/Phone"]
+position = Vector2(-86, -140)
+
+[node name="Phone_holder_bl" type="Node2D" parent="PatientRoom1/Phone"]
+position = Vector2(8, 61)
+
+[node name="Phone_holder_tr" type="Node2D" parent="PatientRoom1/Phone"]
+position = Vector2(65, -161)
+
+[node name="Receiver_bl" type="Node2D" parent="PatientRoom1/Phone"]
+position = Vector2(88, 56)
+
+[node name="Receiver_tr" type="Node2D" parent="PatientRoom1/Phone"]
+position = Vector2(221, -89)
+
+[node name="Nightstand_open" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(553, 367)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Nightstand_open"]
+position = Vector2(23, -43)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("37_cipim")
+
+[node name="Return_nightstand_above" parent="PatientRoom1/Nightstand_open" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(528, 219)
+scale = Vector2(0.491187, 0.42103)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Nightstand_above")
+
+[node name="Drawer_bl" type="Node2D" parent="PatientRoom1/Nightstand_open"]
+position = Vector2(-201, 133)
+
+[node name="Drawer_tr" type="Node2D" parent="PatientRoom1/Nightstand_open"]
+position = Vector2(283, -30)
+
+[node name="Nightstand_below" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("handle1_bl", "handle1_tr", "handle2_bl", "handle2_tr", "handle3_bl", "handle3_tr", "handle4_bl", "handle4_tr")]
+visible = false
+position = Vector2(553, 367)
+script = ExtResource("39_5nxeo")
+handle1_bl = NodePath("Handle1_bl")
+handle1_tr = NodePath("Handle1_tr")
+handle2_bl = NodePath("Handle2_bl")
+handle2_tr = NodePath("Handle2_tr")
+handle3_bl = NodePath("Handle3_bl")
+handle3_tr = NodePath("Handle3_tr")
+handle4_bl = NodePath("Handle4_bl")
+handle4_tr = NodePath("Handle4_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Nightstand_below"]
+position = Vector2(23, -43)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("34_uy4wv")
+
+[node name="Return_wall_south" parent="PatientRoom1/Nightstand_below" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(533, 214)
+rotation = 3.13966
+scale = Vector2(0.425198, 0.389819)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_south")
+
+[node name="Handle1_bl" type="Node2D" parent="PatientRoom1/Nightstand_below"]
+position = Vector2(-17, -134)
+
+[node name="Handle1_tr" type="Node2D" parent="PatientRoom1/Nightstand_below"]
+position = Vector2(92, -150)
+
+[node name="Handle2_bl" type="Node2D" parent="PatientRoom1/Nightstand_below"]
+position = Vector2(-12, -38)
+
+[node name="Handle2_tr" type="Node2D" parent="PatientRoom1/Nightstand_below"]
+position = Vector2(94, -49)
+
+[node name="Handle3_bl" type="Node2D" parent="PatientRoom1/Nightstand_below"]
+position = Vector2(-14, 73)
+
+[node name="Handle3_tr" type="Node2D" parent="PatientRoom1/Nightstand_below"]
+position = Vector2(88, 58)
+
+[node name="Handle4_bl" type="Node2D" parent="PatientRoom1/Nightstand_below"]
+position = Vector2(-12, 174)
+
+[node name="Handle4_tr" type="Node2D" parent="PatientRoom1/Nightstand_below"]
+position = Vector2(84, 155)
+
+[node name="Side_table_above" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("table_bl", "table_tr")]
+visible = false
+position = Vector2(553, 367)
+script = ExtResource("41_fkjrc")
+table_bl = NodePath("Table_bl")
+table_tr = NodePath("Table_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Side_table_above"]
+position = Vector2(23, -43)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("38_fu1h0")
+
+[node name="Return_wall_south" parent="PatientRoom1/Side_table_above" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(532, 207)
+rotation = -3.13931
+scale = Vector2(0.57234, 0.456392)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_south")
+
+[node name="Table_bl" type="Node2D" parent="PatientRoom1/Side_table_above"]
+position = Vector2(-196, 175)
+
+[node name="Table_tr" type="Node2D" parent="PatientRoom1/Side_table_above"]
+position = Vector2(264, -250)
+
+[node name="Rail_controls" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("controls_bl", "controls_tr")]
+visible = false
+position = Vector2(553, 367)
+script = ExtResource("43_osx02")
+controls_bl = NodePath("Controls_bl")
+controls_tr = NodePath("Controls_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Rail_controls"]
+position = Vector2(23, -43)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("39_ng7jl")
+
+[node name="Return_wall_south" parent="PatientRoom1/Rail_controls" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(534, 207)
+rotation = 3.13878
+scale = Vector2(0.549027, 0.479572)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_south")
+
+[node name="Controls_bl" type="Node2D" parent="PatientRoom1/Rail_controls"]
+position = Vector2(-169, 40)
+
+[node name="Controls_tr" type="Node2D" parent="PatientRoom1/Rail_controls"]
+position = Vector2(-98, -100)
+
+[node name="Wall_north" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 365)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Wall_north"]
+position = Vector2(22, -41)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("27_kg7rk")
+
+[node name="Turn_east" parent="PatientRoom1/Wall_north" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(492, -300)
+rotation = 1.56279
+scale = Vector2(0.572406, 0.610292)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_east")
+
+[node name="Chair_desk" type="Area2D" parent="PatientRoom1/Wall_north"]
+visible = false
+position = Vector2(-249, 87)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Wall_north/Chair_desk"]
+polygon = PackedVector2Array(-200, 36, -183, -4, -161, -34, -117, -50, -85, -58, -47, -50, -36, -170, 166, -165, 166, -33, 185, -4, 192, 48, 191, 158, 191, 193, -196, 196)
+
+[node name="Chair_desk_ind" parent="PatientRoom1/Wall_north" instance=ExtResource("14_ai1i5")]
+visible = false
+position = Vector2(-242, 84)
+
+[node name="Closet" type="Area2D" parent="PatientRoom1/Wall_north"]
+position = Vector2(242, -147)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Wall_north/Closet"]
+position = Vector2(-28.5, -33)
+shape = SubResource("RectangleShape2D_1ck7n")
+
+[node name="Closet_ind" parent="PatientRoom1/Wall_north" instance=ExtResource("14_ai1i5")]
+position = Vector2(243, -152)
+
+[node name="Computer_above" type="Area2D" parent="PatientRoom1/Wall_north"]
+visible = false
+position = Vector2(412, -134)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Wall_north/Computer_above"]
+polygon = PackedVector2Array(-63, -96, 72, -96, 69, 88, 46, 90, 43, 147, 87, 165, 87, 186, -91, 194, -169, 148, -168, 132, -57, 128)
+
+[node name="Computer_above_ind" parent="PatientRoom1/Wall_north" instance=ExtResource("14_ai1i5")]
+visible = false
+position = Vector2(413, -134)
+
+[node name="Computer_below" type="Area2D" parent="PatientRoom1/Wall_north"]
+visible = false
+position = Vector2(348, 231)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Wall_north/Computer_below"]
+polygon = PackedVector2Array(-52, -182, -27, -169, 83, -175, 75, -38, 92, -25, 90, 52, -106, 50, -106, 38, -52, 35)
+
+[node name="Computer_below_ind" parent="PatientRoom1/Wall_north" instance=ExtResource("14_ai1i5")]
+visible = false
+position = Vector2(353, 231)
+
+[node name="Closet" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("handle_bl", "handle_tr", "door_bl", "door_tr")]
+visible = false
+position = Vector2(554, 365)
+script = ExtResource("35_m6lfn")
+handle_bl = NodePath("Handle_bl")
+handle_tr = NodePath("Handle_tr")
+door_bl = NodePath("Door_bl")
+door_tr = NodePath("Door_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Closet"]
+position = Vector2(22, -41)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("35_b6khv")
+
+[node name="Handle_bl" type="Node2D" parent="PatientRoom1/Closet"]
+position = Vector2(94, 157)
+
+[node name="Handle_tr" type="Node2D" parent="PatientRoom1/Closet"]
+position = Vector2(112, 63)
+
+[node name="Door_bl" type="Node2D" parent="PatientRoom1/Closet"]
+position = Vector2(73, 279)
+
+[node name="Door_tr" type="Node2D" parent="PatientRoom1/Closet"]
+position = Vector2(303, -319)
+
+[node name="Return_wall_north" parent="PatientRoom1/Closet" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(528, 205)
+rotation = 3.13616
+scale = Vector2(0.690006, 0.552408)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Wall_north")
+
+[node name="Face_west" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(569, 332)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Face_west"]
+position = Vector2(6.5, -7.49997)
+scale = Vector2(0.600521, 0.599074)
+texture = ExtResource("29_vbt4n")
+
+[node name="Front_door" type="Area2D" parent="PatientRoom1/Face_west"]
+position = Vector2(85, 48)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Face_west/Front_door"]
+position = Vector2(5.5, -18.5)
+shape = SubResource("RectangleShape2D_merxf")
+
+[node name="Front_door_ind" parent="PatientRoom1/Face_west" instance=ExtResource("14_ai1i5")]
+position = Vector2(85, 48)
+
+[node name="Front_light_switch" type="Area2D" parent="PatientRoom1/Face_west"]
+position = Vector2(-88, -40)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Face_west/Front_light_switch"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_3aeax")
+
+[node name="Front_light_switch_ind" parent="PatientRoom1/Face_west" instance=ExtResource("14_ai1i5")]
+position = Vector2(-89, -40)
+
+[node name="Turn_north" parent="PatientRoom1/Face_west" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(472, -265)
+rotation = 1.58234
+scale = Vector2(0.557947, 0.691029)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_north")
+
+[node name="Turn_south" parent="PatientRoom1/Face_west" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-468, -237)
+rotation = -1.57046
+scale = Vector2(0.617259, 0.707009)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_south")
+
+[node name="Front_door" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("in_handle_bl", "in_handle_tr", "out_handle_bl", "out_handle_tr")]
+visible = false
+position = Vector2(554, 364)
+script = ExtResource("32_s5jsu")
+in_handle_bl = NodePath("Closed/In_handle_bl")
+in_handle_tr = NodePath("Closed/In_handle_tr")
+out_handle_bl = NodePath("Open/Out_handle_bl")
+out_handle_tr = NodePath("Open/Out_handle_tr")
+metadata/_edit_group_ = true
+
+[node name="Closed" type="Sprite2D" parent="PatientRoom1/Front_door"]
+position = Vector2(22, -40)
+scale = Vector2(0.815864, 0.81715)
+texture = ExtResource("32_lyo01")
+
+[node name="In_handle_bl" type="Node2D" parent="PatientRoom1/Front_door/Closed"]
+position = Vector2(-80.8959, 39.1605)
+scale = Vector2(1.22569, 1.22377)
+
+[node name="In_handle_tr" type="Node2D" parent="PatientRoom1/Front_door/Closed"]
+position = Vector2(294.167, -44.0556)
+scale = Vector2(1.22569, 1.22377)
+
+[node name="To_out" parent="PatientRoom1/Front_door/Closed" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-284.361, -288.809)
+scale = Vector2(0.653738, 0.606061)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Open")
+
+[node name="Open" type="Sprite2D" parent="PatientRoom1/Front_door"]
+visible = false
+position = Vector2(22, -40)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("32_ve5uu")
+
+[node name="Out_handle_bl" type="Node2D" parent="PatientRoom1/Front_door/Open"]
+position = Vector2(-140, 18.3333)
+scale = Vector2(1.66667, 1.66667)
+
+[node name="Out_handle_tr" type="Node2D" parent="PatientRoom1/Front_door/Open"]
+position = Vector2(78.3333, -36.6667)
+scale = Vector2(1.66667, 1.66667)
+
+[node name="To_in" parent="PatientRoom1/Front_door/Open" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(513.333, -423.333)
+rotation = 1.59352
+currentScene = NodePath("..")
+nextScene = NodePath("../../Closed")
+
+[node name="Return_in_face_west" parent="PatientRoom1/Front_door" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(528, 192)
+rotation = -3.1304
+scale = Vector2(0.568456, 0.532897)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_west")
+
+[node name="Light_switch" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("switch_bl", "switch_tr", "panel_bl", "panel_tr")]
+visible = false
+position = Vector2(554, 362)
+script = ExtResource("32_1yphj")
+switch_bl = NodePath("Switch_bl")
+switch_tr = NodePath("Switch_tr")
+panel_bl = NodePath("Panel_bl")
+panel_tr = NodePath("Panel_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Light_switch"]
+position = Vector2(22, -38)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("33_68gqg")
+
+[node name="Switch_bl" type="Node2D" parent="PatientRoom1/Light_switch"]
+position = Vector2(22, 8)
+
+[node name="Switch_tr" type="Node2D" parent="PatientRoom1/Light_switch"]
+position = Vector2(57, -82)
+
+[node name="Panel_bl" type="Node2D" parent="PatientRoom1/Light_switch"]
+position = Vector2(-57, 55)
+
+[node name="Panel_tr" type="Node2D" parent="PatientRoom1/Light_switch"]
+position = Vector2(140, -135)
+
+[node name="Return_face_north" parent="PatientRoom1/Light_switch" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(519, 188)
+rotation = -3.13905
+scale = Vector2(0.589291, 0.536086)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_west")
+
+[node name="Face_north" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 368)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Face_north"]
+position = Vector2(21.5, -44)
+scale = Vector2(0.599479, 0.6)
+texture = ExtResource("30_ki4oq")
+
+[node name="Sharps_bin" type="Area2D" parent="PatientRoom1/Face_north"]
+position = Vector2(-378, 168)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Face_north/Sharps_bin"]
+polygon = PackedVector2Array(97, -96, 93, -81, 112, 53, 96, 111, -50, 111, -79, -25, -90, -31, -99, -57, -97, -72, -68, -128, -52, -136, -31, -138, 77, -138, 93, -127, 99, -109)
+
+[node name="Trash_bin" type="Area2D" parent="PatientRoom1/Face_north"]
+position = Vector2(-527, 163)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Face_north/Trash_bin"]
+polygon = PackedVector2Array(-28, -117, 23, -116, 57, -113, 65, -97, 51, -61, 54, -39, 62, -22, 70, -19, 89, 72, 70, 116, -28, 116)
+
+[node name="Desk" type="Area2D" parent="PatientRoom1/Face_north"]
+position = Vector2(502, 94)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Face_north/Desk"]
+polygon = PackedVector2Array(95, -78, 71, -81, 79, -106, 67, -117, 41, -120, 30, -113, 30, -103, 13, -108, -4, -106, -10, -95, -11, -81, -164, -82, -180, -70, -184, -43, -163, 39, -175, 134, -169, 150, -150, 150, -142, 146, -133, 75, -128, 79, -146, 186, -107, 186, -88, 78, 17, 78, 5, 132, 11, 148, 38, 150, 54, 79, 81, 78, 53, 185, 95, 185)
+
+[node name="Trash_bin_ind" parent="PatientRoom1/Face_north" instance=ExtResource("14_ai1i5")]
+position = Vector2(-533, 86)
+
+[node name="Sharps_bin_ind" parent="PatientRoom1/Face_north" instance=ExtResource("14_ai1i5")]
+position = Vector2(-382, 97)
+
+[node name="Desk_ind" parent="PatientRoom1/Face_north" instance=ExtResource("14_ai1i5")]
+position = Vector2(499, 96)
+
+[node name="Turn_east" parent="PatientRoom1/Face_north" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(488, -299)
+rotation = 1.55506
+scale = Vector2(0.547797, 0.649717)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_east")
+
+[node name="Turn_west" parent="PatientRoom1/Face_north" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-467, -280)
+rotation = -1.56841
+scale = Vector2(0.545515, 0.659282)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_west")
+
+[node name="Sharps_bin" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("lid_bl", "lid_tr", "bin_bl", "bin_tr")]
+visible = false
+position = Vector2(552, 362)
+script = ExtResource("38_tw460")
+lid_bl = NodePath("Lid_bl")
+lid_tr = NodePath("Lid_tr")
+bin_bl = NodePath("Bin_bl")
+bin_tr = NodePath("Bin_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Sharps_bin"]
+position = Vector2(24, -37.9999)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("38_a5gyu")
+
+[node name="Lid_bl" type="Node2D" parent="PatientRoom1/Sharps_bin"]
+position = Vector2(-69, -90)
+
+[node name="Lid_tr" type="Node2D" parent="PatientRoom1/Sharps_bin"]
+position = Vector2(213, -217)
+
+[node name="Bin_bl" type="Node2D" parent="PatientRoom1/Sharps_bin"]
+position = Vector2(-37, 181)
+
+[node name="Bin_tr" type="Node2D" parent="PatientRoom1/Sharps_bin"]
+position = Vector2(195, -57)
+
+[node name="Return_north" parent="PatientRoom1/Sharps_bin" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(530, 207)
+rotation = 3.13641
+scale = Vector2(0.525336, 0.496942)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_north")
+
+[node name="Trash_bin" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("lid_bl", "lid_tr", "bin_bl", "bin_tr")]
+visible = false
+position = Vector2(554, 362)
+script = ExtResource("40_c5gln")
+lid_bl = NodePath("Lid_bl")
+lid_tr = NodePath("Lid_tr")
+bin_bl = NodePath("Bin_bl")
+bin_tr = NodePath("Bin_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Trash_bin"]
+position = Vector2(22, -38)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("39_a0f2u")
+
+[node name="Lid_bl" type="Node2D" parent="PatientRoom1/Trash_bin"]
+position = Vector2(-124, -84)
+
+[node name="Lid_tr" type="Node2D" parent="PatientRoom1/Trash_bin"]
+position = Vector2(127, -204)
+
+[node name="Bin_bl" type="Node2D" parent="PatientRoom1/Trash_bin"]
+position = Vector2(-88, 177)
+
+[node name="Bin_tr" type="Node2D" parent="PatientRoom1/Trash_bin"]
+position = Vector2(130, -61)
+
+[node name="Return_north" parent="PatientRoom1/Trash_bin" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(541, 208)
+rotation = 3.13291
+scale = Vector2(0.52881, 0.488656)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_north")
+
+[node name="Desk" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("desk_top_bl", "desk_top_tr")]
+visible = false
+position = Vector2(554, 364)
+script = ExtResource("42_3wue6")
+desk_top_bl = NodePath("Desk_top_bl")
+desk_top_tr = NodePath("Desk_top_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Desk"]
+position = Vector2(22, -40)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("40_wi8ry")
+
+[node name="Desk_top_bl" type="Node2D" parent="PatientRoom1/Desk"]
+position = Vector2(-258, 105)
+
+[node name="Desk_top_tr" type="Node2D" parent="PatientRoom1/Desk"]
+position = Vector2(216, -193)
+
+[node name="Return_north" parent="PatientRoom1/Desk" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(524, 208)
+rotation = -3.12799
+scale = Vector2(0.5449, 0.509274)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_north")
+
+[node name="Face_south" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(579, 360)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Face_south"]
+position = Vector2(-3.5, -37)
+scale = Vector2(0.599479, 0.598148)
+texture = ExtResource("21_ffdb3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="PatientRoom1/Face_south"]
+visible = false
+position = Vector2(169, -35)
+scale = Vector2(2.33817, 1.86944)
+texture = ExtResource("15_3ievj")
+
+[node name="Door_to_bathroom" type="Area2D" parent="PatientRoom1/Face_south"]
+visible = false
+position = Vector2(166, -31)
+scale = Vector2(2.33817, 1.86944)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Face_south/Door_to_bathroom"]
+position = Vector2(0.855377, -1.87224)
+shape = SubResource("RectangleShape2D_shobl")
+
+[node name="Turn_east" parent="PatientRoom1/Face_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-451, -269)
+rotation = -1.56712
+scale = Vector2(0.526803, 0.701616)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_east")
+
+[node name="Face_south_ind" parent="PatientRoom1/Face_south" instance=ExtResource("14_ai1i5")]
+visible = false
+position = Vector2(167, -35)
+
+[node name="Towards_bathroom" parent="PatientRoom1/Face_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(31, -29)
+rotation = -0.00440692
+scale = Vector2(0.592778, 0.590741)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_entry")
+
+[node name="Turn_west" parent="PatientRoom1/Face_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(460, -289)
+rotation = 1.5451
+scale = Vector2(0.624387, 0.690983)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_west")
+
+[node name="Bathroom_entry" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(579, 360)
+scale = Vector2(0.999998, 0.999999)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_entry"]
+position = Vector2(-3, -37.5)
+scale = Vector2(0.601043, 0.599075)
+texture = ExtResource("33_nalfl")
+
+[node name="Back_from_bathroom" parent="PatientRoom1/Bathroom_entry" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(522.001, 189)
+rotation = 3.13924
+scale = Vector2(0.54449, 0.684767)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Face_south")
+
+[node name="Turn_left_bathroom" parent="PatientRoom1/Bathroom_entry" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(78.0002, -297)
+rotation = -1.56741
+scale = Vector2(0.549322, 0.656513)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_east")
+
+[node name="Turn_right_bathroom" parent="PatientRoom1/Bathroom_entry" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(66.0001, -215)
+rotation = 1.56507
+scale = Vector2(0.511194, 0.633869)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_south")
+
+[node name="Bathroom_east" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(529, 302)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_east"]
+position = Vector2(48, 20.5)
+scale = Vector2(0.6, 0.600926)
+texture = ExtResource("34_yf5h4")
+
+[node name="Sink_interactable" type="Node2D" parent="PatientRoom1/Bathroom_east"]
+position = Vector2(-290, 169)
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_east/Sink_interactable"]
+visible = false
+position = Vector2(13, 11)
+scale = Vector2(1.83285, 1.72299)
+texture = ExtResource("20_dopjo")
+
+[node name="Sink_interactable" type="Area2D" parent="PatientRoom1/Bathroom_east/Sink_interactable"]
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Bathroom_east/Sink_interactable/Sink_interactable"]
+polygon = PackedVector2Array(-86, -36, -71, -44, -4, -48, 83, -49, 98, -31, 101, 17, 88, 27, 94, 31, 98, 54, 99, 176, -87, 175, -88, 63, -85, 38, -77, 38, -92, 27, -92, -21)
+
+[node name="Sink_ind" parent="PatientRoom1/Bathroom_east/Sink_interactable" instance=ExtResource("14_ai1i5")]
+
+[node name="Return_from_bathroom" parent="PatientRoom1/Bathroom_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(525, 240)
+rotation = 1.57192
+scale = Vector2(0.556292, 0.698065)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_entry")
+
+[node name="cleaner_red" parent="PatientRoom1/Bathroom_east" instance=ExtResource("22_cjkwi")]
+visible = false
+z_index = 1
+position = Vector2(-309, -238)
+scale = Vector2(3.04111, 2.69739)
+
+[node name="red_cloth" parent="PatientRoom1/Bathroom_east" instance=ExtResource("23_u8skn")]
+visible = false
+z_index = 1
+position = Vector2(430, 142)
+scale = Vector2(3.21887, 3.12479)
+
+[node name="Turn_north" parent="PatientRoom1/Bathroom_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-403, -211)
+rotation = -1.57653
+scale = Vector2(0.469566, 0.6287)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_north")
+
+[node name="Mirror" type="Area2D" parent="PatientRoom1/Bathroom_east"]
+position = Vector2(-294, 5)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Bathroom_east/Mirror"]
+position = Vector2(0.5, -6)
+rotation = -0.0234571
+shape = SubResource("RectangleShape2D_r4gcw")
+
+[node name="Mirror_ind" parent="PatientRoom1/Bathroom_east" instance=ExtResource("14_ai1i5")]
+position = Vector2(-297, 1)
+
+[node name="Soap_dispenser" type="Area2D" parent="PatientRoom1/Bathroom_east"]
+position = Vector2(-123, 15)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Bathroom_east/Soap_dispenser"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_e2my6")
+
+[node name="Soap_dispenser_ind" parent="PatientRoom1/Bathroom_east" instance=ExtResource("14_ai1i5")]
+position = Vector2(-121, 15)
+
+[node name="Shower_curtain_rod" type="Area2D" parent="PatientRoom1/Bathroom_east"]
+position = Vector2(28, -267)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Bathroom_east/Shower_curtain_rod"]
+polygon = PackedVector2Array(-28, 9, -21, 17, -9, 15, 54, -10, 77, -15, 108, -18, 155, -18, 231, -17, 314, -14, 400, -13, 488, -11, 574, -7, 582, -17, 581, -25, 174, -35, 109, -34, 56, -30, 17, -15)
+
+[node name="Shower_curtain_rod_ind" parent="PatientRoom1/Bathroom_east" instance=ExtResource("14_ai1i5")]
+position = Vector2(30, -267)
+
+[node name="Shower_head" type="Area2D" parent="PatientRoom1/Bathroom_east"]
+position = Vector2(224, -200)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Bathroom_east/Shower_head"]
+position = Vector2(-11, 18.5)
+shape = SubResource("RectangleShape2D_deo8o")
+
+[node name="Shower_head_ind" parent="PatientRoom1/Bathroom_east" instance=ExtResource("14_ai1i5")]
+position = Vector2(226, -196)
+
+[node name="Shower_handle" type="Area2D" parent="PatientRoom1/Bathroom_east"]
+position = Vector2(190, -9)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Bathroom_east/Shower_handle"]
+position = Vector2(-6.5, -15)
+shape = SubResource("RectangleShape2D_3ait3")
+
+[node name="Shower_handle_ind" parent="PatientRoom1/Bathroom_east" instance=ExtResource("14_ai1i5")]
+position = Vector2(187, -12)
+
+[node name="Sink" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("spout_bl", "spout_tr", "bowl_bl", "bowl_tr", "counter_bl", "counter_tr")]
+visible = false
+position = Vector2(545, 299)
+script = ExtResource("5_loatk")
+spout_bl = NodePath("Spout_bl")
+spout_tr = NodePath("Spout_tr")
+bowl_bl = NodePath("Bowl_bl")
+bowl_tr = NodePath("Bowl_tr")
+counter_bl = NodePath("Counter_bl")
+counter_tr = NodePath("Counter_tr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Sink"]
+position = Vector2(30.9999, 25)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("42_bo6ri")
+
+[node name="Leave_sink" parent="PatientRoom1/Sink" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(519, 237)
+rotation = 3.13898
+scale = Vector2(0.664207, 0.655082)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_east")
+
+[node name="Spout_bl" type="Node2D" parent="PatientRoom1/Sink"]
+position = Vector2(22, -125)
+
+[node name="Spout_tr" type="Node2D" parent="PatientRoom1/Sink"]
+position = Vector2(68, -182)
+
+[node name="Bowl_bl" type="Node2D" parent="PatientRoom1/Sink"]
+position = Vector2(-116, 150)
+
+[node name="Bowl_tr" type="Node2D" parent="PatientRoom1/Sink"]
+position = Vector2(188, -22)
+
+[node name="Counter_bl" type="Node2D" parent="PatientRoom1/Sink"]
+position = Vector2(-153, 177)
+
+[node name="Counter_tr" type="Node2D" parent="PatientRoom1/Sink"]
+position = Vector2(229, -85)
+
+[node name="Mirror" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 363)
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Mirror"]
+position = Vector2(22.0001, -39)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("70_yt41p")
+
+[node name="Mirror_bl" type="Node2D" parent="PatientRoom1/Mirror"]
+position = Vector2(-57, 237)
+
+[node name="Mirror_tr" type="Node2D" parent="PatientRoom1/Mirror"]
+position = Vector2(390, -307)
+
+[node name="Return_bathroom_east" parent="PatientRoom1/Mirror" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(530, 200)
+rotation = -3.14498
+scale = Vector2(0.57768, 0.511841)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_east")
+
+[node name="Soap_dispenser" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 363)
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Soap_dispenser"]
+position = Vector2(22, -39)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("74_qku3v")
+
+[node name="Dispenser_bl" type="Node2D" parent="PatientRoom1/Soap_dispenser"]
+position = Vector2(-58, 174)
+
+[node name="Dispenser_tr" type="Node2D" parent="PatientRoom1/Soap_dispenser"]
+position = Vector2(174, 147)
+
+[node name="Holder_bl" type="Node2D" parent="PatientRoom1/Soap_dispenser"]
+position = Vector2(-62, 168)
+
+[node name="Holder_tr" type="Node2D" parent="PatientRoom1/Soap_dispenser"]
+position = Vector2(181, -266)
+
+[node name="Return_bathroom_east" parent="PatientRoom1/Soap_dispenser" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(506, 192)
+rotation = -3.13842
+scale = Vector2(0.570933, 0.537874)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_east")
+
+[node name="Shower_handle" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 363)
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Shower_handle"]
+position = Vector2(22, -39)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("71_ex2i8")
+
+[node name="Handle_bl" type="Node2D" parent="PatientRoom1/Shower_handle"]
+position = Vector2(49, -72)
+
+[node name="Handle_tr" type="Node2D" parent="PatientRoom1/Shower_handle"]
+position = Vector2(79, -217)
+
+[node name="Holder_bl" type="Node2D" parent="PatientRoom1/Shower_handle"]
+position = Vector2(-25, 69)
+
+[node name="Holder_tr" type="Node2D" parent="PatientRoom1/Shower_handle"]
+position = Vector2(109, -101)
+
+[node name="Return_bathroom_east" parent="PatientRoom1/Shower_handle" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(505, 180)
+rotation = -3.1359
+scale = Vector2(0.592798, 0.53528)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_east")
+
+[node name="Shower_head" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 363)
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Shower_head"]
+position = Vector2(22, -39)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("72_6jhia")
+
+[node name="Shower_head_bl" type="Node2D" parent="PatientRoom1/Shower_head"]
+position = Vector2(-71, -13)
+
+[node name="Shower_head_tr" type="Node2D" parent="PatientRoom1/Shower_head"]
+position = Vector2(144, -194)
+
+[node name="Return_bathroom_east" parent="PatientRoom1/Shower_head" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(516, 202)
+rotation = -3.14044
+scale = Vector2(0.613611, 0.525292)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_east")
+
+[node name="Shower_curtain_railing" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 363)
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Shower_curtain_railing"]
+position = Vector2(22, -39)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("73_oqgd7")
+
+[node name="Railing1_bl" type="Node2D" parent="PatientRoom1/Shower_curtain_railing"]
+position = Vector2(-466, -246)
+
+[node name="Railing1_tr" type="Node2D" parent="PatientRoom1/Shower_curtain_railing"]
+position = Vector2(325, -266)
+
+[node name="Railing2_bl" type="Node2D" parent="PatientRoom1/Shower_curtain_railing"]
+position = Vector2(-426, 209)
+
+[node name="Railing2_tr" type="Node2D" parent="PatientRoom1/Shower_curtain_railing"]
+position = Vector2(30, 133)
+
+[node name="Railing3_bl" type="Node2D" parent="PatientRoom1/Shower_curtain_railing"]
+position = Vector2(101, 127)
+
+[node name="Railing3_tr" type="Node2D" parent="PatientRoom1/Shower_curtain_railing"]
+position = Vector2(135, -219)
+
+[node name="Return_bathroom_east" parent="PatientRoom1/Shower_curtain_railing" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(498, 192)
+rotation = -3.13977
+scale = Vector2(0.526881, 0.499141)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_east")
+
+[node name="Bathroom_south" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 368)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_south"]
+position = Vector2(21.9999, -44)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("38_5ctbj")
+
+[node name="Return_entry" parent="PatientRoom1/Bathroom_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-451, -245)
+rotation = -1.57006
+scale = Vector2(0.65798, 0.648716)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_entry")
+
+[node name="Toilet" type="Area2D" parent="PatientRoom1/Bathroom_south"]
+position = Vector2(41, -11)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Bathroom_south/Toilet"]
+polygon = PackedVector2Array(-96, -158, -110, -58, -142, -14, -143, 28, -119, 106, -108, 127, -99, 189, -71, 223, -28, 239, 17, 239, 62, 221, 90, 185, 95, 123, 118, 84, 121, 57, 139, 30, 134, -7, 125, -36, 100, -57, 101, -150, 51, -169, 14, -171, -46, -174)
+
+[node name="Toilet_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
+position = Vector2(36, -25)
+
+[node name="Bathroom_trash_bin" type="Area2D" parent="PatientRoom1/Bathroom_south"]
+position = Vector2(281, -48)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Bathroom_south/Bathroom_trash_bin"]
+position = Vector2(9, 49)
+shape = SubResource("RectangleShape2D_8hdao")
+
+[node name="Bathroom_trash_bin_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
+position = Vector2(289, -55)
+
+[node name="Pull_cord" type="Area2D" parent="PatientRoom1/Bathroom_south"]
+position = Vector2(251, -157)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Bathroom_south/Pull_cord"]
+shape = SubResource("CircleShape2D_lvs4u")
+
+[node name="Pull_cord_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
+position = Vector2(253, -157)
+
+[node name="Toilet_roll" type="Area2D" parent="PatientRoom1/Bathroom_south"]
+position = Vector2(321, -314)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Bathroom_south/Toilet_roll"]
+polygon = PackedVector2Array(-104, -41, -95, -27, -91, 2, -73, 9, -42, 9, -48, 81, 23, 86, 41, 14, 63, 9, 66, -3, 61, -24, 70, -33, 70, -46, 60, -51, 30, -51, -97, -53, -104, -49)
+
+[node name="Toilet_roll_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
+position = Vector2(319, -319)
+
+[node name="Toilet_handle" type="Area2D" parent="PatientRoom1/Bathroom_south"]
+position = Vector2(44, -254)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Bathroom_south/Toilet_handle"]
+polygon = PackedVector2Array(-8, -112, -8, -24, -15, -18, -18, -1, -12, 19, -7, 24, -8, 69, 8, 69, 10, 20, 20, 11, 21, -13, 12, -23, 13, -113)
+
+[node name="Toilet_handle_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
+position = Vector2(45, -262)
+
+[node name="Toilet_bar" type="Area2D" parent="PatientRoom1/Bathroom_south"]
+position = Vector2(498, -14)
+monitoring = false
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Bathroom_south/Toilet_bar"]
+polygon = PackedVector2Array(-3, -341, -23, -338, -28, -328, -72, -318, -90, -297, -83, -261, 42, 292, 88, 293, 100, 289, 100, 166, 101, -36)
+
+[node name="Toilet_bar_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
+position = Vector2(497, -14)
+
+[node name="Bathroom_north" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(552, 366)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_north"]
+position = Vector2(24, -42)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("42_ceyth")
+
+[node name="Turn_east" parent="PatientRoom1/Bathroom_north" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(490, 201)
+rotation = 1.57843
+scale = Vector2(0.466285, 0.589643)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_east")
+
+[node name="Bathroom_door_handle" type="Area2D" parent="PatientRoom1/Bathroom_north"]
+position = Vector2(-148, 27)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Bathroom_north/Bathroom_door_handle"]
+position = Vector2(2.5, 3)
+shape = SubResource("RectangleShape2D_5x16l")
+
+[node name="Bathroom_door_handle_ind" parent="PatientRoom1/Bathroom_north" instance=ExtResource("14_ai1i5")]
+position = Vector2(-147, 27)
+
+[node name="Bathroom_light_switch" type="Area2D" parent="PatientRoom1/Bathroom_north"]
+position = Vector2(523, -226)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatientRoom1/Bathroom_north/Bathroom_light_switch"]
+position = Vector2(8.08655, -5.3042)
+rotation = 0.318389
+shape = SubResource("RectangleShape2D_ek826")
+
+[node name="Bathroom_light_switch_ind" parent="PatientRoom1/Bathroom_north" instance=ExtResource("14_ai1i5")]
+position = Vector2(528, -228)
+
+[node name="Stop" parent="." instance=ExtResource("2_yimi7")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="Room_transition_cooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="spawn_chair_bed_bacteria" from="." to="PatientRoom1/Chair_bed" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_chair_desk_close_bacteria" from="." to="PatientRoom1/Chair_desk_close" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_closet_bacteria" from="." to="PatientRoom1/Closet" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_computer_bacteria" from="." to="PatientRoom1/Computer" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_computer_screen_bacteria" from="." to="PatientRoom1/Computer_screen" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_desk_bacteria" from="." to="PatientRoom1/Desk" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_front_door_bacteria" from="." to="PatientRoom1/Front_door" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_light_switch_bacteria" from="." to="PatientRoom1/Light_switch" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_nightstand_above_bacteria" from="." to="PatientRoom1/Nightstand_above" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_nightstand_below_bacteria" from="." to="PatientRoom1/Nightstand_below" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_phone_bacteria" from="." to="PatientRoom1/Phone" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_rail_controls_bacteria" from="." to="PatientRoom1/Rail_controls" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_sharps_bin_bacteria" from="." to="PatientRoom1/Sharps_bin" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_side_table_bacteria" from="." to="PatientRoom1/Side_table_above" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_sink_bacteria" from="." to="PatientRoom1/Sink" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_trash_bin_bacteria" from="." to="PatientRoom1/Trash_bin" method="_on_main_spawn_bacteria"]
 [connection signal="pressed" from="Canvas_inventory/CartButton/Cart_button" to="Canvas_inventory/Inventory_animation" method="_on_cart_button_pressed"]
 [connection signal="pressed" from="Canvas_inventory/InformationButton/Info_button" to="Canvas_inventory/InformationButton" method="button_clicked"]
 [connection signal="pressed" from="Canvas_inventory/InformationButton/Info_button" to="Canvas_inventory/InformationButton/Info_button" method="_on_pressed"]
 [connection signal="timeout" from="Canvas_inventory/InformationButton/Idle_timer" to="Canvas_inventory/InformationButton" method="_on_idle_timer_timeout"]
-[connection signal="completed" from="Chair_desk_close" to="Face_east/Chair_desk/Chair_desk_ind" method="change_sprite"]
-[connection signal="hideBacteria" from="Chair_desk_close/Leave_chair_desk" to="Chair_desk_close" method="_on_leave_chair_desk_hide_bacteria"]
-[connection signal="completed" from="Sink" to="Bathroom_east/Sink_interactable/Sink_ind" method="change_sprite"]
-[connection signal="hideBacteria" from="Sink/Leave_sink" to="Sink" method="_on_leave_sink_hide_bacteria"]
-[connection signal="input_event" from="Outside_room/Door_interact/Door_interact" to="." method="_on_door_interact_input_event"]
-[connection signal="input_event" from="Face_east/Chair_desk/Chair_desk" to="." method="_on_chair_desk_input_event"]
-[connection signal="input_event" from="Face_east/Blue_cloth" to="." method="_on_cleaner_blue_cloth_input_event"]
-[connection signal="input_event" from="Face_east/Cleaner_blue" to="." method="_on_cleaner_blue_input_event"]
-[connection signal="input_event" from="Face_south/Door_to_bathroom" to="." method="_on_door_to_bathroom_input_event"]
-[connection signal="input_event" from="Bathroom_east/Sink_interactable/Sink_interactable" to="." method="_on_sink_interactable_input_event"]
-[connection signal="input_event" from="Bathroom_east/cleaner_red" to="." method="_on_cleaner_red_input_event"]
-[connection signal="input_event" from="Bathroom_east/red_cloth" to="." method="_on_red_cloth_input_event"]
 [connection signal="start_game" from="Start_page" to="." method="start_game"]
 [connection signal="start_game" from="Start_page" to="Canvas_inventory/InformationButton" method="game_started"]
-[connection signal="add_point_desk_chair" from="Player" to="Chair_desk_close" method="add_score"]
-[connection signal="add_point_sink" from="Player" to="Sink" method="add_score"]
-[connection signal="remove_point_desk_chair" from="Player" to="Chair_desk_close" method="remove_score"]
-[connection signal="remove_point_sink" from="Player" to="Sink" method="remove_score"]
+[connection signal="add_point_chair_bed" from="Player" to="PatientRoom1/Chair_bed" method="add_score"]
+[connection signal="add_point_closet" from="Player" to="PatientRoom1/Closet" method="add_score"]
+[connection signal="add_point_computer" from="Player" to="PatientRoom1/Computer" method="add_score"]
+[connection signal="add_point_computer_screen" from="Player" to="PatientRoom1/Computer_screen" method="add_score"]
+[connection signal="add_point_desk" from="Player" to="PatientRoom1/Desk" method="add_score"]
+[connection signal="add_point_desk_chair" from="Player" to="PatientRoom1/Chair_desk_close" method="add_score"]
+[connection signal="add_point_front_door" from="Player" to="PatientRoom1/Front_door" method="add_score"]
+[connection signal="add_point_light_switch" from="Player" to="PatientRoom1/Light_switch" method="add_score"]
+[connection signal="add_point_nightstand_above" from="Player" to="PatientRoom1/Nightstand_above" method="add_score"]
+[connection signal="add_point_nightstand_below" from="Player" to="PatientRoom1/Nightstand_below" method="add_score"]
+[connection signal="add_point_phone" from="Player" to="PatientRoom1/Phone" method="add_score"]
+[connection signal="add_point_rail_controls" from="Player" to="PatientRoom1/Rail_controls" method="add_score"]
+[connection signal="add_point_sharps_bin" from="Player" to="PatientRoom1/Sharps_bin" method="add_score"]
+[connection signal="add_point_side_table_above" from="Player" to="PatientRoom1/Side_table_above" method="add_score"]
+[connection signal="add_point_sink" from="Player" to="PatientRoom1/Sink" method="add_score"]
+[connection signal="add_point_trash_bin" from="Player" to="PatientRoom1/Trash_bin" method="add_score"]
+[connection signal="correct" from="Player" to="Correct_Incorrect" method="correct"]
+[connection signal="incorrect" from="Player" to="Correct_Incorrect" method="incorrect"]
+[connection signal="remove_point_chair_bed" from="Player" to="PatientRoom1/Chair_bed" method="remove_score"]
+[connection signal="remove_point_closet" from="Player" to="PatientRoom1/Closet" method="remove_score"]
+[connection signal="remove_point_computer" from="Player" to="PatientRoom1/Computer" method="remove_score"]
+[connection signal="remove_point_computer_screen" from="Player" to="PatientRoom1/Computer_screen" method="remove_score"]
+[connection signal="remove_point_desk" from="Player" to="PatientRoom1/Desk" method="remove_score"]
+[connection signal="remove_point_desk_chair" from="Player" to="PatientRoom1/Chair_desk_close" method="remove_score"]
+[connection signal="remove_point_front_door" from="Player" to="PatientRoom1/Front_door" method="remove_score"]
+[connection signal="remove_point_light_switch" from="Player" to="PatientRoom1/Light_switch" method="remove_score"]
+[connection signal="remove_point_nightstand_above" from="Player" to="PatientRoom1/Nightstand_above" method="remove_score"]
+[connection signal="remove_point_nightstand_below" from="Player" to="PatientRoom1/Nightstand_below" method="remove_score"]
+[connection signal="remove_point_phone" from="Player" to="PatientRoom1/Phone" method="remove_score"]
+[connection signal="remove_point_rail_controls" from="Player" to="PatientRoom1/Rail_controls" method="remove_score"]
+[connection signal="remove_point_sharps_bin" from="Player" to="PatientRoom1/Sharps_bin" method="remove_score"]
+[connection signal="remove_point_side_table_above" from="Player" to="PatientRoom1/Side_table_above" method="remove_score"]
+[connection signal="remove_point_sink" from="Player" to="PatientRoom1/Sink" method="remove_score"]
+[connection signal="remove_point_trash_bin" from="Player" to="PatientRoom1/Trash_bin" method="remove_score"]
 [connection signal="stop_sign" from="Player" to="Stop" method="show_up"]
+[connection signal="input_event" from="PatientRoom1/Outside_room/Door_interact/Door_interact" to="." method="_on_door_interact_input_event"]
+[connection signal="input_event" from="PatientRoom1/Face_east/Chair_desk/Chair_desk" to="." method="_on_chair_desk_input_event"]
+[connection signal="input_event" from="PatientRoom1/Face_east/Blue_cloth" to="." method="_on_cleaner_blue_cloth_input_event"]
+[connection signal="input_event" from="PatientRoom1/Face_east/Cleaner_blue" to="." method="_on_cleaner_blue_input_event"]
+[connection signal="completed" from="PatientRoom1/Chair_desk_close" to="PatientRoom1/Face_east/Chair_desk/Chair_desk_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Chair_desk_close/Leave_chair_desk" to="PatientRoom1/Chair_desk_close" method="_on_leave_chair_desk_hide_bacteria"]
+[connection signal="input_event" from="PatientRoom1/Wall_east/Computer_monitor" to="." method="_on_computer_monitor_input_event"]
+[connection signal="input_event" from="PatientRoom1/Wall_east/Computer" to="." method="_on_computer_input_event"]
+[connection signal="input_event" from="PatientRoom1/Wall_east/Chair_bed" to="." method="_on_chair_bed_input_event"]
+[connection signal="completed" from="PatientRoom1/Computer_screen" to="PatientRoom1/Wall_east/Computer_monitor_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Computer_screen/Return_wall_east" to="PatientRoom1/Computer_screen" method="_on_leave_computer_screen_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Computer" to="PatientRoom1/Wall_east/Computer_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Computer/Return_wall_east" to="PatientRoom1/Computer" method="_on_leave_computer_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Chair_bed" to="PatientRoom1/Wall_east/Chair_bed_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Chair_bed/Return_wall_east" to="PatientRoom1/Chair_bed" method="_on_leave_chair_bed_hide_bacteria"]
+[connection signal="input_event" from="PatientRoom1/Wall_south/Nightstand_above" to="." method="_on_nightstand_above_input_event"]
+[connection signal="input_event" from="PatientRoom1/Wall_south/Nightstand_below" to="." method="_on_nightstand_below_input_event"]
+[connection signal="input_event" from="PatientRoom1/Wall_south/Side_table_above" to="." method="_on_side_table_above_input_event"]
+[connection signal="input_event" from="PatientRoom1/Wall_south/Rail_controls" to="." method="_on_rail_controls_input_event"]
+[connection signal="completed" from="PatientRoom1/Nightstand_above" to="PatientRoom1/Wall_south/Nightstand_above_ind" method="change_sprite"]
+[connection signal="input_event" from="PatientRoom1/Nightstand_above/Phone" to="." method="_on_phone_input_event"]
+[connection signal="hideBacteria" from="PatientRoom1/Nightstand_above/Return_wall_south" to="PatientRoom1/Nightstand_above" method="_on_leave_nightstand_above_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Phone" to="PatientRoom1/Nightstand_above/Phone_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Phone/Return_nightstand_above" to="PatientRoom1/Phone" method="_on_leave_phone_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Nightstand_below" to="PatientRoom1/Wall_south/Nightstand_below_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Nightstand_below/Return_wall_south" to="PatientRoom1/Nightstand_below" method="_on_leave_nightstand_below_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Side_table_above" to="PatientRoom1/Wall_south/Side_table_above_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Side_table_above/Return_wall_south" to="PatientRoom1/Side_table_above" method="_on_leave_side_table_above_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Rail_controls" to="PatientRoom1/Wall_south/Rail_controls_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Rail_controls/Return_wall_south" to="PatientRoom1/Rail_controls" method="_on_leave_rail_controls_hide_bacteria"]
+[connection signal="input_event" from="PatientRoom1/Wall_north/Chair_desk" to="." method="_on_chair_desk_input_event"]
+[connection signal="input_event" from="PatientRoom1/Wall_north/Closet" to="." method="_on_closet_input_event"]
+[connection signal="input_event" from="PatientRoom1/Wall_north/Computer_above" to="." method="_on_computer_monitor_input_event"]
+[connection signal="input_event" from="PatientRoom1/Wall_north/Computer_below" to="." method="_on_computer_input_event"]
+[connection signal="completed" from="PatientRoom1/Closet" to="PatientRoom1/Wall_north/Closet_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Closet/Return_wall_north" to="PatientRoom1/Closet" method="_on_leave_closet_hide_bacteria"]
+[connection signal="input_event" from="PatientRoom1/Face_west/Front_door" to="." method="_on_front_door_input_event"]
+[connection signal="input_event" from="PatientRoom1/Face_west/Front_light_switch" to="." method="_on_front_light_switch_input_event"]
+[connection signal="completed" from="PatientRoom1/Front_door" to="PatientRoom1/Face_west/Front_door_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Front_door/Closed/To_out" to="PatientRoom1/Front_door" method="on_leave_closed_front_door_hide_bacteria"]
+[connection signal="hideBacteria" from="PatientRoom1/Front_door/Open/To_in" to="PatientRoom1/Front_door" method="on_leave_open_front_door_hide_bacteria"]
+[connection signal="hideBacteria" from="PatientRoom1/Front_door/Return_in_face_west" to="PatientRoom1/Front_door" method="_on_leave_front_door_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Light_switch" to="PatientRoom1/Face_west/Front_light_switch_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Light_switch/Return_face_north" to="PatientRoom1/Light_switch" method="_on_leave_light_switch_hide_bacteria"]
+[connection signal="input_event" from="PatientRoom1/Face_north/Sharps_bin" to="." method="_on_sharps_bin_input_event"]
+[connection signal="input_event" from="PatientRoom1/Face_north/Trash_bin" to="." method="_on_trash_bin_input_event"]
+[connection signal="input_event" from="PatientRoom1/Face_north/Desk" to="." method="_on_desk_input_event"]
+[connection signal="completed" from="PatientRoom1/Sharps_bin" to="PatientRoom1/Face_north/Sharps_bin_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Sharps_bin/Return_north" to="PatientRoom1/Sharps_bin" method="_on_leave_sharps_bin_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Trash_bin" to="PatientRoom1/Face_north/Trash_bin_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Trash_bin/Return_north" to="PatientRoom1/Trash_bin" method="_on_leave_trash_bin_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Desk" to="PatientRoom1/Face_north/Desk_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Desk/Return_north" to="PatientRoom1/Desk" method="_on_leave_desk_top_hide_bacteria"]
+[connection signal="input_event" from="PatientRoom1/Face_south/Door_to_bathroom" to="." method="_on_door_to_bathroom_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_east/Sink_interactable/Sink_interactable" to="." method="_on_sink_interactable_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_east/cleaner_red" to="." method="_on_cleaner_red_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_east/red_cloth" to="." method="_on_red_cloth_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_east/Mirror" to="." method="_on_mirror_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_east/Soap_dispenser" to="." method="_on_soap_dispenser_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_east/Shower_curtain_rod" to="." method="_on_shower_curtain_rod_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_east/Shower_head" to="." method="_on_shower_head_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_east/Shower_handle" to="." method="_on_shower_handle_input_event"]
+[connection signal="completed" from="PatientRoom1/Sink" to="PatientRoom1/Bathroom_east/Sink_interactable/Sink_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Sink/Leave_sink" to="PatientRoom1/Sink" method="_on_leave_sink_hide_bacteria"]
+[connection signal="timeout" from="Room_transition_cooldown" to="." method="_on_room_transition_cooldown_timeout"]

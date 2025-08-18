@@ -8,6 +8,7 @@ radius = 50.0
 height = 184.0
 
 [node name="Enterococcus" type="Node2D"]
+scale = Vector2(0.482014, 0.370492)
 script = ExtResource("1_iocr2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,7 +16,7 @@ position = Vector2(1, -3.8147e-06)
 scale = Vector2(0.691406, 0.675781)
 texture = ExtResource("1_ahgbh")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Enterococcus" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enterococcus"]
 shape = SubResource("CapsuleShape2D_t1fy2")

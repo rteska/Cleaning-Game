@@ -303,6 +303,7 @@ texture = ExtResource("3_kg8mr")
 expand_mode = 1
 
 [node name="ItemList" type="ItemList" parent="LevelSelectBackground/LevelSelectScroll/LevelSelectHolder/LevelSelect"]
+visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -351,6 +352,7 @@ libraries = {
 }
 
 [node name="LinksLabel" type="Label" parent="LevelSelectBackground/LevelSelectScroll/LevelSelectHolder/LevelSelect"]
+visible = false
 custom_minimum_size = Vector2(2, 2)
 layout_mode = 0
 offset_left = 437.779

@@ -1,6 +1,13 @@
 extends Node2D
 
-const bacteriaPath = preload("res://c_diff.tscn")
+const bacteriaPath = preload("res://enterococcus.tscn")
+
+@export var spout_bl = Node2D
+@export var spout_tr = Node2D
+@export var bowl_bl = Node2D
+@export var bowl_tr = Node2D
+@export var counter_bl = Node2D
+@export var counter_tr = Node2D
 
 var centerPos = global_position
 var Sink_cleaned = false
@@ -8,7 +15,7 @@ var alreadyGenerated = false
 
 signal completed
 
-var total = 110
+var total = 22
 var sink_score = 0
 var score_added = false
 
@@ -24,26 +31,30 @@ func _process(delta: float) -> void:
 
 func _on_main_spawn_bacteria() -> void:
 	if !Sink_cleaned && !alreadyGenerated:
-		for i in range(20): #Concentrated amount on the faucet and handles
+		
+		for i in range(10): #Concentrated amount on the spout
 			var bacteria = bacteriaPath.instantiate()
-			bacteria.play_animation()
+			#bacteria.play_animation()
 			
-			bacteria.position = position + Vector2(randf_range(-575, -425), randf_range(-500, -475))
+			bacteria.rotate_random()
+			bacteria.position = Vector2(randf_range(spout_bl.position.x, spout_tr.position.x), randf_range(spout_bl.position.y, spout_tr.position.y))
+			add_child(bacteria)
+		
+		for i in range(7): #Concentrated amount in the bowl
+			var bacteria = bacteriaPath.instantiate()
+			#bacteria.play_animation()
+			
+			bacteria.rotate_random()
+			bacteria.position = Vector2(randf_range(bowl_bl.position.x, bowl_tr.position.x), randf_range(bowl_bl.position.y, bowl_tr.position.y))
 			add_child(bacteria)
 			
-		for i in range(40): #Concentrated amount in the bowl
+			
+		for i in range(5): #Sparse amount on the counter
 			var bacteria = bacteriaPath.instantiate()
-			bacteria.play_animation()
+			#bacteria.play_animation()
 			
-			bacteria.position = position + Vector2(randf_range(-650, -400), randf_range(-400, -100))
-			add_child(bacteria)
-			
-			
-		for i in range(50): #Sparse amount on the counter
-			var bacteria = bacteriaPath.instantiate()
-			bacteria.play_animation()
-			
-			bacteria.position = position + Vector2(randf_range(-1000, 0), randf_range(-500, -200))
+			bacteria.rotate_random()
+			bacteria.position = Vector2(randf_range(counter_bl.position.x, counter_tr.position.x), randf_range(counter_bl.position.y, counter_tr.position.y))
 			add_child(bacteria)
 		alreadyGenerated = true
 	

@@ -1,0 +1,375 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkjeyhnh3q4ak"]
+
+[ext_resource type="Texture2D" uid="uid://cmh6gjewyoe8d" path="res://Art/Spiral.png" id="1_ccstn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g60qj"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk2hj"]
+
+[node name="IntroScreen" type="CanvasLayer"]
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0.808998, 0.808998, 0.808998, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ccstn")
+expand_mode = 1
+
+[node name="RoomBorder" type="ColorRect" parent="."]
+offset_left = 280.0
+offset_top = 256.0
+offset_right = 320.0
+offset_bottom = 296.0
+scale = Vector2(14.6699, 6.45372)
+
+[node name="RoomImage" type="TextureRect" parent="RoomBorder"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 3.0
+offset_bottom = 10.0
+scale = Vector2(18.9634, 4.4322)
+
+[node name="SectorOption" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -544.0
+offset_top = -296.0
+offset_right = -344.0
+offset_bottom = -246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g60qj")
+item_count = 4
+popup/item_0/text = "Healthcare"
+popup/item_1/text = "Hospitality"
+popup/item_1/id = 1
+popup/item_2/text = "Food Service"
+popup/item_2/id = 2
+popup/item_3/text = "Retail"
+popup/item_3/id = 3
+
+[node name="RoomTypeOption" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = -296.0
+offset_right = -128.0
+offset_bottom = -246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g60qj")
+item_count = 4
+popup/item_0/text = "Healthcare"
+popup/item_1/text = "Hospitality"
+popup/item_1/id = 1
+popup/item_2/text = "Food Service"
+popup/item_2/id = 2
+popup/item_3/text = "Retail"
+popup/item_3/id = 3
+
+[node name="LayoutOption" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -296.0
+offset_right = 90.0
+offset_bottom = -246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g60qj")
+item_count = 4
+popup/item_0/text = "Healthcare"
+popup/item_1/text = "Hospitality"
+popup/item_1/id = 1
+popup/item_2/text = "Food Service"
+popup/item_2/id = 2
+popup/item_3/text = "Retail"
+popup/item_3/id = 3
+
+[node name="ProcedureOption" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 109.0
+offset_top = -296.0
+offset_right = 309.0
+offset_bottom = -246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g60qj")
+item_count = 4
+popup/item_0/text = "Healthcare"
+popup/item_1/text = "Hospitality"
+popup/item_1/id = 1
+popup/item_2/text = "Food Service"
+popup/item_2/id = 2
+popup/item_3/text = "Retail"
+popup/item_3/id = 3
+
+[node name="ApplicationOption" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 328.0
+offset_top = -296.0
+offset_right = 528.0
+offset_bottom = -246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g60qj")
+item_count = 4
+popup/item_0/text = "Healthcare"
+popup/item_1/text = "Hospitality"
+popup/item_1/id = 1
+popup/item_2/text = "Food Service"
+popup/item_2/id = 2
+popup/item_3/text = "Retail"
+popup/item_3/id = 3
+
+[node name="ProductsOption" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -544.0
+offset_top = -212.0
+offset_right = -344.0
+offset_bottom = -162.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g60qj")
+item_count = 4
+popup/item_0/text = "Healthcare"
+popup/item_1/text = "Hospitality"
+popup/item_1/id = 1
+popup/item_2/text = "Food Service"
+popup/item_2/id = 2
+popup/item_3/text = "Retail"
+popup/item_3/id = 3
+
+[node name="ClothOption" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = -212.0
+offset_right = -128.0
+offset_bottom = -162.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g60qj")
+item_count = 4
+popup/item_0/text = "Healthcare"
+popup/item_1/text = "Hospitality"
+popup/item_1/id = 1
+popup/item_2/text = "Food Service"
+popup/item_2/id = 2
+popup/item_3/text = "Retail"
+popup/item_3/id = 3
+
+[node name="MachinesOption" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -212.0
+offset_right = 90.0
+offset_bottom = -162.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g60qj")
+item_count = 4
+popup/item_0/text = "Healthcare"
+popup/item_1/text = "Hospitality"
+popup/item_1/id = 1
+popup/item_2/text = "Food Service"
+popup/item_2/id = 2
+popup/item_3/text = "Retail"
+popup/item_3/id = 3
+
+[node name="MopsOption" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 109.0
+offset_top = -212.0
+offset_right = 309.0
+offset_bottom = -162.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g60qj")
+item_count = 4
+popup/item_0/text = "Healthcare"
+popup/item_1/text = "Hospitality"
+popup/item_1/id = 1
+popup/item_2/text = "Food Service"
+popup/item_2/id = 2
+popup/item_3/text = "Retail"
+popup/item_3/id = 3
+
+[node name="DifficultyOption" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 328.0
+offset_top = -212.0
+offset_right = 528.0
+offset_bottom = -162.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g60qj")
+item_count = 4
+popup/item_0/text = "Healthcare"
+popup/item_1/text = "Hospitality"
+popup/item_1/id = 1
+popup/item_2/text = "Food Service"
+popup/item_2/id = 2
+popup/item_3/text = "Retail"
+popup/item_3/id = 3
+
+[node name="LanguageOption" type="OptionButton" parent="."]
+custom_minimum_size = Vector2(200, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 328.0
+offset_top = 188.0
+offset_right = 528.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_g60qj")
+item_count = 4
+popup/item_0/text = "Healthcare"
+popup/item_1/text = "Hospitality"
+popup/item_1/id = 1
+popup/item_2/text = "Food Service"
+popup/item_2/id = 2
+popup/item_3/text = "Retail"
+popup/item_3/id = 3
+
+[node name="StartButton" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = 204.0
+offset_right = 85.0
+offset_bottom = 253.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_jk2hj")
+text = "Start"

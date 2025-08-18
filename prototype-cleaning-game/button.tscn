@@ -33,4 +33,9 @@ stream = ExtResource("3_3qgc1")
 volume_db = -20.0
 bus = &"SFX"
 
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
