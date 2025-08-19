@@ -102,11 +102,12 @@ func _on_leave_front_door_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		Globals.score += Door_handles_score
+		#Globals.score += Door_handles_score
 		score_added = true
 
 func add_score():
 	Door_handles_score += 1
+	Globals.score += 1
 	total -= 1
 
 func remove_score():

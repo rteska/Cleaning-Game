@@ -1,21 +1,22 @@
 extends Node2D
 
-
 const bacteriaPath = preload("res://enterococcus.tscn")
 
-@export var handle_bl = Node2D
-@export var handle_tr = Node2D
-@export var holder_bl = Node2D
-@export var holder_tr = Node2D
+@export var railing1_bl = Node2D
+@export var railing1_tr = Node2D
+@export var railing2_bl = Node2D
+@export var railing2_tr = Node2D
+@export var railing3_bl = Node2D
+@export var railing3_tr = Node2D
 
 var centerPos = global_position
-var Shower_handle_cleaned = false
+var Shower_curtain_rod_cleaned = false
 var alreadyGenerated = false
 
 signal completed
 
-var total = 15
-var shower_handle_score = 0
+var total = 19
+var shower_curtain_rod_score = 0
 var score_added = false
 
 # Called when the node enters the scene tree for the first time.
@@ -27,27 +28,34 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-# Creates bacteria on the shower handle
+# Creates bacteria on the shower curtain
 func _on_main_spawn_bacteria() -> void:
-	if !Shower_handle_cleaned && !alreadyGenerated:
+	if !Shower_curtain_rod_cleaned && !alreadyGenerated:
 		
-		for i in range(10): #Concentrated amount on the handle
+		for i in range(7): #Concentrated amount on the first handle
 			var bacteria = bacteriaPath.instantiate()
 			#bacteria.play_animation()
 			
 			bacteria.rotate_random()
-			bacteria.position = Vector2(randf_range(handle_bl.position.x, handle_tr.position.x), randf_range(handle_bl.position.y, handle_tr.position.y))
+			bacteria.position = Vector2(randf_range(railing1_bl.position.x, railing1_tr.position.x), randf_range(railing1_bl.position.y, railing1_tr.position.y))
 			add_child(bacteria)
-		
-		for i in range(5): #Sparse amount on the holder
+			
+		for i in range(7): #Concentrated amount on the second handle
 			var bacteria = bacteriaPath.instantiate()
 			#bacteria.play_animation()
 			
 			bacteria.rotate_random()
-			bacteria.position = Vector2(randf_range(holder_bl.position.x, holder_tr.position.x), randf_range(holder_bl.position.y, holder_tr.position.y))
+			bacteria.position = Vector2(randf_range(railing2_bl.position.x, railing2_tr.position.x), randf_range(railing2_bl.position.y, railing2_tr.position.y))
 			add_child(bacteria)
+		
+		for i in range(5): #Sparse amount on curain rod
+			var bacteria = bacteriaPath.instantiate()
+			#bacteria.play_animation()
 			
-			
+			bacteria.rotate_random()
+			bacteria.position = Vector2(randf_range(railing3_bl.position.x, railing3_tr.position.x), randf_range(railing3_bl.position.y, railing3_tr.position.y))
+			add_child(bacteria)
+		
 		alreadyGenerated = true
 	
 	if alreadyGenerated:
@@ -59,7 +67,7 @@ func _on_main_spawn_bacteria() -> void:
 			child.visible = true
 
 
-func _on_leave_shower_handle_hide_bacteria() -> void:
+func _on_leave_shower_curtain_rod_hide_bacteria() -> void:
 	for child in get_children():
 		for grandchildren in child.get_children():
 			if grandchildren is Area2D:
@@ -74,7 +82,7 @@ func _on_leave_shower_handle_hide_bacteria() -> void:
 
 
 func add_score():
-	shower_handle_score += 1
+	shower_curtain_rod_score += 1
 	Globals.score += 1
 	total -= 1
 	

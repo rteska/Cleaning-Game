@@ -26,6 +26,8 @@ signal spawn_soap_dispenser_bacteria
 @onready var inv: Inventory = preload("res://Inventory/main_inventory.tres")
 var curr_scene = null
 
+var already_called = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

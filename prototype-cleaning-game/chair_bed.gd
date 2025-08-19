@@ -83,11 +83,12 @@ func _on_leave_chair_bed_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		Globals.score += chair_bed_score
+		#Globals.score += chair_bed_score
 		score_added = true
 
 func add_score():
 	chair_bed_score += 1
+	Globals.score += 1
 	total -= 1
 
 func remove_score():

@@ -10,6 +10,7 @@ var item_in_hand: ItemStack
 var is_open = false
 var selected_item: InvItem
 
+var already_called = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +18,14 @@ func _ready() -> void:
 	inv.updated.connect(update)
 	update()
 	#close()
+
+func _process(float) -> void:
+	if Input.is_action_pressed("interact") && !already_called:
+		already_called = true
+		$Hold_delay.start()
+	elif Input.is_action_just_released("interact"):
+		$NinePatchRect.visible = true
+		pass
 
 #Binds items to their slots
 func connect_slots():
@@ -129,3 +138,11 @@ func combine_items(slot):
 		#update_UI_slots()
 		update()
 	$SpraySFX.play()
+
+
+func _on_hold_delay_timeout() -> void:
+	if Input.is_action_pressed("interact"):
+		$NinePatchRect.visible = false
+		already_called = false
+	else:
+		already_called = false

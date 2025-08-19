@@ -1,21 +1,18 @@
 extends Node2D
 
-
 const bacteriaPath = preload("res://enterococcus.tscn")
 
-@export var handle_bl = Node2D
-@export var handle_tr = Node2D
-@export var holder_bl = Node2D
-@export var holder_tr = Node2D
+@export var shower_head_bl = Node2D
+@export var shower_head_tr = Node2D
 
 var centerPos = global_position
-var Shower_handle_cleaned = false
+var Shower_head_cleaned = false
 var alreadyGenerated = false
 
 signal completed
 
-var total = 15
-var shower_handle_score = 0
+var total = 5
+var shower_head_score = 0
 var score_added = false
 
 # Called when the node enters the scene tree for the first time.
@@ -27,24 +24,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-# Creates bacteria on the shower handle
+# Creates bacteria on the shower head
 func _on_main_spawn_bacteria() -> void:
-	if !Shower_handle_cleaned && !alreadyGenerated:
+	if !Shower_head_cleaned && !alreadyGenerated:
 		
-		for i in range(10): #Concentrated amount on the handle
+		for i in range(5): #Concentrated amount on the shower head
 			var bacteria = bacteriaPath.instantiate()
 			#bacteria.play_animation()
 			
 			bacteria.rotate_random()
-			bacteria.position = Vector2(randf_range(handle_bl.position.x, handle_tr.position.x), randf_range(handle_bl.position.y, handle_tr.position.y))
-			add_child(bacteria)
-		
-		for i in range(5): #Sparse amount on the holder
-			var bacteria = bacteriaPath.instantiate()
-			#bacteria.play_animation()
-			
-			bacteria.rotate_random()
-			bacteria.position = Vector2(randf_range(holder_bl.position.x, holder_tr.position.x), randf_range(holder_bl.position.y, holder_tr.position.y))
+			bacteria.position = Vector2(randf_range(shower_head_bl.position.x, shower_head_tr.position.x), randf_range(shower_head_bl.position.y, shower_head_tr.position.y))
 			add_child(bacteria)
 			
 			
@@ -59,7 +48,7 @@ func _on_main_spawn_bacteria() -> void:
 			child.visible = true
 
 
-func _on_leave_shower_handle_hide_bacteria() -> void:
+func _on_leave_shower_head_hide_bacteria() -> void:
 	for child in get_children():
 		for grandchildren in child.get_children():
 			if grandchildren is Area2D:
@@ -74,7 +63,7 @@ func _on_leave_shower_handle_hide_bacteria() -> void:
 
 
 func add_score():
-	shower_handle_score += 1
+	shower_head_score += 1
 	Globals.score += 1
 	total -= 1
 	

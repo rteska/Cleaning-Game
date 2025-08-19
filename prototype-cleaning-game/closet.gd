@@ -65,11 +65,12 @@ func _on_leave_closet_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		Globals.score += Closet_score
+		#Globals.score += Closet_score
 		score_added = true
 
 func add_score():
 	Closet_score += 1
+	Globals.score += 1
 	total -= 1
 
 func remove_score():

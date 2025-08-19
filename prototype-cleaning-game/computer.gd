@@ -55,11 +55,12 @@ func _on_leave_computer_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		Globals.score += Computer_score
+		#Globals.score += Computer_score
 		score_added = true
 
 func add_score():
 	Computer_score += 1
+	Globals.score += 1
 	total -= 1
 
 func remove_score():
