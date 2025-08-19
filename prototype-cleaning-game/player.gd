@@ -179,7 +179,7 @@ func _on_area_entered(area: Area2D) -> void:
 					elif Globals.current_scene == $"../PatientRoom1/Front_door/Closed" || Globals.current_scene == $"../PatientRoom1/Front_door/Open":
 						remove_point_front_door.emit()
 						incorrect.emit()
-						$WipeincorrectSFX.play()
+						$WipeIncorrectSFX.play()
 						index = 0
 						break
 					index += 1
