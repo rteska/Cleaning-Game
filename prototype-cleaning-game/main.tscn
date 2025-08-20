@@ -366,7 +366,6 @@ grow_vertical = 2
 color = Color(0.184314, 0.341176, 0.498039, 1)
 
 [node name="Start_page" parent="." instance=ExtResource("14_klcq4")]
-visible = false
 
 [node name="Cursor" parent="." instance=ExtResource("15_su7o2")]
 metadata/_edit_group_ = true
@@ -1853,6 +1852,7 @@ currentScene = NodePath("..")
 nextScene = NodePath("../../Bathroom_east")
 
 [node name="Bathroom_south" type="Node2D" parent="PatientRoom1"]
+visible = false
 position = Vector2(554, 368)
 metadata/_edit_group_ = true
 
