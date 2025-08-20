@@ -22,6 +22,14 @@ signal spawn_shower_handle_bacteria
 signal spawn_shower_head_bacteria
 signal spawn_shower_curtain_railing_bacteria
 signal spawn_soap_dispenser_bacteria
+signal spawn_toilet_bacteria
+signal spawn_bathroom_trash_bin_bacteria
+signal spawn_pull_cord_bacteria
+signal spawn_toilet_roll_bacteria
+signal spawn_toilet_handle_bacteria
+signal spawn_toilet_bar_bacteria
+signal spawn_bathroom_door_handle_bacteria
+signal spawn_bathroom_light_switch_bacteria
 
 @onready var inv: Inventory = preload("res://Inventory/main_inventory.tres")
 var curr_scene = null
@@ -164,6 +172,45 @@ func _on_shower_handle_input_event(viewport: Node, event: InputEvent, shape_idx:
 		$Room_transition_cooldown.start()
 		change_current_scene($PatientRoom1/Shower_handle)
 
+func _on_toilet_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_echo():
+		$Room_transition_cooldown.start()
+		change_current_scene($PatientRoom1/Toilet)
+
+func _on_bathroom_trash_bin_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_echo():
+		$Room_transition_cooldown.start()
+		change_current_scene($PatientRoom1/Bathroom_trash_bin)
+
+func _on_pull_cord_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_echo():
+		$Room_transition_cooldown.start()
+		change_current_scene($PatientRoom1/Pull_cord)
+
+func _on_toilet_roll_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_echo():
+		$Room_transition_cooldown.start()
+		change_current_scene($PatientRoom1/Toilet_roll)
+
+func _on_toilet_handle_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_echo():
+		$Room_transition_cooldown.start()
+		change_current_scene($PatientRoom1/Toilet_handle)
+
+func _on_toilet_bar_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_echo():
+		$Room_transition_cooldown.start()
+		change_current_scene($PatientRoom1/Toilet_bar)
+
+func _on_bathroom_door_handle_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_echo():
+		$Room_transition_cooldown.start()
+		change_current_scene($PatientRoom1/Bathroom_door_handle_in)
+
+func _on_bathroom_light_switch_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_echo():
+		$Room_transition_cooldown.start()
+		change_current_scene($PatientRoom1/Bathroom_light_switch)
 
 func _on_cleaner_blue_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if (event is InputEventMouseButton && event.is_action_pressed && event.button_index == MOUSE_BUTTON_LEFT && !event.is_echo()):
@@ -316,5 +363,46 @@ func _on_room_transition_cooldown_timeout() -> void:
 		$PatientRoom1/Shower_curtain_railing.visible = true
 		spawn_shower_curtain_railing_bacteria.emit()
 		$StepSound.play()
-	
+	elif Globals.current_scene == $PatientRoom1/Toilet:
+		$PatientRoom1/Bathroom_south.visible = false
+		$PatientRoom1/Toilet.visible = true
+		spawn_toilet_bacteria.emit()
+		$StepSound.play()
+	elif Globals.current_scene == $PatientRoom1/Bathroom_trash_bin:
+		$PatientRoom1/Bathroom_south.visible = false
+		$PatientRoom1/Bathroom_trash_bin.visible = true
+		spawn_bathroom_trash_bin_bacteria.emit()
+		$StepSound.play()
+	elif Globals.current_scene == $PatientRoom1/Pull_cord:
+		$PatientRoom1/Bathroom_south.visible = false
+		$PatientRoom1/Pull_cord.visible = true
+		spawn_pull_cord_bacteria.emit()
+		$StepSound.play()
+	elif Globals.current_scene == $PatientRoom1/Toilet_roll:
+		$PatientRoom1/Bathroom_south.visible = false
+		$PatientRoom1/Toilet_roll.visible = true
+		spawn_toilet_roll_bacteria.emit()
+		$StepSound.play()
+	elif Globals.current_scene == $PatientRoom1/Toilet_handle:
+		$PatientRoom1/Bathroom_south.visible = false
+		$PatientRoom1/Toilet_handle.visible = true
+		spawn_toilet_handle_bacteria.emit()
+		$StepSound.play()
+	elif Globals.current_scene == $PatientRoom1/Toilet_bar:
+		$PatientRoom1/Bathroom_south.visible = false
+		$PatientRoom1/Toilet_bar.visible = true
+		spawn_toilet_bar_bacteria.emit()
+		$StepSound.play()
+	elif Globals.current_scene == $PatientRoom1/Bathroom_door_handle_in:
+		$PatientRoom1/Bathroom_north.visible = false
+		$PatientRoom1/Bathroom_door_handle_in.visible = true
+		spawn_bathroom_door_handle_bacteria.emit()
+		$StepSound.play()
+	elif Globals.current_scene == $PatientRoom1/Bathroom_light_switch:
+		$PatientRoom1/Bathroom_north.visible = false
+		$PatientRoom1/Bathroom_light_switch.visible = true
+		spawn_bathroom_light_switch_bacteria.emit()
+		$StepSound.play()
+		
+		
 		

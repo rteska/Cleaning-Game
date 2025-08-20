@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://b21koa6ft10pe"]
+[gd_scene load_steps=117 format=3 uid="uid://b21koa6ft10pe"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_u3rmy"]
 [ext_resource type="Texture2D" uid="uid://dbrpn5mh08dt0" path="res://Art/Door_closed.png" id="2_qqx4w"]
@@ -82,6 +82,14 @@
 [ext_resource type="Texture2D" uid="uid://pcv3jsd3guqw" path="res://New Art/escape room - flat images/lazienka mydlo2 copy.png" id="74_qku3v"]
 [ext_resource type="Script" path="res://shower_head.gd" id="76_4ybrl"]
 [ext_resource type="Script" path="res://shower_curtain_railing.gd" id="78_hfttu"]
+[ext_resource type="Texture2D" uid="uid://cm87tm64n5ec8" path="res://New Art/escape room - flat images/lazienka strefa z kiblem copy.png" id="80_mvpxv"]
+[ext_resource type="Texture2D" uid="uid://ctxmlfwcihotb" path="res://New Art/escape room - flat images/lazienka sploczka copy.png" id="82_4xvy1"]
+[ext_resource type="Texture2D" uid="uid://by7be37v3ljr0" path="res://New Art/escape room - flat images/lazienka kosz na smieci copy.png" id="83_nl15i"]
+[ext_resource type="Texture2D" uid="uid://db23pppundbyh" path="res://New Art/escape room - flat images/lazienka uchwyt copy.png" id="84_a0ue5"]
+[ext_resource type="Texture2D" uid="uid://7hw42f5f6puw" path="res://New Art/escape room - flat images/lazienka papier toaletowy copy.png" id="85_c77b1"]
+[ext_resource type="Texture2D" uid="uid://c1uldd06w1qut" path="res://New Art/escape room - flat images/lazienka dziwne kolko copy.png" id="86_thdci"]
+[ext_resource type="Texture2D" uid="uid://dwbvibqbbi2q8" path="res://New Art/escape room - flat images/lazienka wlacznik copy.png" id="88_i8s5f"]
+[ext_resource type="Texture2D" uid="uid://cj5ufnsx4i5d" path="res://New Art/escape room - flat images/lazienka drzwi galka pokoj copy.png" id="89_yhcc6"]
 
 [sub_resource type="Animation" id="Animation_kkojn"]
 length = 0.001
@@ -1700,6 +1708,7 @@ position = Vector2(554, 363)
 script = ExtResource("70_vjwqi")
 mirror_bl = NodePath("Mirror_bl")
 mirror_tr = NodePath("Mirror_tr")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Mirror"]
 position = Vector2(22.0001, -39)
@@ -1727,6 +1736,7 @@ dispenser_bl = NodePath("Dispenser_bl")
 dispenser_tr = NodePath("Dispenser_tr")
 holder_bl = NodePath("Holder_bl")
 holder_tr = NodePath("Holder_tr")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Soap_dispenser"]
 position = Vector2(22, -39)
@@ -1760,6 +1770,7 @@ handle_bl = NodePath("Handle_bl")
 handle_tr = NodePath("Handle_tr")
 holder_bl = NodePath("Holder_bl")
 holder_tr = NodePath("Holder_tr")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Shower_handle"]
 position = Vector2(22, -39)
@@ -1791,6 +1802,7 @@ position = Vector2(554, 363)
 script = ExtResource("76_4ybrl")
 shower_head_bl = NodePath("Shower_head_bl")
 shower_head_tr = NodePath("Shower_head_tr")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Shower_head"]
 position = Vector2(22, -39)
@@ -1820,6 +1832,7 @@ railing2_bl = NodePath("Railing2_bl")
 railing2_tr = NodePath("Railing2_tr")
 railing3_bl = NodePath("Railing3_bl")
 railing3_tr = NodePath("Railing3_tr")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Shower_curtain_railing"]
 position = Vector2(22, -39)
@@ -1859,7 +1872,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_south"]
 position = Vector2(21.9999, -44)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("38_5ctbj")
+texture = ExtResource("80_mvpxv")
 
 [node name="Return_entry" parent="PatientRoom1/Bathroom_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
 position = Vector2(-451, -245)
@@ -1874,13 +1887,15 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Bathroom_south/Toilet"]
-polygon = PackedVector2Array(-96, -158, -110, -58, -142, -14, -143, 28, -119, 106, -108, 127, -99, 189, -71, 223, -28, 239, 17, 239, 62, 221, 90, 185, 95, 123, 118, 84, 121, 57, 139, 30, 134, -7, 125, -36, 100, -57, 101, -150, 51, -169, 14, -171, -46, -174)
+position = Vector2(-3, 5)
+polygon = PackedVector2Array(-11, -50, 18, -42, 41, -25, 40, 1, 41, 20, 73, 40, 78, 77, 75, 125, 59, 164, 57, 220, 35, 255, -16, 267, -59, 263, -90, 240, -98, 201, -98, 161, -114, 125, -128, 75, -117, 39, -109, -10, -94, -39, -62, -45)
 
 [node name="Toilet_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
-position = Vector2(36, -25)
+position = Vector2(11, 48)
 
 [node name="Bathroom_trash_bin" type="Area2D" parent="PatientRoom1/Bathroom_south"]
-position = Vector2(281, -48)
+position = Vector2(187, 33)
+scale = Vector2(0.730674, 0.88565)
 monitoring = false
 monitorable = false
 
@@ -1889,10 +1904,10 @@ position = Vector2(9, 49)
 shape = SubResource("RectangleShape2D_8hdao")
 
 [node name="Bathroom_trash_bin_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
-position = Vector2(289, -55)
+position = Vector2(199, 34)
 
 [node name="Pull_cord" type="Area2D" parent="PatientRoom1/Bathroom_south"]
-position = Vector2(251, -157)
+position = Vector2(167, -81)
 monitoring = false
 monitorable = false
 
@@ -1900,40 +1915,190 @@ monitorable = false
 shape = SubResource("CircleShape2D_lvs4u")
 
 [node name="Pull_cord_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
-position = Vector2(253, -157)
+position = Vector2(169, -79)
 
 [node name="Toilet_roll" type="Area2D" parent="PatientRoom1/Bathroom_south"]
-position = Vector2(321, -314)
+position = Vector2(205, -177)
 monitoring = false
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Bathroom_south/Toilet_roll"]
-polygon = PackedVector2Array(-104, -41, -95, -27, -91, 2, -73, 9, -42, 9, -48, 81, 23, 86, 41, 14, 63, 9, 66, -3, 61, -24, 70, -33, 70, -46, 60, -51, 30, -51, -97, -53, -104, -49)
+polygon = PackedVector2Array(-83, -34, -69, -40, -61, -35, 21, -40, 32, -32, 32, -22, 30, -17, 34, -7, 32, -1, 22, 2, 17, 53, -10, 54, -33, 54, -37, 27, -44, 26, -47, 7, -70, 3, -75, -12, -82, -16, -85, -26)
 
 [node name="Toilet_roll_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
-position = Vector2(319, -319)
+position = Vector2(198, -178)
 
 [node name="Toilet_handle" type="Area2D" parent="PatientRoom1/Bathroom_south"]
-position = Vector2(44, -254)
+position = Vector2(5, -126)
 monitoring = false
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Bathroom_south/Toilet_handle"]
-polygon = PackedVector2Array(-8, -112, -8, -24, -15, -18, -18, -1, -12, 19, -7, 24, -8, 69, 8, 69, 10, 20, 20, 11, 21, -13, 12, -23, 13, -113)
+polygon = PackedVector2Array(-90, -126, -42, -129, -21, -133, -19, -161, 0, -164, 18, -158, 86, -161, 94, -175, 106, -179, 118, -175, 125, -165, 125, -155, 118, -141, 103, -140, 93, -145, 17, -142, 6, -135, 6, -5, 12, 0, 13, 20, 6, 26, 7, 69, -6, 69, -7, 25, -13, 21, -14, 0, -8, -4, -8, -117, -16, -116, -22, -113, -31, -115, -90, -114)
 
 [node name="Toilet_handle_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
-position = Vector2(45, -262)
+position = Vector2(4, -271)
 
 [node name="Toilet_bar" type="Area2D" parent="PatientRoom1/Bathroom_south"]
-position = Vector2(498, -14)
+position = Vector2(338, -44)
 monitoring = false
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PatientRoom1/Bathroom_south/Toilet_bar"]
-polygon = PackedVector2Array(-3, -341, -23, -338, -28, -328, -72, -318, -90, -297, -83, -261, 42, 292, 88, 293, 100, 289, 100, 166, 101, -36)
+polygon = PackedVector2Array(-28, -168, -41, -166, -46, -159, -75, -149, -79, -134, 78, 164, 101, 185, 142, 197, 158, 198, 163, 211, 183, 215, 194, 197, 182, 153, 151, 100, 124, 59, 99, 22, 72, -18, 39, -68)
 
 [node name="Toilet_bar_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
-position = Vector2(497, -14)
+position = Vector2(345, -46)
+
+[node name="Toilet" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 368)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Toilet"]
+position = Vector2(22, -44)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("38_5ctbj")
+
+[node name="Return_bathroom_south" parent="PatientRoom1/Toilet" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(458, 201)
+rotation = 3.13828
+scale = Vector2(0.524405, 0.455502)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_south")
+
+[node name="Seat_bl" type="Node2D" parent="PatientRoom1/Toilet"]
+position = Vector2(-52, 102)
+
+[node name="Seat_tr" type="Node2D" parent="PatientRoom1/Toilet"]
+position = Vector2(134, -79)
+
+[node name="Toilet_handle" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 368)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Toilet_handle"]
+position = Vector2(22, -44)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("82_4xvy1")
+
+[node name="Handle_bl" type="Node2D" parent="PatientRoom1/Toilet_handle"]
+position = Vector2(-170, 31)
+
+[node name="Handle_tr" type="Node2D" parent="PatientRoom1/Toilet_handle"]
+position = Vector2(-14, -45)
+
+[node name="Return_bathroom_south" parent="PatientRoom1/Toilet_handle" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(509, 206)
+rotation = 3.14084
+scale = Vector2(0.535623, 0.460257)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_south")
+
+[node name="Bathroom_trash_bin" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 368)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_trash_bin"]
+position = Vector2(22.0001, -44)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("83_nl15i")
+
+[node name="Return_bathroom_south" parent="PatientRoom1/Bathroom_trash_bin" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(523, 199)
+rotation = 3.14106
+scale = Vector2(0.582018, 0.518998)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_south")
+
+[node name="Lid_bl" type="Node2D" parent="PatientRoom1/Bathroom_trash_bin"]
+position = Vector2(29, -42)
+
+[node name="Lid_tr" type="Node2D" parent="PatientRoom1/Bathroom_trash_bin"]
+position = Vector2(199, -171)
+
+[node name="Toilet_bar" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 368)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Toilet_bar"]
+position = Vector2(22, -44)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("84_a0ue5")
+
+[node name="Return_bathroom_south" parent="PatientRoom1/Toilet_bar" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(531, 201)
+rotation = -3.14103
+scale = Vector2(0.66744, 0.503332)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_south")
+
+[node name="Bar_bl" type="Node2D" parent="PatientRoom1/Toilet_bar"]
+position = Vector2(-455, -66)
+
+[node name="Bar_tr" type="Node2D" parent="PatientRoom1/Toilet_bar"]
+position = Vector2(413, 50)
+
+[node name="Toilet_roll" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 368)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Toilet_roll"]
+position = Vector2(22, -44)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("85_c77b1")
+
+[node name="Return_bathroom_south" parent="PatientRoom1/Toilet_roll" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(531, 206)
+rotation = -3.13107
+scale = Vector2(0.625433, 0.485567)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_south")
+
+[node name="Roll_left_bl" type="Node2D" parent="PatientRoom1/Toilet_roll"]
+position = Vector2(-115, -98)
+
+[node name="Roll_left_tr" type="Node2D" parent="PatientRoom1/Toilet_roll"]
+position = Vector2(-20, -218)
+
+[node name="Roll_right_bl" type="Node2D" parent="PatientRoom1/Toilet_roll"]
+position = Vector2(184, -9)
+
+[node name="Roll_right_tr" type="Node2D" parent="PatientRoom1/Toilet_roll"]
+position = Vector2(315, -135)
+
+[node name="Pull_cord" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(554, 368)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Pull_cord"]
+position = Vector2(22, -44)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("86_thdci")
+
+[node name="Loop_bl" type="Node2D" parent="PatientRoom1/Pull_cord"]
+position = Vector2(-1, 6)
+
+[node name="Loop_tr" type="Node2D" parent="PatientRoom1/Pull_cord"]
+position = Vector2(57, -79)
+
+[node name="Cord_bl" type="Node2D" parent="PatientRoom1/Pull_cord"]
+position = Vector2(20, -89)
+
+[node name="Cord_tr" type="Node2D" parent="PatientRoom1/Pull_cord"]
+position = Vector2(37, -364)
+
+[node name="Return_bathroom_south" parent="PatientRoom1/Pull_cord" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(531, 197)
+rotation = -3.13811
+scale = Vector2(0.629881, 0.513655)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_south")
 
 [node name="Bathroom_north" type="Node2D" parent="PatientRoom1"]
 visible = false
@@ -1976,6 +2141,87 @@ shape = SubResource("RectangleShape2D_ek826")
 
 [node name="Bathroom_light_switch_ind" parent="PatientRoom1/Bathroom_north" instance=ExtResource("14_ai1i5")]
 position = Vector2(528, -228)
+
+[node name="Bathroom_light_switch" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(556, 366)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_light_switch"]
+position = Vector2(20, -42)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("88_i8s5f")
+
+[node name="Switch_bl" type="Node2D" parent="PatientRoom1/Bathroom_light_switch"]
+position = Vector2(15, 39)
+
+[node name="Switch_tr" type="Node2D" parent="PatientRoom1/Bathroom_light_switch"]
+position = Vector2(42, -34)
+
+[node name="Return_bathroom_north" parent="PatientRoom1/Bathroom_light_switch" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(529, 212)
+rotation = -3.12364
+scale = Vector2(0.57133, 0.483428)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_north")
+
+[node name="Bathroom_door_handle_in" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(556, 366)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_door_handle_in"]
+position = Vector2(20, -42)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("42_ceyth")
+
+[node name="Handle_bl" type="Node2D" parent="PatientRoom1/Bathroom_door_handle_in"]
+position = Vector2(-187, 83)
+
+[node name="Handle_tr" type="Node2D" parent="PatientRoom1/Bathroom_door_handle_in"]
+position = Vector2(-126, 1)
+
+[node name="Return_bathroom_north" parent="PatientRoom1/Bathroom_door_handle_in" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(527, 212)
+rotation = -3.13847
+scale = Vector2(0.575406, 0.43373)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_north")
+
+[node name="Go_door_out" parent="PatientRoom1/Bathroom_door_handle_in" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-13, -292)
+scale = Vector2(0.506536, 0.47221)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_door_handle_out")
+
+[node name="Bathroom_door_handle_out" type="Node2D" parent="PatientRoom1"]
+visible = false
+position = Vector2(556, 366)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_door_handle_out"]
+position = Vector2(20, -42)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("89_yhcc6")
+
+[node name="Handle_bl" type="Node2D" parent="PatientRoom1/Bathroom_door_handle_out"]
+position = Vector2(115, 37)
+
+[node name="Handle_tr" type="Node2D" parent="PatientRoom1/Bathroom_door_handle_out"]
+position = Vector2(178, -40)
+
+[node name="Go_door_in" parent="PatientRoom1/Bathroom_door_handle_out" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-93, -294)
+scale = Vector2(0.487857, 0.443014)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_door_handle_in")
+
+[node name="Return_bathroom_north" parent="PatientRoom1/Bathroom_door_handle_out" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(535, 203)
+rotation = -3.12794
+scale = Vector2(0.608877, 0.522478)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Bathroom_north")
 
 [node name="Stop" parent="." instance=ExtResource("2_yimi7")]
 visible = false
@@ -2135,4 +2381,12 @@ one_shot = true
 [connection signal="hideBacteria" from="PatientRoom1/Shower_head/Return_bathroom_east" to="PatientRoom1/Shower_head" method="_on_leave_shower_head_hide_bacteria"]
 [connection signal="completed" from="PatientRoom1/Shower_curtain_railing" to="PatientRoom1/Bathroom_east/Shower_curtain_rod_ind" method="change_sprite"]
 [connection signal="hideBacteria" from="PatientRoom1/Shower_curtain_railing/Return_bathroom_east" to="PatientRoom1/Shower_curtain_railing" method="_on_leave_shower_curtain_rod_hide_bacteria"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_south/Toilet" to="." method="_on_toilet_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_south/Bathroom_trash_bin" to="." method="_on_bathroom_trash_bin_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_south/Pull_cord" to="." method="_on_pull_cord_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_south/Toilet_roll" to="." method="_on_toilet_roll_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_south/Toilet_handle" to="." method="_on_toilet_handle_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_south/Toilet_bar" to="." method="_on_toilet_bar_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_north/Bathroom_door_handle" to="." method="_on_bathroom_door_handle_input_event"]
+[connection signal="input_event" from="PatientRoom1/Bathroom_north/Bathroom_light_switch" to="." method="_on_bathroom_light_switch_input_event"]
 [connection signal="timeout" from="Room_transition_cooldown" to="." method="_on_room_transition_cooldown_timeout"]
