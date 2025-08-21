@@ -1,21 +1,18 @@
 extends Node2D
 
+const bacteriaPath = preload("res://enterococcus.tscn")
 
-const bacteriaPath = preload("res://staph.tscn")
-
-@export var lid_bl = Node2D
-@export var lid_tr = Node2D
-@export var bin_bl = Node2D
-@export var bin_tr = Node2D
+@export var seat_bl = Node2D
+@export var seat_tr = Node2D
 
 var centerPos = global_position
-var Trash_bin_cleaned = false
+var Toilet_cleaned = false
 var alreadyGenerated = false
 
 signal completed
 
-var total = 15
-var trash_bin_score = 0
+var total = 20
+var toilet_score = 0
 var score_added = false
 
 # Called when the node enters the scene tree for the first time.
@@ -27,27 +24,19 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-# Spawn bacteria on the trash bin
+# Creates bacteria on the toilet
 func _on_main_spawn_bacteria() -> void:
-	if !Trash_bin_cleaned && !alreadyGenerated:
+	if !Toilet_cleaned && !alreadyGenerated:
 		
-		for i in range(10): #Concentrated amount on the lid
+		for i in range(20): #Concentrated amount on the seat
 			var bacteria = bacteriaPath.instantiate()
 			#bacteria.play_animation()
 			
 			bacteria.rotate_random()
-			bacteria.position = Vector2(randf_range(lid_bl.position.x, lid_tr.position.x), randf_range(lid_bl.position.y, lid_tr.position.y))
+			bacteria.position = Vector2(randf_range(seat_bl.position.x, seat_tr.position.x), randf_range(seat_bl.position.y, seat_tr.position.y))
 			add_child(bacteria)
 		
-		for i in range(5): #Sparse amount on the bin
-			var bacteria = bacteriaPath.instantiate()
-			#bacteria.play_animation()
-			
-			bacteria.rotate_random()
-			bacteria.position = Vector2(randf_range(bin_bl.position.x, bin_tr.position.x), randf_range(bin_bl.position.y, bin_tr.position.y))
-			add_child(bacteria)
-			
-			
+		
 		alreadyGenerated = true
 	
 	if alreadyGenerated:
@@ -59,7 +48,7 @@ func _on_main_spawn_bacteria() -> void:
 			child.visible = true
 
 
-func _on_leave_trash_bin_hide_bacteria() -> void:
+func _on_leave_toilet_hide_bacteria() -> void:
 	for child in get_children():
 		for grandchildren in child.get_children():
 			if grandchildren is Area2D:
@@ -67,15 +56,14 @@ func _on_leave_trash_bin_hide_bacteria() -> void:
 				grandchildren.set_deferred("monitorable", false)
 		child.visible = false
 	
-	
 	if total == 0 && !score_added:
 		completed.emit()
-		#Globals.score += trash_bin_score
+		#Globals.score += sink_score
 		score_added = true
 
 
 func add_score():
-	trash_bin_score += 1
+	toilet_score += 1
 	Globals.score += 1
 	total -= 1
 	

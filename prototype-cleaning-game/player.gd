@@ -82,6 +82,24 @@ signal remove_point_shower_head
 signal add_point_shower_curtain_railing
 signal remove_point_shower_curtain_railing
 
+signal add_point_toilet
+signal remove_point_toilet
+
+signal add_point_toilet_handle
+signal remove_point_toilet_handle
+
+signal add_point_bathroom_trash_bin
+signal remove_point_bathroom_trash_bin
+
+signal add_point_toilet_bar
+signal remove_point_toilet_bar
+
+signal add_point_toilet_roll
+signal remove_point_toilet_roll
+
+signal add_point_pull_cord
+signal remove_point_pull_cord
+
 var scenes_list
 var signals_list = [[add_point_desk_chair, remove_point_desk_chair], [add_point_computer_screen, remove_point_computer_screen], [add_point_computer, remove_point_computer], 
 [add_point_light_switch, remove_point_light_switch], [add_point_sharps_bin, remove_point_sharps_bin], 
@@ -90,7 +108,9 @@ var signals_list = [[add_point_desk_chair, remove_point_desk_chair], [add_point_
 [add_point_nightstand_open, remove_point_nightstand_open], [add_point_nightstand_below, remove_point_nightstand_below], [add_point_side_table_above, remove_point_side_table_above], 
 [add_point_rail_controls, remove_point_rail_controls], [add_point_sink, remove_point_sink], [add_point_mirror, remove_point_mirror],
 [add_point_soap_dispenser, remove_point_soap_dispenser], [add_point_shower_handle, remove_point_shower_handle], [add_point_shower_head, remove_point_shower_head],
-[add_point_shower_curtain_railing, remove_point_shower_curtain_railing]]
+[add_point_shower_curtain_railing, remove_point_shower_curtain_railing], [add_point_toilet, remove_point_toilet],
+[add_point_toilet_handle, remove_point_toilet_handle], [add_point_bathroom_trash_bin, remove_point_bathroom_trash_bin], 
+[add_point_toilet_bar, remove_point_toilet_bar], [add_point_toilet_roll, remove_point_toilet_roll], [add_point_pull_cord, remove_point_pull_cord]]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -100,7 +120,9 @@ func _ready() -> void:
 	$"../PatientRoom1/Sharps_bin", $"../PatientRoom1/Trash_bin", $"../PatientRoom1/Desk", $"../PatientRoom1/Chair_bed", $"../PatientRoom1/Closet",
 	$"../PatientRoom1/Nightstand_above", $"../PatientRoom1/Phone", $"../PatientRoom1/Nightstand_open", $"../PatientRoom1/Nightstand_below",
 	$"../PatientRoom1/Side_table_above", $"../PatientRoom1/Rail_controls",  $"../PatientRoom1/Sink", $"../PatientRoom1/Mirror", $"../PatientRoom1/Soap_dispenser",
-	$"../PatientRoom1/Shower_handle", $"../PatientRoom1/Shower_head", $"../PatientRoom1/Shower_curtain_railing"]
+	$"../PatientRoom1/Shower_handle", $"../PatientRoom1/Shower_head", $"../PatientRoom1/Shower_curtain_railing", $"../PatientRoom1/Toilet",
+	$"../PatientRoom1/Toilet_handle", $"../PatientRoom1/Bathroom_trash_bin", $"../PatientRoom1/Toilet_bar", $"../PatientRoom1/Toilet_roll",
+	$"../PatientRoom1/Pull_cord"]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

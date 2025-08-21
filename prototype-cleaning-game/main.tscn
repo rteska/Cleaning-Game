@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=3 uid="uid://b21koa6ft10pe"]
+[gd_scene load_steps=123 format=3 uid="uid://b21koa6ft10pe"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_u3rmy"]
 [ext_resource type="Texture2D" uid="uid://dbrpn5mh08dt0" path="res://Art/Door_closed.png" id="2_qqx4w"]
@@ -83,13 +83,19 @@
 [ext_resource type="Script" path="res://shower_head.gd" id="76_4ybrl"]
 [ext_resource type="Script" path="res://shower_curtain_railing.gd" id="78_hfttu"]
 [ext_resource type="Texture2D" uid="uid://cm87tm64n5ec8" path="res://New Art/escape room - flat images/lazienka strefa z kiblem copy.png" id="80_mvpxv"]
+[ext_resource type="Script" path="res://toilet.gd" id="81_836gu"]
 [ext_resource type="Texture2D" uid="uid://ctxmlfwcihotb" path="res://New Art/escape room - flat images/lazienka sploczka copy.png" id="82_4xvy1"]
 [ext_resource type="Texture2D" uid="uid://by7be37v3ljr0" path="res://New Art/escape room - flat images/lazienka kosz na smieci copy.png" id="83_nl15i"]
+[ext_resource type="Script" path="res://toilet_handle.gd" id="83_qfdt5"]
 [ext_resource type="Texture2D" uid="uid://db23pppundbyh" path="res://New Art/escape room - flat images/lazienka uchwyt copy.png" id="84_a0ue5"]
 [ext_resource type="Texture2D" uid="uid://7hw42f5f6puw" path="res://New Art/escape room - flat images/lazienka papier toaletowy copy.png" id="85_c77b1"]
+[ext_resource type="Script" path="res://bathroom_trash_bin.gd" id="85_jh57a"]
 [ext_resource type="Texture2D" uid="uid://c1uldd06w1qut" path="res://New Art/escape room - flat images/lazienka dziwne kolko copy.png" id="86_thdci"]
+[ext_resource type="Script" path="res://toilet_bar.gd" id="87_8my2m"]
 [ext_resource type="Texture2D" uid="uid://dwbvibqbbi2q8" path="res://New Art/escape room - flat images/lazienka wlacznik copy.png" id="88_i8s5f"]
+[ext_resource type="Script" path="res://toilet_roll.gd" id="89_ulea4"]
 [ext_resource type="Texture2D" uid="uid://cj5ufnsx4i5d" path="res://New Art/escape room - flat images/lazienka drzwi galka pokoj copy.png" id="89_yhcc6"]
+[ext_resource type="Script" path="res://pull_cord.gd" id="91_3q3wt"]
 
 [sub_resource type="Animation" id="Animation_kkojn"]
 length = 0.001
@@ -1950,9 +1956,12 @@ polygon = PackedVector2Array(-28, -168, -41, -166, -46, -159, -75, -149, -79, -1
 [node name="Toilet_bar_ind" parent="PatientRoom1/Bathroom_south" instance=ExtResource("14_ai1i5")]
 position = Vector2(345, -46)
 
-[node name="Toilet" type="Node2D" parent="PatientRoom1"]
+[node name="Toilet" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("seat_bl", "seat_tr")]
 visible = false
 position = Vector2(554, 368)
+script = ExtResource("81_836gu")
+seat_bl = NodePath("Seat_bl")
+seat_tr = NodePath("Seat_tr")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Toilet"]
@@ -1973,9 +1982,12 @@ position = Vector2(-52, 102)
 [node name="Seat_tr" type="Node2D" parent="PatientRoom1/Toilet"]
 position = Vector2(134, -79)
 
-[node name="Toilet_handle" type="Node2D" parent="PatientRoom1"]
+[node name="Toilet_handle" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("handle_bl", "handle_tr")]
 visible = false
 position = Vector2(554, 368)
+script = ExtResource("83_qfdt5")
+handle_bl = NodePath("Handle_bl")
+handle_tr = NodePath("Handle_tr")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Toilet_handle"]
@@ -1996,9 +2008,12 @@ scale = Vector2(0.535623, 0.460257)
 currentScene = NodePath("..")
 nextScene = NodePath("../../Bathroom_south")
 
-[node name="Bathroom_trash_bin" type="Node2D" parent="PatientRoom1"]
+[node name="Bathroom_trash_bin" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("lid_bl", "lid_tr")]
 visible = false
 position = Vector2(554, 368)
+script = ExtResource("85_jh57a")
+lid_bl = NodePath("Lid_bl")
+lid_tr = NodePath("Lid_tr")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_trash_bin"]
@@ -2019,9 +2034,12 @@ position = Vector2(29, -42)
 [node name="Lid_tr" type="Node2D" parent="PatientRoom1/Bathroom_trash_bin"]
 position = Vector2(199, -171)
 
-[node name="Toilet_bar" type="Node2D" parent="PatientRoom1"]
+[node name="Toilet_bar" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("bar_bl", "bar_tr")]
 visible = false
 position = Vector2(554, 368)
+script = ExtResource("87_8my2m")
+bar_bl = NodePath("Bar_bl")
+bar_tr = NodePath("Bar_tr")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Toilet_bar"]
@@ -2037,14 +2055,19 @@ currentScene = NodePath("..")
 nextScene = NodePath("../../Bathroom_south")
 
 [node name="Bar_bl" type="Node2D" parent="PatientRoom1/Toilet_bar"]
-position = Vector2(-455, -66)
+position = Vector2(-340, -35)
 
 [node name="Bar_tr" type="Node2D" parent="PatientRoom1/Toilet_bar"]
-position = Vector2(413, 50)
+position = Vector2(119, 17)
 
-[node name="Toilet_roll" type="Node2D" parent="PatientRoom1"]
+[node name="Toilet_roll" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("roll_left_bl", "roll_left_tr", "roll_right_bl", "roll_right_tr")]
 visible = false
 position = Vector2(554, 368)
+script = ExtResource("89_ulea4")
+roll_left_bl = NodePath("Roll_left_bl")
+roll_left_tr = NodePath("Roll_left_tr")
+roll_right_bl = NodePath("Roll_right_bl")
+roll_right_tr = NodePath("Roll_right_tr")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Toilet_roll"]
@@ -2071,9 +2094,14 @@ position = Vector2(184, -9)
 [node name="Roll_right_tr" type="Node2D" parent="PatientRoom1/Toilet_roll"]
 position = Vector2(315, -135)
 
-[node name="Pull_cord" type="Node2D" parent="PatientRoom1"]
+[node name="Pull_cord" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("loop_bl", "loop_tr", "cord_bl", "cord_tr")]
 visible = false
 position = Vector2(554, 368)
+script = ExtResource("91_3q3wt")
+loop_bl = NodePath("Loop_bl")
+loop_tr = NodePath("Loop_tr")
+cord_bl = NodePath("Cord_bl")
+cord_tr = NodePath("Cord_tr")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Pull_cord"]
@@ -2235,6 +2263,7 @@ anchor_bottom = 0.5
 wait_time = 0.1
 one_shot = true
 
+[connection signal="spawn_bathroom_trash_bin_bacteria" from="." to="PatientRoom1/Bathroom_trash_bin" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_chair_bed_bacteria" from="." to="PatientRoom1/Chair_bed" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_chair_desk_close_bacteria" from="." to="PatientRoom1/Chair_desk_close" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_closet_bacteria" from="." to="PatientRoom1/Closet" method="_on_main_spawn_bacteria"]
@@ -2247,6 +2276,7 @@ one_shot = true
 [connection signal="spawn_nightstand_above_bacteria" from="." to="PatientRoom1/Nightstand_above" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_nightstand_below_bacteria" from="." to="PatientRoom1/Nightstand_below" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_phone_bacteria" from="." to="PatientRoom1/Phone" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_pull_cord_bacteria" from="." to="PatientRoom1/Pull_cord" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_rail_controls_bacteria" from="." to="PatientRoom1/Rail_controls" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_sharps_bin_bacteria" from="." to="PatientRoom1/Sharps_bin" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_shower_curtain_railing_bacteria" from="." to="PatientRoom1/Shower_curtain_railing" method="_on_main_spawn_bacteria"]
@@ -2255,6 +2285,10 @@ one_shot = true
 [connection signal="spawn_side_table_bacteria" from="." to="PatientRoom1/Side_table_above" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_sink_bacteria" from="." to="PatientRoom1/Sink" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_soap_dispenser_bacteria" from="." to="PatientRoom1/Soap_dispenser" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_toilet_bacteria" from="." to="PatientRoom1/Toilet" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_toilet_bar_bacteria" from="." to="PatientRoom1/Toilet_bar" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_toilet_handle_bacteria" from="." to="PatientRoom1/Toilet_handle" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_toilet_roll_bacteria" from="." to="PatientRoom1/Toilet_roll" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_trash_bin_bacteria" from="." to="PatientRoom1/Trash_bin" method="_on_main_spawn_bacteria"]
 [connection signal="pressed" from="Canvas_inventory/CartButton/Cart_button" to="Canvas_inventory/Inventory_animation" method="_on_cart_button_pressed"]
 [connection signal="pressed" from="Canvas_inventory/InformationButton/Info_button" to="Canvas_inventory/InformationButton" method="button_clicked"]
@@ -2262,6 +2296,7 @@ one_shot = true
 [connection signal="timeout" from="Canvas_inventory/InformationButton/Idle_timer" to="Canvas_inventory/InformationButton" method="_on_idle_timer_timeout"]
 [connection signal="start_game" from="Start_page" to="." method="start_game"]
 [connection signal="start_game" from="Start_page" to="Canvas_inventory/InformationButton" method="game_started"]
+[connection signal="add_point_bathroom_trash_bin" from="Player" to="PatientRoom1/Bathroom_trash_bin" method="add_score"]
 [connection signal="add_point_chair_bed" from="Player" to="PatientRoom1/Chair_bed" method="add_score"]
 [connection signal="add_point_closet" from="Player" to="PatientRoom1/Closet" method="add_score"]
 [connection signal="add_point_computer" from="Player" to="PatientRoom1/Computer" method="add_score"]
@@ -2274,6 +2309,7 @@ one_shot = true
 [connection signal="add_point_nightstand_above" from="Player" to="PatientRoom1/Nightstand_above" method="add_score"]
 [connection signal="add_point_nightstand_below" from="Player" to="PatientRoom1/Nightstand_below" method="add_score"]
 [connection signal="add_point_phone" from="Player" to="PatientRoom1/Phone" method="add_score"]
+[connection signal="add_point_pull_cord" from="Player" to="PatientRoom1/Pull_cord" method="add_score"]
 [connection signal="add_point_rail_controls" from="Player" to="PatientRoom1/Rail_controls" method="add_score"]
 [connection signal="add_point_sharps_bin" from="Player" to="PatientRoom1/Sharps_bin" method="add_score"]
 [connection signal="add_point_shower_curtain_railing" from="Player" to="PatientRoom1/Shower_curtain_railing" method="add_score"]
@@ -2282,9 +2318,14 @@ one_shot = true
 [connection signal="add_point_side_table_above" from="Player" to="PatientRoom1/Side_table_above" method="add_score"]
 [connection signal="add_point_sink" from="Player" to="PatientRoom1/Sink" method="add_score"]
 [connection signal="add_point_soap_dispenser" from="Player" to="PatientRoom1/Soap_dispenser" method="add_score"]
+[connection signal="add_point_toilet" from="Player" to="PatientRoom1/Toilet" method="add_score"]
+[connection signal="add_point_toilet_bar" from="Player" to="PatientRoom1/Toilet_bar" method="add_score"]
+[connection signal="add_point_toilet_handle" from="Player" to="PatientRoom1/Toilet_handle" method="add_score"]
+[connection signal="add_point_toilet_roll" from="Player" to="PatientRoom1/Toilet_roll" method="add_score"]
 [connection signal="add_point_trash_bin" from="Player" to="PatientRoom1/Trash_bin" method="add_score"]
 [connection signal="correct" from="Player" to="Correct_Incorrect" method="correct"]
 [connection signal="incorrect" from="Player" to="Correct_Incorrect" method="incorrect"]
+[connection signal="remove_point_bathroom_trash_bin" from="Player" to="PatientRoom1/Bathroom_trash_bin" method="remove_score"]
 [connection signal="remove_point_chair_bed" from="Player" to="PatientRoom1/Chair_bed" method="remove_score"]
 [connection signal="remove_point_closet" from="Player" to="PatientRoom1/Closet" method="remove_score"]
 [connection signal="remove_point_computer" from="Player" to="PatientRoom1/Computer" method="remove_score"]
@@ -2297,6 +2338,7 @@ one_shot = true
 [connection signal="remove_point_nightstand_above" from="Player" to="PatientRoom1/Nightstand_above" method="remove_score"]
 [connection signal="remove_point_nightstand_below" from="Player" to="PatientRoom1/Nightstand_below" method="remove_score"]
 [connection signal="remove_point_phone" from="Player" to="PatientRoom1/Phone" method="remove_score"]
+[connection signal="remove_point_pull_cord" from="Player" to="PatientRoom1/Pull_cord" method="remove_score"]
 [connection signal="remove_point_rail_controls" from="Player" to="PatientRoom1/Rail_controls" method="remove_score"]
 [connection signal="remove_point_sharps_bin" from="Player" to="PatientRoom1/Sharps_bin" method="remove_score"]
 [connection signal="remove_point_shower_curtain_railing" from="Player" to="PatientRoom1/Shower_curtain_railing" method="remove_score"]
@@ -2305,6 +2347,10 @@ one_shot = true
 [connection signal="remove_point_side_table_above" from="Player" to="PatientRoom1/Side_table_above" method="remove_score"]
 [connection signal="remove_point_sink" from="Player" to="PatientRoom1/Sink" method="remove_score"]
 [connection signal="remove_point_soap_dispenser" from="Player" to="PatientRoom1/Soap_dispenser" method="remove_score"]
+[connection signal="remove_point_toilet" from="Player" to="PatientRoom1/Toilet" method="remove_score"]
+[connection signal="remove_point_toilet_bar" from="Player" to="PatientRoom1/Toilet_bar" method="remove_score"]
+[connection signal="remove_point_toilet_handle" from="Player" to="PatientRoom1/Toilet_handle" method="remove_score"]
+[connection signal="remove_point_toilet_roll" from="Player" to="PatientRoom1/Toilet_roll" method="remove_score"]
 [connection signal="remove_point_trash_bin" from="Player" to="PatientRoom1/Trash_bin" method="remove_score"]
 [connection signal="stop_sign" from="Player" to="Stop" method="show_up"]
 [connection signal="input_event" from="PatientRoom1/Outside_room/Door_interact/Door_interact" to="." method="_on_door_interact_input_event"]
@@ -2387,6 +2433,18 @@ one_shot = true
 [connection signal="input_event" from="PatientRoom1/Bathroom_south/Toilet_roll" to="." method="_on_toilet_roll_input_event"]
 [connection signal="input_event" from="PatientRoom1/Bathroom_south/Toilet_handle" to="." method="_on_toilet_handle_input_event"]
 [connection signal="input_event" from="PatientRoom1/Bathroom_south/Toilet_bar" to="." method="_on_toilet_bar_input_event"]
+[connection signal="completed" from="PatientRoom1/Toilet" to="PatientRoom1/Bathroom_south/Toilet_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Toilet/Return_bathroom_south" to="PatientRoom1/Toilet" method="_on_leave_toilet_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Toilet_handle" to="PatientRoom1/Bathroom_south/Toilet_handle_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Toilet_handle/Return_bathroom_south" to="PatientRoom1/Toilet_handle" method="_on_leave_toilet_handle_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Bathroom_trash_bin" to="PatientRoom1/Bathroom_south/Bathroom_trash_bin_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Bathroom_trash_bin/Return_bathroom_south" to="PatientRoom1/Bathroom_trash_bin" method="_on_leave_bathroom_trash_bin_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Toilet_bar" to="PatientRoom1/Bathroom_south/Toilet_bar_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Toilet_bar/Return_bathroom_south" to="PatientRoom1/Toilet_bar" method="_on_leave_toilet_bar_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Toilet_roll" to="PatientRoom1/Bathroom_south/Toilet_roll_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Toilet_roll/Return_bathroom_south" to="PatientRoom1/Toilet_roll" method="_on_leave_toilet_roll_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Pull_cord" to="PatientRoom1/Bathroom_south/Pull_cord_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Pull_cord/Return_bathroom_south" to="PatientRoom1/Pull_cord" method="_on_leave_pull_cord_hide_bacteria"]
 [connection signal="input_event" from="PatientRoom1/Bathroom_north/Bathroom_door_handle" to="." method="_on_bathroom_door_handle_input_event"]
 [connection signal="input_event" from="PatientRoom1/Bathroom_north/Bathroom_light_switch" to="." method="_on_bathroom_light_switch_input_event"]
 [connection signal="timeout" from="Room_transition_cooldown" to="." method="_on_room_transition_cooldown_timeout"]
