@@ -205,7 +205,7 @@ func _on_toilet_bar_input_event(viewport: Node, event: InputEvent, shape_idx: in
 func _on_bathroom_door_handle_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_echo():
 		$Room_transition_cooldown.start()
-		change_current_scene($PatientRoom1/Bathroom_door_handle_in)
+		change_current_scene($PatientRoom1/Bathroom_door_handle/In)
 
 func _on_bathroom_light_switch_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_LEFT && !event.is_echo():
@@ -393,9 +393,9 @@ func _on_room_transition_cooldown_timeout() -> void:
 		$PatientRoom1/Toilet_bar.visible = true
 		spawn_toilet_bar_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Bathroom_door_handle_in:
+	elif Globals.current_scene == $PatientRoom1/Bathroom_door_handle/In:
 		$PatientRoom1/Bathroom_north.visible = false
-		$PatientRoom1/Bathroom_door_handle_in.visible = true
+		$PatientRoom1/Bathroom_door_handle.visible = true
 		spawn_bathroom_door_handle_bacteria.emit()
 		$StepSound.play()
 	elif Globals.current_scene == $PatientRoom1/Bathroom_light_switch:

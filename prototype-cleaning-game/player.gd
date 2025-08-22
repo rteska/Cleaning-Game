@@ -100,6 +100,12 @@ signal remove_point_toilet_roll
 signal add_point_pull_cord
 signal remove_point_pull_cord
 
+signal add_point_bathroom_light_switch
+signal remove_point_bathroom_light_switch
+
+signal add_point_bathroom_door
+signal remove_point_bathroom_door
+
 var scenes_list
 var signals_list = [[add_point_desk_chair, remove_point_desk_chair], [add_point_computer_screen, remove_point_computer_screen], [add_point_computer, remove_point_computer], 
 [add_point_light_switch, remove_point_light_switch], [add_point_sharps_bin, remove_point_sharps_bin], 
@@ -110,7 +116,8 @@ var signals_list = [[add_point_desk_chair, remove_point_desk_chair], [add_point_
 [add_point_soap_dispenser, remove_point_soap_dispenser], [add_point_shower_handle, remove_point_shower_handle], [add_point_shower_head, remove_point_shower_head],
 [add_point_shower_curtain_railing, remove_point_shower_curtain_railing], [add_point_toilet, remove_point_toilet],
 [add_point_toilet_handle, remove_point_toilet_handle], [add_point_bathroom_trash_bin, remove_point_bathroom_trash_bin], 
-[add_point_toilet_bar, remove_point_toilet_bar], [add_point_toilet_roll, remove_point_toilet_roll], [add_point_pull_cord, remove_point_pull_cord]]
+[add_point_toilet_bar, remove_point_toilet_bar], [add_point_toilet_roll, remove_point_toilet_roll], [add_point_pull_cord, remove_point_pull_cord],
+[add_point_bathroom_light_switch, remove_point_bathroom_light_switch]]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -122,7 +129,7 @@ func _ready() -> void:
 	$"../PatientRoom1/Side_table_above", $"../PatientRoom1/Rail_controls",  $"../PatientRoom1/Sink", $"../PatientRoom1/Mirror", $"../PatientRoom1/Soap_dispenser",
 	$"../PatientRoom1/Shower_handle", $"../PatientRoom1/Shower_head", $"../PatientRoom1/Shower_curtain_railing", $"../PatientRoom1/Toilet",
 	$"../PatientRoom1/Toilet_handle", $"../PatientRoom1/Bathroom_trash_bin", $"../PatientRoom1/Toilet_bar", $"../PatientRoom1/Toilet_roll",
-	$"../PatientRoom1/Pull_cord"]
+	$"../PatientRoom1/Pull_cord", $"../PatientRoom1/Bathroom_light_switch"]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -177,12 +184,24 @@ func _on_area_entered(area: Area2D) -> void:
 						$WipeCorrectSFX.play()
 						index = 0
 						break
+					elif Globals.current_scene == $"../PatientRoom1/Bathroom_door_handle/In" || Globals.current_scene == $"../PatientRoom1/Bathroom_door_handle/Out":
+						add_point_bathroom_door.emit()
+						correct.emit()
+						$WipeCorrectSFX.play()
+						index = 0
+						break
 					index += 1
 			elif area.get_name() == "Enterococcus" && str(item_held.texture.get_path().get_file()).contains("Cloth_wet_blue"): #Blue cloth on C diff. cells
 				area.get_parent().queue_free()
 				for scene in scenes_list:
 					if Globals.current_scene == scene:
 						signals_list[index][1].emit()
+						incorrect.emit()
+						$WipeIncorrectSFX.play()
+						index = 0
+						break
+					elif Globals.current_scene == $"../PatientRoom1/Bathroom_door_handle/In" || Globals.current_scene == $"../PatientRoom1/Bathroom_door_handle/Out":
+						remove_point_bathroom_door.emit()
 						incorrect.emit()
 						$WipeIncorrectSFX.play()
 						index = 0

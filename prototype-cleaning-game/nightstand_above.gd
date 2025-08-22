@@ -24,7 +24,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Globals.current_scene != $"../Nightstand_above":
+		for child in get_children():
+			for grandchildren in child.get_children():
+				if grandchildren is Area2D:
+					grandchildren.set_deferred("monitoring", false)
+					grandchildren.set_deferred("monitorable", false)
+	else:
+		for child in get_children():
+			for grandchildren in child.get_children():
+				if grandchildren is Area2D:
+					grandchildren.set_deferred("monitoring", true)
+					grandchildren.set_deferred("monitorable", true)
 
 #Spawns one set of bacteria for the nightstand top
 func _on_main_spawn_bacteria() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://b21koa6ft10pe"]
+[gd_scene load_steps=125 format=3 uid="uid://b21koa6ft10pe"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_u3rmy"]
 [ext_resource type="Texture2D" uid="uid://dbrpn5mh08dt0" path="res://Art/Door_closed.png" id="2_qqx4w"]
@@ -96,6 +96,8 @@
 [ext_resource type="Script" path="res://toilet_roll.gd" id="89_ulea4"]
 [ext_resource type="Texture2D" uid="uid://cj5ufnsx4i5d" path="res://New Art/escape room - flat images/lazienka drzwi galka pokoj copy.png" id="89_yhcc6"]
 [ext_resource type="Script" path="res://pull_cord.gd" id="91_3q3wt"]
+[ext_resource type="Script" path="res://bathroom_light_switch.gd" id="94_a6cym"]
+[ext_resource type="Script" path="res://bathroom_door_handle.gd" id="97_5xgbv"]
 
 [sub_resource type="Animation" id="Animation_kkojn"]
 length = 0.001
@@ -2170,9 +2172,12 @@ shape = SubResource("RectangleShape2D_ek826")
 [node name="Bathroom_light_switch_ind" parent="PatientRoom1/Bathroom_north" instance=ExtResource("14_ai1i5")]
 position = Vector2(528, -228)
 
-[node name="Bathroom_light_switch" type="Node2D" parent="PatientRoom1"]
+[node name="Bathroom_light_switch" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("switch_bl", "switch_tr")]
 visible = false
 position = Vector2(556, 366)
+script = ExtResource("94_a6cym")
+switch_bl = NodePath("Switch_bl")
+switch_tr = NodePath("Switch_tr")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_light_switch"]
@@ -2193,61 +2198,53 @@ scale = Vector2(0.57133, 0.483428)
 currentScene = NodePath("..")
 nextScene = NodePath("../../Bathroom_north")
 
-[node name="Bathroom_door_handle_in" type="Node2D" parent="PatientRoom1"]
+[node name="Bathroom_door_handle" type="Node2D" parent="PatientRoom1" node_paths=PackedStringArray("in_handle_bl", "in_handle_tr", "out_handle_bl", "out_handle_tr")]
 visible = false
-position = Vector2(556, 366)
-metadata/_edit_group_ = true
+position = Vector2(554, 365)
+script = ExtResource("97_5xgbv")
+in_handle_bl = NodePath("In/In_handle_bl")
+in_handle_tr = NodePath("In/In_handle_tr")
+out_handle_bl = NodePath("Out/Out_handle_bl")
+out_handle_tr = NodePath("Out/Out_handle_tr")
 
-[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_door_handle_in"]
-position = Vector2(20, -42)
+[node name="In" type="Sprite2D" parent="PatientRoom1/Bathroom_door_handle"]
+position = Vector2(22, -41)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("42_ceyth")
 
-[node name="Handle_bl" type="Node2D" parent="PatientRoom1/Bathroom_door_handle_in"]
-position = Vector2(-187, 83)
+[node name="In_handle_bl" type="Node2D" parent="PatientRoom1/Bathroom_door_handle/In"]
+position = Vector2(-351.667, 205)
 
-[node name="Handle_tr" type="Node2D" parent="PatientRoom1/Bathroom_door_handle_in"]
-position = Vector2(-126, 1)
+[node name="In_handle_tr" type="Node2D" parent="PatientRoom1/Bathroom_door_handle/In"]
+position = Vector2(-231.667, 75.0001)
 
-[node name="Return_bathroom_north" parent="PatientRoom1/Bathroom_door_handle_in" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(527, 212)
-rotation = -3.13847
-scale = Vector2(0.575406, 0.43373)
+[node name="To_out" parent="PatientRoom1/Bathroom_door_handle/In" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-85, -386.667)
+scale = Vector2(0.870047, 0.869033)
 currentScene = NodePath("..")
-nextScene = NodePath("../../Bathroom_north")
+nextScene = NodePath("../../Out")
 
-[node name="Go_door_out" parent="PatientRoom1/Bathroom_door_handle_in" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(-13, -292)
-scale = Vector2(0.506536, 0.47221)
-currentScene = NodePath("..")
-nextScene = NodePath("../../Bathroom_door_handle_out")
-
-[node name="Bathroom_door_handle_out" type="Node2D" parent="PatientRoom1"]
+[node name="Out" type="Sprite2D" parent="PatientRoom1/Bathroom_door_handle"]
 visible = false
-position = Vector2(556, 366)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="PatientRoom1/Bathroom_door_handle_out"]
-position = Vector2(20, -42)
+position = Vector2(22, -41)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("89_yhcc6")
 
-[node name="Handle_bl" type="Node2D" parent="PatientRoom1/Bathroom_door_handle_out"]
-position = Vector2(115, 37)
+[node name="Out_handle_bl" type="Node2D" parent="PatientRoom1/Bathroom_door_handle/Out"]
+position = Vector2(148.333, 138.333)
 
-[node name="Handle_tr" type="Node2D" parent="PatientRoom1/Bathroom_door_handle_out"]
-position = Vector2(178, -40)
+[node name="Out_handle_tr" type="Node2D" parent="PatientRoom1/Bathroom_door_handle/Out"]
+position = Vector2(278.333, 8.33339)
 
-[node name="Go_door_in" parent="PatientRoom1/Bathroom_door_handle_out" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(-93, -294)
-scale = Vector2(0.487857, 0.443014)
+[node name="To_in" parent="PatientRoom1/Bathroom_door_handle/Out" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(-220, -388.333)
 currentScene = NodePath("..")
-nextScene = NodePath("../../Bathroom_door_handle_in")
+nextScene = NodePath("../../In")
 
-[node name="Return_bathroom_north" parent="PatientRoom1/Bathroom_door_handle_out" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(535, 203)
-rotation = -3.12794
-scale = Vector2(0.608877, 0.522478)
+[node name="Return_bathroom_north" parent="PatientRoom1/Bathroom_door_handle" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(523, 196)
+rotation = -3.14018
+scale = Vector2(0.613652, 0.552645)
 currentScene = NodePath("..")
 nextScene = NodePath("../../Bathroom_north")
 
@@ -2263,6 +2260,8 @@ anchor_bottom = 0.5
 wait_time = 0.1
 one_shot = true
 
+[connection signal="spawn_bathroom_door_handle_bacteria" from="." to="PatientRoom1/Bathroom_door_handle" method="_on_main_spawn_bacteria"]
+[connection signal="spawn_bathroom_light_switch_bacteria" from="." to="PatientRoom1/Bathroom_light_switch" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_bathroom_trash_bin_bacteria" from="." to="PatientRoom1/Bathroom_trash_bin" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_chair_bed_bacteria" from="." to="PatientRoom1/Chair_bed" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_chair_desk_close_bacteria" from="." to="PatientRoom1/Chair_desk_close" method="_on_main_spawn_bacteria"]
@@ -2296,6 +2295,8 @@ one_shot = true
 [connection signal="timeout" from="Canvas_inventory/InformationButton/Idle_timer" to="Canvas_inventory/InformationButton" method="_on_idle_timer_timeout"]
 [connection signal="start_game" from="Start_page" to="." method="start_game"]
 [connection signal="start_game" from="Start_page" to="Canvas_inventory/InformationButton" method="game_started"]
+[connection signal="add_point_bathroom_door" from="Player" to="PatientRoom1/Bathroom_door_handle" method="add_score"]
+[connection signal="add_point_bathroom_light_switch" from="Player" to="PatientRoom1/Bathroom_light_switch" method="add_score"]
 [connection signal="add_point_bathroom_trash_bin" from="Player" to="PatientRoom1/Bathroom_trash_bin" method="add_score"]
 [connection signal="add_point_chair_bed" from="Player" to="PatientRoom1/Chair_bed" method="add_score"]
 [connection signal="add_point_closet" from="Player" to="PatientRoom1/Closet" method="add_score"]
@@ -2325,6 +2326,8 @@ one_shot = true
 [connection signal="add_point_trash_bin" from="Player" to="PatientRoom1/Trash_bin" method="add_score"]
 [connection signal="correct" from="Player" to="Correct_Incorrect" method="correct"]
 [connection signal="incorrect" from="Player" to="Correct_Incorrect" method="incorrect"]
+[connection signal="remove_point_bathroom_door" from="Player" to="PatientRoom1/Bathroom_door_handle" method="remove_score"]
+[connection signal="remove_point_bathroom_light_switch" from="Player" to="PatientRoom1/Bathroom_light_switch" method="remove_score"]
 [connection signal="remove_point_bathroom_trash_bin" from="Player" to="PatientRoom1/Bathroom_trash_bin" method="remove_score"]
 [connection signal="remove_point_chair_bed" from="Player" to="PatientRoom1/Chair_bed" method="remove_score"]
 [connection signal="remove_point_closet" from="Player" to="PatientRoom1/Closet" method="remove_score"]
@@ -2447,4 +2450,10 @@ one_shot = true
 [connection signal="hideBacteria" from="PatientRoom1/Pull_cord/Return_bathroom_south" to="PatientRoom1/Pull_cord" method="_on_leave_pull_cord_hide_bacteria"]
 [connection signal="input_event" from="PatientRoom1/Bathroom_north/Bathroom_door_handle" to="." method="_on_bathroom_door_handle_input_event"]
 [connection signal="input_event" from="PatientRoom1/Bathroom_north/Bathroom_light_switch" to="." method="_on_bathroom_light_switch_input_event"]
+[connection signal="completed" from="PatientRoom1/Bathroom_light_switch" to="PatientRoom1/Bathroom_north/Bathroom_light_switch_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Bathroom_light_switch/Return_bathroom_north" to="PatientRoom1/Bathroom_light_switch" method="_on_leave_bathroom_light_switch_hide_bacteria"]
+[connection signal="completed" from="PatientRoom1/Bathroom_door_handle" to="PatientRoom1/Bathroom_north/Bathroom_door_handle_ind" method="change_sprite"]
+[connection signal="hideBacteria" from="PatientRoom1/Bathroom_door_handle/In/To_out" to="PatientRoom1/Bathroom_door_handle" method="on_leave_in_bathroom_door_hide_bacteria"]
+[connection signal="hideBacteria" from="PatientRoom1/Bathroom_door_handle/Out/To_in" to="PatientRoom1/Bathroom_door_handle" method="on_leave_out_bathroom_door_hide_bacteria"]
+[connection signal="hideBacteria" from="PatientRoom1/Bathroom_door_handle/Return_bathroom_north" to="PatientRoom1/Bathroom_door_handle" method="_on_leave_bathroom_door_hide_bacteria"]
 [connection signal="timeout" from="Room_transition_cooldown" to="." method="_on_room_transition_cooldown_timeout"]
