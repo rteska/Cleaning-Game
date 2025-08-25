@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bctwbco3u3xeb" path="res://Art/Inventory_slot.png" id="3_kg8mr"]
 [ext_resource type="Texture2D" uid="uid://csn2d8gp3tyus" path="res://Art/Cleaner_blue_cursor.png" id="4_mk7or"]
 [ext_resource type="Texture2D" uid="uid://woro6odt7j6r" path="res://Art/Cleaner_red_cursor.png" id="5_4uwkr"]
-[ext_resource type="Texture2D" uid="uid://doom6r43jhbug" path="res://Art/Diversey Small escape room-02.jpg" id="5_ge2js"]
 [ext_resource type="Script" path="res://preview.gd" id="6_fpm2e"]
+[ext_resource type="Texture2D" uid="uid://boueqxag7i3ce" path="res://New Art/escape room - flat images/widok pokoj poczatek copy.png" id="6_w0cm7"]
 
 [sub_resource type="Theme" id="Theme_4dl75"]
 
@@ -297,7 +297,7 @@ theme = SubResource("Theme_4dl75")
 layout_mode = 2
 
 [node name="LevelSelect" type="TextureRect" parent="LevelSelectBackground/LevelSelectScroll/LevelSelectHolder"]
-custom_minimum_size = Vector2(400, 600)
+custom_minimum_size = Vector2(500, 600)
 layout_mode = 2
 texture = ExtResource("3_kg8mr")
 expand_mode = 1
@@ -331,14 +331,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -183.0
-offset_top = -276.0
-offset_right = 1737.0
-offset_bottom = 804.0
+offset_left = -231.283
+offset_top = -274.598
+offset_right = 1688.72
+offset_bottom = 805.402
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.187331, 0.509317)
-texture = ExtResource("5_ge2js")
+scale = Vector2(0.235774, 0.506101)
+texture = ExtResource("6_w0cm7")
 script = ExtResource("6_fpm2e")
 
 [node name="glow" type="AnimationPlayer" parent="LevelSelectBackground/LevelSelectScroll/LevelSelectHolder/LevelSelect/Preview1"]

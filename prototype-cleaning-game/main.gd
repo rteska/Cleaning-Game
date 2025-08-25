@@ -31,6 +31,8 @@ signal spawn_toilet_bar_bacteria
 signal spawn_bathroom_door_handle_bacteria
 signal spawn_bathroom_light_switch_bacteria
 
+signal countdown_start
+
 @onready var inv: Inventory = preload("res://Inventory/main_inventory.tres")
 var curr_scene = null
 
@@ -48,6 +50,8 @@ func _process(delta: float) -> void:
 #Starts the game
 func start_game():
 	$Room_transition_cooldown.start()
+	countdown_start.emit()
+	$Countdown_timer.visible = true
 	change_current_scene($PatientRoom1/Outside_room)
 
 #Switches the scene from the outside door to inside the room
@@ -278,127 +282,127 @@ func _on_room_transition_cooldown_timeout() -> void:
 		$PatientRoom1/Front_door.visible = true
 		spawn_front_door_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Sharps_bin:
+	elif Globals.current_scene == $PatientRoom1/Sharps_bin: #Sharps bin
 		$PatientRoom1/Face_north.visible = false
 		$PatientRoom1/Sharps_bin.visible = true
 		spawn_sharps_bin_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Trash_bin:
+	elif Globals.current_scene == $PatientRoom1/Trash_bin: #Trash bin
 		$PatientRoom1/Face_north.visible = false
 		$PatientRoom1/Trash_bin.visible = true
 		spawn_trash_bin_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Desk:
+	elif Globals.current_scene == $PatientRoom1/Desk: #Desk
 		$PatientRoom1/Face_north.visible = false
 		$PatientRoom1/Desk.visible = true
 		spawn_desk_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Computer:
+	elif Globals.current_scene == $PatientRoom1/Computer: #Computer
 		$PatientRoom1/Wall_east.visible = false
 		$PatientRoom1/Computer.visible = true
 		spawn_computer_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Chair_bed:
+	elif Globals.current_scene == $PatientRoom1/Chair_bed: #Chair near bed
 		$PatientRoom1/Wall_east.visible = false
 		$PatientRoom1/Chair_bed.visible = true
 		spawn_chair_bed_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Closet:
+	elif Globals.current_scene == $PatientRoom1/Closet: #Closet
 		$PatientRoom1/Wall_north.visible = false
 		$PatientRoom1/Closet.visible = true
 		spawn_closet_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Nightstand_above:
+	elif Globals.current_scene == $PatientRoom1/Nightstand_above: #Nightstand top
 		$PatientRoom1/Wall_south.visible = false
 		$PatientRoom1/Nightstand_above.visible = true
 		spawn_nightstand_above_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Nightstand_below:
+	elif Globals.current_scene == $PatientRoom1/Nightstand_below: #Nightstand bottom
 		$PatientRoom1/Wall_south.visible = false
 		$PatientRoom1/Nightstand_below.visible = true
 		spawn_nightstand_below_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Phone:
+	elif Globals.current_scene == $PatientRoom1/Phone: #Phone
 		$PatientRoom1/Nightstand_above.visible = false
 		$PatientRoom1/Phone.visible = true
 		spawn_phone_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Nightstand_open:
+	elif Globals.current_scene == $PatientRoom1/Nightstand_open: #N/A
 		$PatientRoom1/Nightstand_above.visible = false
 		$PatientRoom1/Nightstand_open.visible = true
 		spawn_nightstand_open_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Side_table_above:
+	elif Globals.current_scene == $PatientRoom1/Side_table_above: #Rolling side table above
 		$PatientRoom1/Wall_south.visible = false
 		$PatientRoom1/Side_table_above.visible = true
 		spawn_side_table_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Rail_controls:
+	elif Globals.current_scene == $PatientRoom1/Rail_controls: #Rail controls
 		$PatientRoom1/Wall_south.visible = false
 		$PatientRoom1/Rail_controls.visible = true
 		spawn_rail_controls_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Mirror:
+	elif Globals.current_scene == $PatientRoom1/Mirror: #Mirror
 		$PatientRoom1/Bathroom_east.visible = false
 		$PatientRoom1/Mirror.visible = true
 		spawn_mirror_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Soap_dispenser:
+	elif Globals.current_scene == $PatientRoom1/Soap_dispenser: #Soap dispenser
 		$PatientRoom1/Bathroom_east.visible = false
 		$PatientRoom1/Soap_dispenser.visible = true
 		spawn_soap_dispenser_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Shower_handle:
+	elif Globals.current_scene == $PatientRoom1/Shower_handle: #Shower handle
 		$PatientRoom1/Bathroom_east.visible = false
 		$PatientRoom1/Shower_handle.visible = true
 		spawn_shower_handle_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Shower_head:
+	elif Globals.current_scene == $PatientRoom1/Shower_head: #Shower head
 		$PatientRoom1/Bathroom_east.visible = false
 		$PatientRoom1/Shower_head.visible = true
 		spawn_shower_head_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Shower_curtain_railing:
+	elif Globals.current_scene == $PatientRoom1/Shower_curtain_railing: #Shower curtain railing and other railings
 		$PatientRoom1/Bathroom_east.visible = false
 		$PatientRoom1/Shower_curtain_railing.visible = true
 		spawn_shower_curtain_railing_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Toilet:
+	elif Globals.current_scene == $PatientRoom1/Toilet: #Toilet
 		$PatientRoom1/Bathroom_south.visible = false
 		$PatientRoom1/Toilet.visible = true
 		spawn_toilet_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Bathroom_trash_bin:
+	elif Globals.current_scene == $PatientRoom1/Bathroom_trash_bin: #Bathroom trash bin
 		$PatientRoom1/Bathroom_south.visible = false
 		$PatientRoom1/Bathroom_trash_bin.visible = true
 		spawn_bathroom_trash_bin_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Pull_cord:
+	elif Globals.current_scene == $PatientRoom1/Pull_cord: #Pull cord
 		$PatientRoom1/Bathroom_south.visible = false
 		$PatientRoom1/Pull_cord.visible = true
 		spawn_pull_cord_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Toilet_roll:
+	elif Globals.current_scene == $PatientRoom1/Toilet_roll: #Toilet roll
 		$PatientRoom1/Bathroom_south.visible = false
 		$PatientRoom1/Toilet_roll.visible = true
 		spawn_toilet_roll_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Toilet_handle:
+	elif Globals.current_scene == $PatientRoom1/Toilet_handle: #Toilet handle
 		$PatientRoom1/Bathroom_south.visible = false
 		$PatientRoom1/Toilet_handle.visible = true
 		spawn_toilet_handle_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Toilet_bar:
+	elif Globals.current_scene == $PatientRoom1/Toilet_bar: #Toilet bar
 		$PatientRoom1/Bathroom_south.visible = false
 		$PatientRoom1/Toilet_bar.visible = true
 		spawn_toilet_bar_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Bathroom_door_handle/In:
+	elif Globals.current_scene == $PatientRoom1/Bathroom_door_handle/In: #Bathroom door inside
 		$PatientRoom1/Bathroom_north.visible = false
 		$PatientRoom1/Bathroom_door_handle.visible = true
 		spawn_bathroom_door_handle_bacteria.emit()
 		$StepSound.play()
-	elif Globals.current_scene == $PatientRoom1/Bathroom_light_switch:
+	elif Globals.current_scene == $PatientRoom1/Bathroom_light_switch: #Bathroom light switch
 		$PatientRoom1/Bathroom_north.visible = false
 		$PatientRoom1/Bathroom_light_switch.visible = true
 		spawn_bathroom_light_switch_bacteria.emit()

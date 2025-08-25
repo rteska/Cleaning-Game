@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjjw8kgr5siug"]
+
+[ext_resource type="Script" path="res://countdown_timer.gd" id="1_vj8jj"]
+
+[node name="Countdown_timer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_vj8jj")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -65.0
+offset_right = -15.0
+offset_bottom = 55.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+
+[node name="Panel" type="Panel" parent="Label"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 600.0
+one_shot = true
