@@ -50,6 +50,8 @@ func _process(delta: float) -> void:
 #Starts the game
 func start_game():
 	$Room_transition_cooldown.start()
+	$Canvas_inventory.visible = true
+	$Score.visible = true
 	countdown_start.emit()
 	$Countdown_timer.visible = true
 	change_current_scene($PatientRoom1/Outside_room)

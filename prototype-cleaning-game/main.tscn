@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=3 uid="uid://b21koa6ft10pe"]
+[gd_scene load_steps=127 format=3 uid="uid://b21koa6ft10pe"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_u3rmy"]
 [ext_resource type="Texture2D" uid="uid://dbrpn5mh08dt0" path="res://Art/Door_closed.png" id="2_qqx4w"]
@@ -99,6 +99,7 @@
 [ext_resource type="Script" path="res://bathroom_light_switch.gd" id="94_a6cym"]
 [ext_resource type="Script" path="res://bathroom_door_handle.gd" id="97_5xgbv"]
 [ext_resource type="PackedScene" uid="uid://bjjw8kgr5siug" path="res://countdown_timer.tscn" id="99_q4f3s"]
+[ext_resource type="PackedScene" uid="uid://cs6b6kxhfeqbv" path="res://intro_animation.tscn" id="100_k41ya"]
 
 [sub_resource type="Animation" id="Animation_kkojn"]
 length = 0.001
@@ -250,8 +251,10 @@ size = Vector2(200.426, 198.634)
 script = ExtResource("1_u3rmy")
 
 [node name="Score" parent="." instance=ExtResource("3_3nf87")]
+visible = false
 
 [node name="Canvas_inventory" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="CartButton" type="ColorRect" parent="Canvas_inventory"]
 offset_left = 15.0
@@ -787,6 +790,33 @@ rotation = -3.1269
 scale = Vector2(0.616258, 0.493456)
 currentScene = NodePath("..")
 nextScene = NodePath("../../Wall_east")
+
+[node name="ColorRect" type="ColorRect" parent="PatientRoom1/Chair_bed"]
+offset_left = -76.0
+offset_top = -70.0
+offset_right = -36.0
+offset_bottom = -57.0
+rotation = -0.268497
+scale = Vector2(0.720913, 2.74987)
+color = Color(0.678431, 0.796078, 0.823529, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="PatientRoom1/Chair_bed"]
+offset_left = -67.0
+offset_top = -41.0
+offset_right = -27.0
+offset_bottom = -35.0
+rotation = -0.268497
+scale = Vector2(0.706504, 5.50307)
+color = Color(0.611765, 0.745098, 0.788235, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="PatientRoom1/Chair_bed"]
+offset_left = -62.0
+offset_top = -12.0
+offset_right = -22.0
+offset_bottom = -6.0
+rotation = -0.268497
+scale = Vector2(0.670515, 8.34324)
+color = Color(0.545098, 0.682353, 0.74902, 1)
 
 [node name="Wall_south" type="Node2D" parent="PatientRoom1"]
 visible = false
@@ -2264,6 +2294,8 @@ one_shot = true
 [node name="Countdown_timer" parent="." instance=ExtResource("99_q4f3s")]
 visible = false
 
+[node name="Intro_animation" parent="." instance=ExtResource("100_k41ya")]
+
 [connection signal="countdown_start" from="." to="Countdown_timer" method="start_timer"]
 [connection signal="spawn_bathroom_door_handle_bacteria" from="." to="PatientRoom1/Bathroom_door_handle" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_bathroom_light_switch_bacteria" from="." to="PatientRoom1/Bathroom_light_switch" method="_on_main_spawn_bacteria"]
@@ -2298,8 +2330,7 @@ visible = false
 [connection signal="pressed" from="Canvas_inventory/InformationButton/Info_button" to="Canvas_inventory/InformationButton" method="button_clicked"]
 [connection signal="pressed" from="Canvas_inventory/InformationButton/Info_button" to="Canvas_inventory/InformationButton/Info_button" method="_on_pressed"]
 [connection signal="timeout" from="Canvas_inventory/InformationButton/Idle_timer" to="Canvas_inventory/InformationButton" method="_on_idle_timer_timeout"]
-[connection signal="start_game" from="Start_page" to="." method="start_game"]
-[connection signal="start_game" from="Start_page" to="Canvas_inventory/InformationButton" method="game_started"]
+[connection signal="start_game" from="Start_page" to="Intro_animation" method="start_animation"]
 [connection signal="add_point_bathroom_door" from="Player" to="PatientRoom1/Bathroom_door_handle" method="add_score"]
 [connection signal="add_point_bathroom_light_switch" from="Player" to="PatientRoom1/Bathroom_light_switch" method="add_score"]
 [connection signal="add_point_bathroom_trash_bin" from="Player" to="PatientRoom1/Bathroom_trash_bin" method="add_score"]
@@ -2462,3 +2493,5 @@ visible = false
 [connection signal="hideBacteria" from="PatientRoom1/Bathroom_door_handle/Out/To_in" to="PatientRoom1/Bathroom_door_handle" method="on_leave_out_bathroom_door_hide_bacteria"]
 [connection signal="hideBacteria" from="PatientRoom1/Bathroom_door_handle/Return_bathroom_north" to="PatientRoom1/Bathroom_door_handle" method="_on_leave_bathroom_door_hide_bacteria"]
 [connection signal="timeout" from="Room_transition_cooldown" to="." method="_on_room_transition_cooldown_timeout"]
+[connection signal="start_game" from="Intro_animation" to="." method="start_game"]
+[connection signal="start_information_button" from="Intro_animation" to="Canvas_inventory/InformationButton" method="game_started"]

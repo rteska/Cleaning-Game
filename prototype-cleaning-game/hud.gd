@@ -88,3 +88,5 @@ func _on_item_list_item_clicked(index: int, at_position: Vector2, mouse_button_i
 func _on_level_select_gui_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		start_game.emit()
+		self.visible = false
+		
