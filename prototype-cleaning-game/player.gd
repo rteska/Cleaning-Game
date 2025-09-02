@@ -143,7 +143,7 @@ func _process(delta: float) -> void:
 		for areas in areas_overlapping:
 			_on_area_entered(areas)
 	
-	if curr_area != null && item_held != null:
+	if curr_area != null && item_held != null && !Globals.info_button_on:
 		if curr_area.get_name() == "Staph" || curr_area.get_name() == "Enterococcus":
 			if (Input.is_action_just_released("interact")) && (str(item_held.texture.get_path().get_file()).contains("Cleaner_blue_item") || str(item_held.texture.get_path().get_file()).contains("Cleaner_red_item")):
 				stop_sign.emit()
@@ -152,7 +152,7 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	curr_area = area
-	if item_held != null && (area.get_name() == "Staph" || area.get_name() == "Enterococcus"): #are we holding an item at all
+	if item_held != null && !Globals.info_button_on && (area.get_name() == "Staph" || area.get_name() == "Enterococcus"): #are we holding an item at all
 		if (Input.is_action_pressed("interact")) && (str(item_held.texture.get_path().get_file()).contains("Cloth_wet_blue") || str(item_held.texture.get_path().get_file()).contains("Cloth_wet_red")):
 			if area.get_name() == "Staph" && str(item_held.texture.get_path().get_file()).contains("Cloth_wet_blue"): #Blue cloth on Staph cells
 				area.get_parent().queue_free()

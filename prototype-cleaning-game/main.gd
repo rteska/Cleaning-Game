@@ -33,10 +33,15 @@ signal spawn_bathroom_light_switch_bacteria
 
 signal countdown_start
 
+signal start_interim_cutscene
+signal start_end_cutscene
+
 @onready var inv: Inventory = preload("res://Inventory/main_inventory.tres")
 var curr_scene = null
 
 var already_called = false
+var played_interim_cutscene = false
+var played_end_cutscene = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -52,6 +57,8 @@ func start_game():
 	$Room_transition_cooldown.start()
 	$Canvas_inventory.visible = true
 	$Score.visible = true
+	$Player.visible = true
+	$PatientRoom1.visible = true
 	countdown_start.emit()
 	$Countdown_timer.visible = true
 	change_current_scene($PatientRoom1/Outside_room)
@@ -412,3 +419,10 @@ func _on_room_transition_cooldown_timeout() -> void:
 		
 		
 		
+
+
+func _on_leave_button_end_game() -> void:
+	start_end_cutscene.emit()
+	$Canvas_inventory.visible = false
+	$Player.visible = false
+	$PatientRoom1.visible = false

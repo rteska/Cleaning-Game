@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bljoao12i6qf0"]
+
+[ext_resource type="Script" path="res://leave_button.gd" id="1_wiumi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlglh"]
+bg_color = Color(0.709804, 0.054902, 0.156863, 1)
+
+[node name="Leave_button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wiumi")
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 394.0
+offset_right = 181.0
+offset_bottom = 531.0
+scale = Vector2(0.491598, 0.528299)
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxFlat_xlglh")
+text = "Leave?"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

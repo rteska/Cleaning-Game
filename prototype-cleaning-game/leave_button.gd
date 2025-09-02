@@ -1,10 +1,6 @@
-extends Node
+extends Control
 
-var score = 0
-var item_held
-var current_scene
-
-var info_button_on = false
+signal end_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,3 +10,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_button_pressed() -> void:
+	self.visible = false
+	end_game.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://b21koa6ft10pe"]
+[gd_scene load_steps=128 format=3 uid="uid://b21koa6ft10pe"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_u3rmy"]
 [ext_resource type="Texture2D" uid="uid://dbrpn5mh08dt0" path="res://Art/Door_closed.png" id="2_qqx4w"]
@@ -100,6 +100,7 @@
 [ext_resource type="Script" path="res://bathroom_door_handle.gd" id="97_5xgbv"]
 [ext_resource type="PackedScene" uid="uid://bjjw8kgr5siug" path="res://countdown_timer.tscn" id="99_q4f3s"]
 [ext_resource type="PackedScene" uid="uid://cs6b6kxhfeqbv" path="res://intro_animation.tscn" id="100_k41ya"]
+[ext_resource type="PackedScene" uid="uid://bljoao12i6qf0" path="res://leave_button.tscn" id="101_mtqjb"]
 
 [sub_resource type="Animation" id="Animation_kkojn"]
 length = 0.001
@@ -364,9 +365,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 75.0
-offset_top = -268.0
+offset_top = -293.0
 offset_right = 1097.0
-offset_bottom = 208.0
+offset_bottom = 183.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "Body_Text"
@@ -379,8 +380,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -17.0
 offset_top = -11.0
-offset_right = -17.0
-offset_bottom = -11.0
+offset_right = 14.0
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.184314, 0.341176, 0.498039, 1)
@@ -391,6 +392,7 @@ color = Color(0.184314, 0.341176, 0.498039, 1)
 metadata/_edit_group_ = true
 
 [node name="Player" parent="." instance=ExtResource("16_6thqb")]
+visible = false
 
 [node name="Background_sound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(554, 366)
@@ -411,6 +413,7 @@ parameters/looping = true
 [node name="Correct_Incorrect" parent="." instance=ExtResource("35_01srr")]
 
 [node name="PatientRoom1" type="Node2D" parent="."]
+visible = false
 
 [node name="Outside_room" type="Node2D" parent="PatientRoom1"]
 visible = false
@@ -2296,6 +2299,9 @@ visible = false
 
 [node name="Intro_animation" parent="." instance=ExtResource("100_k41ya")]
 
+[node name="Leave_button" parent="." instance=ExtResource("101_mtqjb")]
+visible = false
+
 [connection signal="countdown_start" from="." to="Countdown_timer" method="start_timer"]
 [connection signal="spawn_bathroom_door_handle_bacteria" from="." to="PatientRoom1/Bathroom_door_handle" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_bathroom_light_switch_bacteria" from="." to="PatientRoom1/Bathroom_light_switch" method="_on_main_spawn_bacteria"]
@@ -2495,3 +2501,4 @@ visible = false
 [connection signal="timeout" from="Room_transition_cooldown" to="." method="_on_room_transition_cooldown_timeout"]
 [connection signal="start_game" from="Intro_animation" to="." method="start_game"]
 [connection signal="start_information_button" from="Intro_animation" to="Canvas_inventory/InformationButton" method="game_started"]
+[connection signal="end_game" from="Leave_button" to="." method="_on_leave_button_end_game"]

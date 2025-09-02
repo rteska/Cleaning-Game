@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://j2b55xc26y3g"]
+
+[ext_resource type="Script" path="res://interim_animation.gd" id="1_5xd5h"]
+[ext_resource type="Texture2D" uid="uid://ce7ixe0o2v2xt" path="res://New Art/escape room - flat images/mycie rak copy.png" id="1_dq378"]
+[ext_resource type="Texture2D" uid="uid://7hw42f5f6puw" path="res://New Art/escape room - flat images/lazienka papier toaletowy copy.png" id="2_a5v4u"]
+[ext_resource type="Texture2D" uid="uid://bl3jyxfalty72" path="res://New Art/escape room - flat images/lazienka mydlo copy.png" id="3_n45hf"]
+[ext_resource type="Texture2D" uid="uid://boueqxag7i3ce" path="res://New Art/escape room - flat images/widok pokoj poczatek copy.png" id="4_ot1v6"]
+[ext_resource type="AudioStream" uid="uid://bg4htg0qu6uic" path="res://Sounds/water-tap-sound-221388.mp3" id="6_xoh7r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ua4cw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dq378")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_a5v4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n45hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ot1v6")
+}],
+"loop": false,
+"name": &"interim_scenes",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_cn1dj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0apx6"]
+resource_name = "fade_in"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cb6rs"]
+resource_name = "fade_out"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ns71"]
+_data = {
+"RESET": SubResource("Animation_cn1dj"),
+"fade_in": SubResource("Animation_0apx6"),
+"fade_out": SubResource("Animation_cb6rs")
+}
+
+[node name="Interim_animation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5xd5h")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_ua4cw")
+animation = &"interim_scenes"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Fade" type="AnimationPlayer" parent="ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_4ns71")
+}
+
+[node name="WashingHandsSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_xoh7r")
+volume_db = -20.0
+
+[connection signal="animation_finished" from="ColorRect/Fade" to="." method="_on_fade_animation_finished"]

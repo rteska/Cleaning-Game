@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	pass
 
 
-func start_animation():
+func start_animation(): #Rolling in cart
 	$ColorRect/fade_out.play("fade_transition")
 	$RollingSFX.play()
 	pass
@@ -27,16 +27,16 @@ func _on_fade_out_animation_finished(anim_name: StringName) -> void:
 	
 	if count < 5: #In the cutscene
 		match count:
-			0:
+			0: #Washing hands
 				$AnimatedSprite2D.set_frame(1)
 				$RollingSFX.stop()
 				$WaterTapSFX.play()
 				$ColorRect/fade_out.play("fade_in_new")
 				count += 1
-			1:
+			1: 
 				$ColorRect/fade_out.play("fade_transition")
 				count += 1
-			2:
+			2: #Putting up the wet floor sign
 				$AnimatedSprite2D.set_frame(2)
 				$WaterTapSFX.stop()
 				$WetFloorSignSFX.play()
@@ -45,7 +45,7 @@ func _on_fade_out_animation_finished(anim_name: StringName) -> void:
 			3:
 				$ColorRect/fade_out.play("fade_transition")
 				count += 1
-			4:
+			4: #Knocking on the door
 				$KnockKnockSFX.play()
 				$AnimatedSprite2D.set_frame(3)
 				$ColorRect/fade_out.play("fade_in_new")
