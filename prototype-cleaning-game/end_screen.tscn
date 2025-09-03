@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgtbas03j5j84"]
+
+[ext_resource type="Texture2D" uid="uid://dqr442k20tl4c" path="res://New Art/escape room - flat images/test render wozek copy.png" id="1_t8558"]
+
+[node name="End_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t8558")
+expand_mode = 1

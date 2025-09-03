@@ -50,7 +50,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Globals.score >= 320 && !played_interim_cutscene:
+		played_interim_cutscene = true
+		$Canvas_inventory.visible = false
+		$Score.visible = false
+		$Interim_animation.visible = true
+		Globals.current_scene.visible = false
+		$PatientRoom1/Face_east.visible = true
+		change_current_scene($PatientRoom1/Face_east)
+		start_interim_cutscene.emit()
+	
+	if Input.is_action_just_pressed("cheat_button"):
+		Globals.score = 320
 
 #Starts the game
 func start_game():
@@ -426,3 +437,17 @@ func _on_leave_button_end_game() -> void:
 	$Canvas_inventory.visible = false
 	$Player.visible = false
 	$PatientRoom1.visible = false
+	$End_animation.visible = true
+	$Score.visible = false
+
+
+
+func _on_interim_animation_return_visibility() -> void:
+	$Canvas_inventory.visible = true
+	$Leave_button.visible = true
+	$Score.visible = true
+
+func end_music():
+	$BackgroundMusic.stop()
+	$Background_sound.stop()
+	$End_screen.visible = true

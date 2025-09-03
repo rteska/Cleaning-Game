@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 
 
 func _on_pressed() -> void:
-	
 	if isVisible:
 		$"../../BodyText_Game".visible = false
 		isVisible = false
@@ -23,3 +22,12 @@ func _on_pressed() -> void:
 		isVisible = true
 	
 	
+
+
+func _on_x_button_pressed() -> void:
+	if isVisible:
+		$"../../BodyText_Game".visible = false
+		isVisible = false
+	else:
+		$"../../BodyText_Game".visible = true
+		isVisible = true

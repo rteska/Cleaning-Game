@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://b21koa6ft10pe"]
+[gd_scene load_steps=134 format=3 uid="uid://b21koa6ft10pe"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_u3rmy"]
 [ext_resource type="Texture2D" uid="uid://dbrpn5mh08dt0" path="res://Art/Door_closed.png" id="2_qqx4w"]
@@ -101,6 +101,9 @@
 [ext_resource type="PackedScene" uid="uid://bjjw8kgr5siug" path="res://countdown_timer.tscn" id="99_q4f3s"]
 [ext_resource type="PackedScene" uid="uid://cs6b6kxhfeqbv" path="res://intro_animation.tscn" id="100_k41ya"]
 [ext_resource type="PackedScene" uid="uid://bljoao12i6qf0" path="res://leave_button.tscn" id="101_mtqjb"]
+[ext_resource type="PackedScene" uid="uid://j2b55xc26y3g" path="res://interim_animation.tscn" id="102_vutx4"]
+[ext_resource type="PackedScene" uid="uid://tjsnaagn6pqf" path="res://end_animation.tscn" id="103_6nn6o"]
+[ext_resource type="PackedScene" uid="uid://dgtbas03j5j84" path="res://end_screen.tscn" id="104_rkvjs"]
 
 [sub_resource type="Animation" id="Animation_kkojn"]
 length = 0.001
@@ -190,6 +193,15 @@ _data = {
 "RESET": SubResource("Animation_xh4m5"),
 "repeat_fade": SubResource("Animation_nsu82")
 }
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vc1e"]
+bg_color = Color(0.686275, 0, 0.0156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4vbss"]
+bg_color = Color(0.462745, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6fnf"]
+bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_joia4"]
 size = Vector2(455, 650)
@@ -364,10 +376,10 @@ visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 75.0
-offset_top = -293.0
-offset_right = 1097.0
-offset_bottom = 183.0
+offset_left = 76.0
+offset_top = -269.0
+offset_right = 1098.0
+offset_bottom = 207.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "Body_Text"
@@ -378,13 +390,24 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -17.0
-offset_top = -11.0
-offset_right = 14.0
+offset_left = -19.0
+offset_top = -30.0
+offset_right = 45.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.184314, 0.341176, 0.498039, 1)
+
+[node name="X_button" type="Button" parent="Canvas_inventory/BodyText_Game"]
+layout_mode = 0
+offset_left = 1024.0
+offset_top = -20.0
+offset_right = 1055.0
+offset_bottom = 12.0
+theme_override_styles/hover = SubResource("StyleBoxFlat_4vc1e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4vbss")
+theme_override_styles/normal = SubResource("StyleBoxFlat_m6fnf")
+text = "X"
 
 [node name="Start_page" parent="." instance=ExtResource("14_klcq4")]
 
@@ -2299,7 +2322,16 @@ visible = false
 
 [node name="Intro_animation" parent="." instance=ExtResource("100_k41ya")]
 
+[node name="Interim_animation" parent="." instance=ExtResource("102_vutx4")]
+visible = false
+
+[node name="End_animation" parent="." instance=ExtResource("103_6nn6o")]
+visible = false
+
 [node name="Leave_button" parent="." instance=ExtResource("101_mtqjb")]
+visible = false
+
+[node name="End_screen" parent="." instance=ExtResource("104_rkvjs")]
 visible = false
 
 [connection signal="countdown_start" from="." to="Countdown_timer" method="start_timer"]
@@ -2332,10 +2364,14 @@ visible = false
 [connection signal="spawn_toilet_handle_bacteria" from="." to="PatientRoom1/Toilet_handle" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_toilet_roll_bacteria" from="." to="PatientRoom1/Toilet_roll" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_trash_bin_bacteria" from="." to="PatientRoom1/Trash_bin" method="_on_main_spawn_bacteria"]
+[connection signal="start_end_cutscene" from="." to="End_animation" method="start_animation"]
+[connection signal="start_interim_cutscene" from="." to="Interim_animation" method="start_animation"]
 [connection signal="pressed" from="Canvas_inventory/CartButton/Cart_button" to="Canvas_inventory/Inventory_animation" method="_on_cart_button_pressed"]
 [connection signal="pressed" from="Canvas_inventory/InformationButton/Info_button" to="Canvas_inventory/InformationButton" method="button_clicked"]
 [connection signal="pressed" from="Canvas_inventory/InformationButton/Info_button" to="Canvas_inventory/InformationButton/Info_button" method="_on_pressed"]
 [connection signal="timeout" from="Canvas_inventory/InformationButton/Idle_timer" to="Canvas_inventory/InformationButton" method="_on_idle_timer_timeout"]
+[connection signal="pressed" from="Canvas_inventory/BodyText_Game/X_button" to="Canvas_inventory/InformationButton" method="_on_x_button_pressed"]
+[connection signal="pressed" from="Canvas_inventory/BodyText_Game/X_button" to="Canvas_inventory/InformationButton/Info_button" method="_on_x_button_pressed"]
 [connection signal="start_game" from="Start_page" to="Intro_animation" method="start_animation"]
 [connection signal="add_point_bathroom_door" from="Player" to="PatientRoom1/Bathroom_door_handle" method="add_score"]
 [connection signal="add_point_bathroom_light_switch" from="Player" to="PatientRoom1/Bathroom_light_switch" method="add_score"]
@@ -2501,4 +2537,6 @@ visible = false
 [connection signal="timeout" from="Room_transition_cooldown" to="." method="_on_room_transition_cooldown_timeout"]
 [connection signal="start_game" from="Intro_animation" to="." method="start_game"]
 [connection signal="start_information_button" from="Intro_animation" to="Canvas_inventory/InformationButton" method="game_started"]
+[connection signal="return_visibility" from="Interim_animation" to="." method="_on_interim_animation_return_visibility"]
+[connection signal="show_results" from="End_animation" to="." method="end_music"]
 [connection signal="end_game" from="Leave_button" to="." method="_on_leave_button_end_game"]

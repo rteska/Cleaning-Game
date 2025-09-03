@@ -33,3 +33,9 @@ func _on_idle_timer_timeout() -> void:
 	if !button_pressed:
 		$Highlight.show()
 		$Highlight/Highlight_animation.play("repeat_fade")
+
+
+func _on_x_button_pressed() -> void:
+	info_page_open = !info_page_open
+	
+	Globals.info_button_on = info_page_open
