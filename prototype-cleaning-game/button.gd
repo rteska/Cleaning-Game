@@ -4,6 +4,7 @@ extends Node
 @export var nextScene: Node
 
 signal hideBacteria
+signal interim_cutscene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,3 +26,6 @@ func _on_cooldown_timeout() -> void:
 	Globals.current_scene = nextScene
 	$Footstep.play()
 	hideBacteria.emit()
+	
+	if Globals.score >= 320:
+		interim_cutscene.emit()

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfqspbfdfecym"]
+
+[ext_resource type="Script" path="res://swap_floors_button.gd" id="1_pvlfc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p5c8"]
+bg_color = Color(0.934184, 0.527054, 0.23845, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe4fe"]
+bg_color = Color(0.598214, 0.303253, 0.0669405, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1ae1"]
+bg_color = Color(0.760158, 0.396293, 0.107902, 1)
+
+[node name="Swap_floors_button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_pvlfc")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 303.0
+offset_right = 96.0
+offset_bottom = 375.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_3p5c8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fe4fe")
+theme_override_styles/normal = SubResource("StyleBoxFlat_j1ae1")
+text = "Floors"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

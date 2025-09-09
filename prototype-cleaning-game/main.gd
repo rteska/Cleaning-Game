@@ -50,15 +50,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Globals.score >= 320 && !played_interim_cutscene:
-		played_interim_cutscene = true
-		$Canvas_inventory.visible = false
-		$Score.visible = false
-		$Interim_animation.visible = true
-		Globals.current_scene.visible = false
-		$PatientRoom1/Face_east.visible = true
-		change_current_scene($PatientRoom1/Face_east)
-		start_interim_cutscene.emit()
+	#if Globals.score >= 320 && !played_interim_cutscene:
+		#played_interim_cutscene = true
+		#$Canvas_inventory.visible = false
+		#$Score.visible = false
+		#$Interim_animation.visible = true
+		#Globals.current_scene.visible = false
+		#$PatientRoom1/Face_east.visible = true
+		#change_current_scene($PatientRoom1/Face_east)
+		#start_interim_cutscene.emit()
 	
 	if Input.is_action_just_pressed("cheat_button"):
 		Globals.score = 320
@@ -446,8 +446,25 @@ func _on_interim_animation_return_visibility() -> void:
 	$Canvas_inventory.visible = true
 	$Leave_button.visible = true
 	$Score.visible = true
+	$Swap_floors_button.visible = true
 
 func end_music():
 	$BackgroundMusic.stop()
 	$Background_sound.stop()
 	$End_screen.visible = true
+
+func start_interim_setup():
+	if !played_interim_cutscene:
+		played_interim_cutscene = true
+		$Canvas_inventory.visible = false
+		$Score.visible = false
+		$Interim_animation.visible = true
+		Globals.current_scene.visible = false
+		$PatientRoom1/Face_east.visible = true
+		change_current_scene($PatientRoom1/Face_east)
+		start_interim_cutscene.emit()
+
+
+func _on_swap_floors_button_swap_floors() -> void:
+	Globals.current_scene.visible = !Globals.current_scene.visible
+	$PatientRoom1/Main_room_floor1.visible = !$PatientRoom1/Main_room_floor1.visible
