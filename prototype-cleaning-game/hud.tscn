@@ -252,15 +252,16 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.184314, 0.341176, 0.498039, 1)
 
-[node name="LanguageSelect" type="ItemList" parent="."]
+[node name="LanguageSelect" type="OptionButton" parent="."]
 offset_left = 822.0
 offset_top = 437.0
 offset_right = 941.0
 offset_bottom = 467.0
 scale = Vector2(1.84644, 1.6154)
 item_count = 2
-item_0/text = "English (en)"
-item_1/text = "Español (es)"
+popup/item_0/text = "English (en)"
+popup/item_1/text = "Espanol (es)"
+popup/item_1/id = 1
 
 [node name="LevelSelectBackground" type="ColorRect" parent="."]
 visible = false
