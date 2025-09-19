@@ -24,10 +24,10 @@ metadata/_edit_group_ = true
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 394.0
-offset_right = 181.0
-offset_bottom = 531.0
+offset_left = 109.0
+offset_top = 481.0
+offset_right = 276.0
+offset_bottom = 618.0
 scale = Vector2(0.491598, 0.528299)
 theme_override_font_sizes/font_size = 45
 theme_override_styles/hover = SubResource("StyleBoxFlat_rckcf")

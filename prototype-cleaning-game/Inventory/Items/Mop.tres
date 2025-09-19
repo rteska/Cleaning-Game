@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://cepkbmq1tahbj"]
+
+[ext_resource type="Script" path="res://Inventory/inventory_item.gd" id="1_gimy4"]
+[ext_resource type="Texture2D" uid="uid://c6lc10bqeyf65" path="res://Art/Mop_item.png" id="2_n7mr8"]
+
+[resource]
+script = ExtResource("1_gimy4")
+name = "Mop"
+texture = ExtResource("2_n7mr8")
+cleans = "Staph"
+combines_with = "Bucket"
+base_texture = ExtResource("2_n7mr8")
+alt_item_image = ExtResource("2_n7mr8")

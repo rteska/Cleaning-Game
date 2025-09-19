@@ -106,6 +106,15 @@ signal remove_point_bathroom_light_switch
 signal add_point_bathroom_door
 signal remove_point_bathroom_door
 
+signal add_point_main_room_floor_1
+signal remove_point_main_room_floor_1
+
+signal add_point_main_room_floor_2
+signal remove_point_main_room_floor_2
+
+signal add_point_bathroom_floor
+signal remove_point_bathroom_floor
+
 var scenes_list
 var signals_list = [[add_point_desk_chair, remove_point_desk_chair], [add_point_computer_screen, remove_point_computer_screen], [add_point_computer, remove_point_computer], 
 [add_point_light_switch, remove_point_light_switch], [add_point_sharps_bin, remove_point_sharps_bin], 
@@ -117,7 +126,8 @@ var signals_list = [[add_point_desk_chair, remove_point_desk_chair], [add_point_
 [add_point_shower_curtain_railing, remove_point_shower_curtain_railing], [add_point_toilet, remove_point_toilet],
 [add_point_toilet_handle, remove_point_toilet_handle], [add_point_bathroom_trash_bin, remove_point_bathroom_trash_bin], 
 [add_point_toilet_bar, remove_point_toilet_bar], [add_point_toilet_roll, remove_point_toilet_roll], [add_point_pull_cord, remove_point_pull_cord],
-[add_point_bathroom_light_switch, remove_point_bathroom_light_switch]]
+[add_point_bathroom_light_switch, remove_point_bathroom_light_switch], [add_point_main_room_floor_1, remove_point_main_room_floor_1], 
+[add_point_main_room_floor_2, remove_point_main_room_floor_2], [add_point_bathroom_floor, remove_point_bathroom_floor]]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -129,7 +139,8 @@ func _ready() -> void:
 	$"../PatientRoom1/Side_table_above", $"../PatientRoom1/Rail_controls",  $"../PatientRoom1/Sink", $"../PatientRoom1/Mirror", $"../PatientRoom1/Soap_dispenser",
 	$"../PatientRoom1/Shower_handle", $"../PatientRoom1/Shower_head", $"../PatientRoom1/Shower_curtain_railing", $"../PatientRoom1/Toilet",
 	$"../PatientRoom1/Toilet_handle", $"../PatientRoom1/Bathroom_trash_bin", $"../PatientRoom1/Toilet_bar", $"../PatientRoom1/Toilet_roll",
-	$"../PatientRoom1/Pull_cord", $"../PatientRoom1/Bathroom_light_switch"]
+	$"../PatientRoom1/Pull_cord", $"../PatientRoom1/Bathroom_light_switch", $"../PatientRoom1/Main_room_floor1", $"../PatientRoom1/Main_room_floor2",
+	$"../PatientRoom1/Bathroom_floor"]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -144,7 +155,7 @@ func _process(delta: float) -> void:
 			_on_area_entered(areas)
 	
 	if curr_area != null && item_held != null && !Globals.info_button_on:
-		if curr_area.get_name() == "Staph" || curr_area.get_name() == "Enterococcus":
+		if curr_area.get_name() == "Staph" || curr_area.get_name() == "Enterococcus" || curr_area.get_name() == "Candida":
 			if (Input.is_action_just_released("interact")) && (str(item_held.texture.get_path().get_file()).contains("Cleaner_blue_item") || str(item_held.texture.get_path().get_file()).contains("Cleaner_red_item")):
 				stop_sign.emit()
 				$WipeIncorrectSFX.play()
@@ -152,8 +163,8 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	curr_area = area
-	if item_held != null && !Globals.info_button_on && (area.get_name() == "Staph" || area.get_name() == "Enterococcus"): #are we holding an item at all
-		if (Input.is_action_pressed("interact")) && (str(item_held.texture.get_path().get_file()).contains("Cloth_wet_blue") || str(item_held.texture.get_path().get_file()).contains("Cloth_wet_red")):
+	if item_held != null && !Globals.info_button_on && (area.get_name() == "Staph" || area.get_name() == "Enterococcus" || area.get_name() == "Candida"): #are we holding an item at all
+		if (Input.is_action_pressed("interact")) && (str(item_held.texture.get_path().get_file()).contains("Cloth_wet_blue") || str(item_held.texture.get_path().get_file()).contains("Cloth_wet_red")): #Do we interact with either of these items?
 			if area.get_name() == "Staph" && str(item_held.texture.get_path().get_file()).contains("Cloth_wet_blue"): #Blue cloth on Staph cells
 				area.get_parent().queue_free()
 				for scene in scenes_list:
@@ -230,7 +241,17 @@ func _on_area_entered(area: Area2D) -> void:
 					#$WipeIncorrectSFX.play()
 			elif area.get_name() == "Spray_area" && (str(item_held.texture.get_path().get_file()).contains("Cloth_wet_blue") || str(item_held.texture.get_path().get_file()).contains("Cloth_wet_red")): #Hit spray
 				area.get_parent().queue_free()
-				
+		elif (Input.is_action_pressed("interact")) && (str(item_held.texture.get_path().get_file()).contains("Mop_item")): #Is it holding the mop?
+			if area.get_name() == "Candida" && str(item_held.texture.get_path().get_file()).contains("Mop_item"): #Is the mop over Candida cells?
+				area.get_parent().queue_free()
+				for scene in scenes_list:
+					if Globals.current_scene == scene: 
+						signals_list[index][0].emit()
+						correct.emit()
+						$WipeCorrectSFX.play()
+						index = 0
+						break
+			
 	pass
 	
 

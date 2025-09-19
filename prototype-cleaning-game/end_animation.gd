@@ -47,4 +47,12 @@ func _on_fade_animation_finished(anim_name: StringName) -> void:
 		self.visible = false
 		show_results.emit()
 	
-	
+
+func skip_animation():
+	count = 4
+	$ColorRect/Fade.stop()
+	$WashHandsSFX.stop()
+	$OpenDoorSFX.stop()
+	$RollingCartSFX.stop()
+	self.visible = false
+	show_results.emit()

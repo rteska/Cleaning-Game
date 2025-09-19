@@ -57,7 +57,17 @@ func _on_fade_out_animation_finished(anim_name: StringName) -> void:
 	
 	pass
 	
-	
+
+func skip_animation():
+	count = 5
+	$ColorRect/fade_out.stop()
+	$RollingSFX.stop()
+	$WaterTapSFX.stop()
+	$WetFloorSignSFX.stop()
+	$KnockKnockSFX.stop()
+	start_game.emit()
+	start_information_button.emit()
+	self.visible = false
 	
 	
 	#$AnimatedSprite2D.frame(index)

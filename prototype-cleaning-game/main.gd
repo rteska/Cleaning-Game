@@ -30,6 +30,13 @@ signal spawn_toilet_handle_bacteria
 signal spawn_toilet_bar_bacteria
 signal spawn_bathroom_door_handle_bacteria
 signal spawn_bathroom_light_switch_bacteria
+signal spawn_main_room_floor_1_bacteria
+signal spawn_main_room_floor_2_bacteria
+signal spawn_bathroom_floor_bacteria
+
+signal hide_main_room_floor_1_bacteria
+signal hide_main_room_floor_2_bacteria
+signal hide_bathroom_floor_bacteria
 
 signal countdown_start
 
@@ -42,6 +49,9 @@ var curr_scene = null
 var already_called = false
 var played_interim_cutscene = false
 var played_end_cutscene = false
+var open_floors = false
+
+var temp_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -272,7 +282,7 @@ func _on_room_transition_cooldown_timeout() -> void:
 		$StepSound.play()
 		$BackgroundMusic.play()
 	elif Globals.current_scene == $PatientRoom1/Chair_desk_close: #Chair desk close
-		$PatientRoom1/Face_east.visible = false
+		$PatientRoom1/Wall_north.visible = false
 		$PatientRoom1/Chair_desk_close.visible = true
 		$PatientRoom1/Chair_desk_close/Leave_chair_desk.visible = true
 		spawn_chair_desk_close_bacteria.emit()
@@ -439,6 +449,7 @@ func _on_leave_button_end_game() -> void:
 	$PatientRoom1.visible = false
 	$End_animation.visible = true
 	$Score.visible = false
+	$Swap_floors_button.visible = false
 
 
 
@@ -466,5 +477,29 @@ func start_interim_setup():
 
 
 func _on_swap_floors_button_swap_floors() -> void:
-	Globals.current_scene.visible = !Globals.current_scene.visible
-	$PatientRoom1/Main_room_floor1.visible = !$PatientRoom1/Main_room_floor1.visible
+	
+	if $PatientRoom1/Main_room_floor1.visible == true:
+		$PatientRoom1/Main_room_floor1.visible = false
+		hide_main_room_floor_1_bacteria.emit()
+	elif $PatientRoom1/Main_room_floor2.visible == true:
+		$PatientRoom1/Main_room_floor2.visible = false
+		hide_main_room_floor_2_bacteria.emit()
+	elif $PatientRoom1/Bathroom_floor.visible == true:
+		$PatientRoom1/Bathroom_floor.visible = false
+		hide_bathroom_floor_bacteria.emit()
+	
+	
+	if Globals.current_scene.visible == true:
+		Globals.current_scene.visible = false
+		$PatientRoom1/Main_room_floor1.visible = true
+		spawn_main_room_floor_1_bacteria.emit()
+		temp_scene = Globals.current_scene
+		Globals.current_scene = $PatientRoom1/Main_room_floor1
+	else:
+		Globals.current_scene = temp_scene
+		Globals.current_scene.visible = true
+	
+	
+
+	
+	

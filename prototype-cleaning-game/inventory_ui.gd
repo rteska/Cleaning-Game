@@ -126,18 +126,36 @@ func combine_items(slot):
 		remove_child(item_in_hand)
 		item_in_hand = null
 		Globals.item_held = null
+		$SpraySFX.play()
 		update_item_in_hand()
 		#update_UI_slots()
 		update()
-	else: #The cloth is in the slot
+	elif (item_in_hand.inventory_slot.item.name == "Cleaner_blue" || item_in_hand.inventory_slot.item.name == "Cleaner_red"): #The cleaner is in hand
 		slot.item_stack_ui.inventory_slot.item.texture = slot.item_stack_ui.inventory_slot.item.alt_item_image
 		remove_child(item_in_hand)
 		item_in_hand = null
 		Globals.item_held = null
+		$SpraySFX.play()
 		update_item_in_hand()
 		#update_UI_slots()
 		update()
-	$SpraySFX.play()
+	elif (item_in_hand.inventory_slot.item.name == "Mop"): #Mop in hand
+		item_in_hand.inventory_slot.item.texture = item_in_hand.inventory_slot.item.alt_item_image
+		remove_child(item_in_hand)
+		item_in_hand = null
+		Globals.item_held = null
+		$DipSFX.play()
+		update_item_in_hand()
+		update()
+	else: #Bucket in hand
+		slot.item_stack_ui.inventory_slot.item.texture = slot.item_stack_ui.inventory_slot.item.alt_item_image
+		remove_child(item_in_hand)
+		item_in_hand = null
+		Globals.item_held = null
+		$DipSFX.play()
+		update_item_in_hand()
+		update()
+		pass
 
 
 func _on_hold_delay_timeout() -> void:

@@ -8,11 +8,11 @@ Body_Text,"Use the left mouse button to interact with the environment around you
 
 Click on the button in the bottom left to open your inventory. 
 Click on the ""i"" to open the instructions and the ""x"" to close them.
+Red dots indicate something needs to be cleaned. Green dots indicate it has been cleaned.
 
-You can click on objects, furniture, and more!
+Simply click on your inventory items to move and use them.
 
 Your goal is to clean the entire room using the proper chemicals and cloths. 
-
 You gain points for proper cleaning and sanitization, and will receive a score at the end.
 
 BE CAREFUL: Improper combinations of cloth and bacteria will make you lose points. 
@@ -26,3 +26,4 @@ Just click on the button below to increase the difficulty.",
 Hide_Bacteria_Text,Hide bacteria,
 Links_text,Links to Chemicals,
 Level_select_text,Click a room image to start the game!,
+Skip_text,Skip?,

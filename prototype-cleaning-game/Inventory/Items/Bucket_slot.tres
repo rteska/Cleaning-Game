@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InvSlot" load_steps=3 format=3 uid="uid://cnv0f5sfb5fon"]
+
+[ext_resource type="Resource" uid="uid://dij7poff75p2f" path="res://Inventory/Items/Bucket.tres" id="1_4ax0l"]
+[ext_resource type="Script" path="res://Inv_slot.gd" id="1_oddp5"]
+
+[resource]
+script = ExtResource("1_oddp5")
+item = ExtResource("1_4ax0l")

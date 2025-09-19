@@ -53,3 +53,13 @@ func _on_fade_animation_finished(anim_name: StringName) -> void:
 	else:
 		return_visibility.emit()
 		self.visible = false
+		
+
+func skip_animation():
+	count = 6
+	$ColorRect/Fade.stop()
+	$WashingHandsSFX.stop()
+	$ToiletPaperReplaceSFX.stop()
+	$SoapDispenserReplaceSFX.stop()
+	return_visibility.emit()
+	self.visible = false

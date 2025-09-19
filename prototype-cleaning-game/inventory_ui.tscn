@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://y1j4grkketue"]
+[gd_scene load_steps=6 format=3 uid="uid://y1j4grkketue"]
 
 [ext_resource type="Script" path="res://inventory_ui.gd" id="1_uipdm"]
 [ext_resource type="Texture2D" uid="uid://g741fhsl8puh" path="res://Art/Inventory.png" id="2_pf356"]
 [ext_resource type="PackedScene" uid="uid://ckv56eoxf6nmg" path="res://Inventory/inv_ui_slot.tscn" id="3_gwect"]
 [ext_resource type="AudioStream" uid="uid://dbv1jac7xfykf" path="res://Sounds/spray-puff-272431.mp3" id="4_qbjn4"]
+[ext_resource type="AudioStream" uid="uid://xffvjjybveo1" path="res://Sounds/water-splash-46402.mp3" id="5_4tj1l"]
 
 [node name="Inventory_UI" type="Control"]
 custom_minimum_size = Vector2(203, 28)
@@ -61,7 +62,12 @@ layout_mode = 2
 stream = ExtResource("4_qbjn4")
 bus = &"SFX"
 
+[node name="DipSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_4tj1l")
+volume_db = -10.0
+bus = &"SFX"
+
 [node name="Hold_delay" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.25
 
 [connection signal="timeout" from="Hold_delay" to="." method="_on_hold_delay_timeout"]

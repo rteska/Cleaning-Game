@@ -8,6 +8,7 @@ radius = 26.9039
 height = 200.736
 
 [node name="Candida" type="Node2D"]
+scale = Vector2(0.426086, 0.378622)
 script = ExtResource("1_wyo30")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,10 +16,10 @@ position = Vector2(7, -4)
 scale = Vector2(0.695313, 0.703125)
 texture = ExtResource("1_57vdp")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Candida" type="Area2D" parent="."]
 position = Vector2(7, -4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Candida"]
 position = Vector2(-7, 6)
 rotation = -0.717019
 shape = SubResource("CapsuleShape2D_a63yc")

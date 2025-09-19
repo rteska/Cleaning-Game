@@ -6,16 +6,10 @@
 [ext_resource type="Resource" uid="uid://dwvwc7fo4atsh" path="res://Inventory/Items/Cleaner_red_slot.tres" id="3_ygidr"]
 [ext_resource type="Resource" uid="uid://n0kak43e6vif" path="res://Inventory/Items/Cloth_dry_blue_slot.tres" id="4_hldfh"]
 [ext_resource type="Resource" uid="uid://cj2t1dy6yxiws" path="res://Inventory/Items/Cloth_dry_red_slot.tres" id="4_wp1gv"]
-
-[sub_resource type="Resource" id="Resource_gmqp7"]
-script = ExtResource("2_cduvh")
-
-[sub_resource type="Resource" id="Resource_a8jor"]
-script = ExtResource("2_cduvh")
-
-[sub_resource type="Resource" id="Resource_7ciki"]
-script = ExtResource("2_cduvh")
+[ext_resource type="Resource" uid="uid://bf33shij3h3kx" path="res://Inventory/Items/Mop_slot.tres" id="7_rpawk"]
+[ext_resource type="Resource" uid="uid://cnv0f5sfb5fon" path="res://Inventory/Items/Bucket_slot.tres" id="8_5828j"]
+[ext_resource type="Resource" uid="uid://bifntgx3gt3vv" path="res://Inventory/Items/Trash_bin_slot.tres" id="8_h6aoe"]
 
 [resource]
 script = ExtResource("2_i3f25")
-slots = Array[ExtResource("2_cduvh")]([ExtResource("3_khqfp"), ExtResource("4_hldfh"), ExtResource("3_ygidr"), ExtResource("4_wp1gv"), SubResource("Resource_gmqp7"), SubResource("Resource_a8jor"), SubResource("Resource_7ciki")])
+slots = Array[ExtResource("2_cduvh")]([ExtResource("3_khqfp"), ExtResource("4_hldfh"), ExtResource("3_ygidr"), ExtResource("4_wp1gv"), ExtResource("7_rpawk"), ExtResource("8_5828j"), ExtResource("8_h6aoe")])

@@ -258,6 +258,7 @@ offset_top = 437.0
 offset_right = 941.0
 offset_bottom = 467.0
 scale = Vector2(1.84644, 1.6154)
+selected = 0
 item_count = 2
 popup/item_0/text = "English (en)"
 popup/item_1/text = "Espanol (es)"

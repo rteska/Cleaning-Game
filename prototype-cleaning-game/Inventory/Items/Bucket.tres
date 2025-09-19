@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dij7poff75p2f"]
+
+[ext_resource type="Script" path="res://Inventory/inventory_item.gd" id="1_25nte"]
+[ext_resource type="Texture2D" uid="uid://bn4rl5cag4iiv" path="res://Art/Bucket_item.png" id="1_m7d48"]
+
+[resource]
+script = ExtResource("1_25nte")
+name = "Bucket"
+texture = ExtResource("1_m7d48")
+cleans = ""
+combines_with = "Mop"
+base_texture = ExtResource("1_m7d48")
+alt_item_image = ExtResource("1_m7d48")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://j2b55xc26y3g"]
+[gd_scene load_steps=15 format=3 uid="uid://j2b55xc26y3g"]
 
 [ext_resource type="Script" path="res://interim_animation.gd" id="1_5xd5h"]
 [ext_resource type="Texture2D" uid="uid://ce7ixe0o2v2xt" path="res://New Art/escape room - flat images/mycie rak copy.png" id="1_dq378"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bg4htg0qu6uic" path="res://Sounds/water-tap-sound-221388.mp3" id="6_xoh7r"]
 [ext_resource type="AudioStream" uid="uid://xmhqug207wrp" path="res://Sounds/heavy-cloth-rustle-106346.mp3" id="7_m0wam"]
 [ext_resource type="AudioStream" uid="uid://vl88ilfqbfqi" path="res://Sounds/hand-soap-106608.mp3" id="8_8xfvc"]
+[ext_resource type="PackedScene" uid="uid://cxtm2wfhcjjod" path="res://skip_button.tscn" id="9_t418c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ua4cw"]
 animations = [{
@@ -125,4 +126,10 @@ volume_db = -10.0
 stream = ExtResource("8_8xfvc")
 volume_db = -10.0
 
+[node name="Skip_button" parent="." instance=ExtResource("9_t418c")]
+position = Vector2(1015, 89)
+rotation = 1.58382
+scale = Vector2(0.695828, 0.751026)
+
 [connection signal="animation_finished" from="ColorRect/Fade" to="." method="_on_fade_animation_finished"]
+[connection signal="skip" from="Skip_button" to="." method="skip_animation"]
