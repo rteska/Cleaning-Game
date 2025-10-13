@@ -40,8 +40,13 @@ signal hide_bathroom_floor_bacteria
 
 signal countdown_start
 
+signal add_room_to_list
+
 signal start_interim_cutscene
 signal start_end_cutscene
+signal calc_final_lists
+
+signal floor_traversed
 
 @onready var inv: Inventory = preload("res://Inventory/main_inventory.tres")
 var curr_scene = null
@@ -268,7 +273,7 @@ func change_current_scene(current_scene):
 
 
 func _on_room_transition_cooldown_timeout() -> void:
-	
+	add_room_to_list.emit()
 	if Globals.current_scene == $PatientRoom1/Outside_room: #Outside the room
 		$PatientRoom1/Outside_room.visible = true
 		$Canvas_inventory.visible = true
@@ -444,6 +449,7 @@ func _on_room_transition_cooldown_timeout() -> void:
 
 func _on_leave_button_end_game() -> void:
 	start_end_cutscene.emit()
+	calc_final_lists.emit()
 	$Canvas_inventory.visible = false
 	$Player.visible = false
 	$PatientRoom1.visible = false
@@ -495,6 +501,7 @@ func _on_swap_floors_button_swap_floors() -> void:
 		spawn_main_room_floor_1_bacteria.emit()
 		temp_scene = Globals.current_scene
 		Globals.current_scene = $PatientRoom1/Main_room_floor1
+		floor_traversed.emit()
 	else:
 		Globals.current_scene = temp_scene
 		Globals.current_scene.visible = true

@@ -11,11 +11,15 @@ var Door_handle_out_cleaned = false
 var Door_handle_in_cleaned = false
 var alreadyGenerated = false
 
-var total = 10
+var total = 10 #Number of bugs left
+var total_score = 10 #Total bugs available
+var in_score = 0
+var out_score = 0
 var Door_handles_score = 0
 var score_added = false
 
 signal completed
+signal pass_points(points, total_points, door_in, door_out)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -104,11 +108,17 @@ func _on_leave_front_door_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
+		pass_points.emit(Door_handles_score, total_score, in_score, out_score)
 		#Globals.score += Door_handles_score
 		score_added = true
 
 func add_score():
 	Door_handles_score += 1
+	if Globals.current_scene == $Closed:
+		in_score += 1
+	if Globals.current_scene == $Open:
+		out_score += 1
+	
 	Globals.score += 1
 	total -= 1
 

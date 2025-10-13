@@ -251,6 +251,7 @@ func _on_area_entered(area: Area2D) -> void:
 						$WipeCorrectSFX.play()
 						index = 0
 						break
+					index += 1
 			
 	pass
 	

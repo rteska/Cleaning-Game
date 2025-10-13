@@ -14,8 +14,10 @@ var Shower_curtain_rod_cleaned = false
 var alreadyGenerated = false
 
 signal completed
+signal pass_points(points, total_points, door1, door2)
 
 var total = 19
+var total_score = 19
 var shower_curtain_rod_score = 0
 var score_added = false
 
@@ -77,6 +79,7 @@ func _on_leave_shower_curtain_rod_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
+		pass_points.emit(shower_curtain_rod_score, total_score, 0, 0)
 		#Globals.score += shower_handle_score
 		score_added = true
 

@@ -10,10 +10,12 @@ var Desk_top_cleaned = false
 var alreadyGenerated = false
 
 var total = 10
+var total_score = 10
 var desk_top_score = 0
 var score_added = false
 
 signal completed
+signal pass_points(points, total_points, door1, door2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -56,6 +58,7 @@ func _on_leave_desk_top_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
+		pass_points.emit(desk_top_score, total_score, 0, 0)
 		#Globals.score += desk_top_score
 		score_added = true
 

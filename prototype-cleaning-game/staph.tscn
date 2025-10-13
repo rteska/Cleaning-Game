@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ee1q8vfeeu0m"]
 
-[ext_resource type="Texture2D" uid="uid://dluoaqlcrjpk4" path="res://Art/Staph.png" id="1_3gjwy"]
 [ext_resource type="Script" path="res://staph.gd" id="1_q5a0h"]
+[ext_resource type="Texture2D" uid="uid://co1ulp4gefqbc" path="res://New Art/Escape-Room-UI-elements-256x256_0014_staph.png" id="2_vv2ku"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s84ui"]
 radius = 27.0185
@@ -10,8 +10,8 @@ radius = 27.0185
 script = ExtResource("1_q5a0h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.309, 0.309)
-texture = ExtResource("1_3gjwy")
+scale = Vector2(0.242537, 0.218711)
+texture = ExtResource("2_vv2ku")
 
 [node name="Staph" type="Area2D" parent="."]
 

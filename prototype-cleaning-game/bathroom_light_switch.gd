@@ -10,8 +10,10 @@ var Bathroom_light_switch_cleaned = false
 var alreadyGenerated = false
 
 signal completed
+signal pass_points(points, total_points, doorpoints1, doorpoints2)
 
 var total = 10
+var total_score = 10
 var bathroom_light_switch_score = 0
 var score_added = false
 
@@ -58,6 +60,7 @@ func _on_leave_bathroom_light_switch_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
+		pass_points.emit(bathroom_light_switch_score, total_score, 0, 0)
 		#Globals.score += sink_score
 		score_added = true
 

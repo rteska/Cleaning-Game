@@ -17,10 +17,12 @@ var Nightstand_below_cleaned = false
 var alreadyGenerated = false
 
 var total = 16
+var total_score = 16
 var nightstand_below_score = 0
 var score_added = false
 
 signal completed
+signal pass_points(points, total_points, door1, door2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -83,6 +85,7 @@ func _on_leave_nightstand_below_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
+		pass_points.emit(nightstand_below_score, total_score, 0, 0)
 		#Globals.score += nightstand_below_score
 		score_added = true
 

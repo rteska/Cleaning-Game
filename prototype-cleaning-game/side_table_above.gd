@@ -11,8 +11,10 @@ var Side_table_above_cleaned = false
 var alreadyGenerated = false
 
 signal completed
+signal pass_points(points, total_points, door1, door2)
 
 var total = 40
+var total_score = 40
 var side_table_above_score = 0
 var score_added = false
 
@@ -61,6 +63,7 @@ func _on_leave_side_table_above_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
+		pass_points.emit(side_table_above_score, total_score, 0, 0)
 		#Globals.score += side_table_above_score
 		score_added = true
 

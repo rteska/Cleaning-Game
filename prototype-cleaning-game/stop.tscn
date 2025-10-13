@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://baikkymwi5xvr"]
 
-[ext_resource type="Texture2D" uid="uid://yvsq04opxfjp" path="res://Art/Stop.png" id="1_5eniq"]
 [ext_resource type="Script" path="res://stop.gd" id="1_ccsh8"]
+[ext_resource type="Texture2D" uid="uid://bkuqrtomi0f0r" path="res://New Art/Escape-Room-UI-elements-256x256_0016_xmark.png" id="2_jd5jp"]
 
 [node name="Stop" type="Control"]
 layout_mode = 3
@@ -19,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_5eniq")
+texture = ExtResource("2_jd5jp")
 
 [node name="AliveTimer" type="Timer" parent="."]
 

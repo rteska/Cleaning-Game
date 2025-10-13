@@ -22,11 +22,13 @@ var centerPos = global_position
 var Main_room_floor_1_cleaned = false
 var alreadyGenerated = false
 
-var total = 30
+var total = 35
+var total_score = 35
 var main_room_floor_1_score = 0
 var score_added = false
 
 signal completed
+signal pass_points(points, total_points, door1, door2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -109,9 +111,11 @@ func _on_leave_main_room_floor_1_hide_bacteria() -> void:
 				grandchildren.set_deferred("monitorable", false)
 		child.visible = false
 	
+	
 	if total == 0 && !score_added:
 		completed.emit()
-		#Globals.score += chair_bed_score
+		pass_points.emit(main_room_floor_1_score, total_score, 0, 0)
+		#Globals.score += main_room_floor_1_score
 		score_added = true
 
 func add_score():

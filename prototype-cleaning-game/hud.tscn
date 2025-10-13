@@ -1,12 +1,69 @@
-[gd_scene load_steps=15 format=3 uid="uid://gp86wyj3lxh0"]
+[gd_scene load_steps=36 format=3 uid="uid://gp86wyj3lxh0"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_4ghxe"]
+[ext_resource type="Texture2D" uid="uid://bnnq43ydl0xjn" path="res://New Art/hospital.png" id="2_n5k4k"]
 [ext_resource type="Texture2D" uid="uid://c4u0ewpw206ly" path="res://Art/Title_screen.png" id="2_u4q7y"]
 [ext_resource type="Texture2D" uid="uid://bctwbco3u3xeb" path="res://Art/Inventory_slot.png" id="3_kg8mr"]
+[ext_resource type="Texture2D" uid="uid://3a55qk2lk2fv" path="res://New Art/title background.png" id="4_f5t55"]
 [ext_resource type="Texture2D" uid="uid://csn2d8gp3tyus" path="res://Art/Cleaner_blue_cursor.png" id="4_mk7or"]
 [ext_resource type="Texture2D" uid="uid://woro6odt7j6r" path="res://Art/Cleaner_red_cursor.png" id="5_4uwkr"]
+[ext_resource type="Texture2D" uid="uid://g2pb72q5vjw6" path="res://New Art/title button2.png" id="5_h17i8"]
 [ext_resource type="Script" path="res://preview.gd" id="6_fpm2e"]
 [ext_resource type="Texture2D" uid="uid://boueqxag7i3ce" path="res://New Art/escape room - flat images/widok pokoj poczatek copy.png" id="6_w0cm7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6iecj"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_frmvi"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i34rj"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lc4d4"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_se7dn"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e8s2c"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rhuu"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0ldv"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iln3f"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v65qj"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tfeb1"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d461l"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owtw7"]
+texture = ExtResource("4_f5t55")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_87jy3"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_35ipb"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_upy8d"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hkh2"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fv0nt"]
+texture = ExtResource("5_h17i8")
 
 [sub_resource type="Theme" id="Theme_4dl75"]
 
@@ -85,7 +142,13 @@ _data = {
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_4ghxe")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_n5k4k")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(574, 327)
 scale = Vector2(0.549524, 0.437333)
 texture = ExtResource("2_u4q7y")
@@ -101,18 +164,24 @@ offset_bottom = 228.0
 grow_horizontal = 2
 pivot_offset = Vector2(192, 0)
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 75
 text = "Title"
 
-[node name="ColorRect" type="ColorRect" parent="Title"]
+[node name="ColorRect" type="TextureRect" parent="Title"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -18.0
+offset_right = 13.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.184314, 0.341176, 0.498039, 1)
+texture = ExtResource("4_f5t55")
+expand_mode = 1
 
 [node name="Start" type="Button" parent="."]
 anchors_preset = 8
@@ -120,16 +189,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -51.0
+offset_left = -122.0
 offset_top = -31.5
-offset_right = 51.0
+offset_right = 122.0
 offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(51, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_6iecj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_frmvi")
+theme_override_styles/normal = SubResource("StyleBoxTexture_i34rj")
 text = "Start_Button"
 
 [node name="Difficulty" type="Button" parent="."]
@@ -146,7 +219,11 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(91, 0)
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_lc4d4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_se7dn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_e8s2c")
 text = "Difficulty_Button"
 metadata/_edit_use_anchors_ = true
 
@@ -165,7 +242,11 @@ grow_vertical = 2
 pivot_offset = Vector2(119, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 39
+theme_override_styles/hover = SubResource("StyleBoxTexture_0rhuu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g0ldv")
+theme_override_styles/normal = SubResource("StyleBoxTexture_iln3f")
 text = "Instructions_Button"
 metadata/_edit_use_anchors_ = true
 
@@ -180,10 +261,15 @@ offset_bottom = -43.0
 grow_vertical = 0
 pivot_offset = Vector2(50, 0)
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
+theme_override_styles/hover = SubResource("StyleBoxTexture_v65qj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_tfeb1")
+theme_override_styles/normal = SubResource("StyleBoxTexture_d461l")
 text = "Back_Button"
 
 [node name="Bodytext" type="Label" parent="."]
+visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -192,11 +278,12 @@ offset_top = -276.0
 offset_right = 1083.0
 offset_bottom = 200.0
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Body_Text"
 autowrap_mode = 3
 
-[node name="ColorRect" type="ColorRect" parent="Bodytext"]
+[node name="ColorRect" type="TextureRect" parent="Bodytext"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -209,39 +296,48 @@ offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.02953, 1.05051)
-color = Color(0.184314, 0.341176, 0.498039, 1)
+texture = ExtResource("4_f5t55")
+expand_mode = 2
 
 [node name="Difficultytext" type="Label" parent="."]
+visible = false
 offset_left = 59.0
 offset_top = 53.0
 offset_right = 1045.0
 offset_bottom = 282.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Difficulty_Text"
 
-[node name="ColorRect" type="ColorRect" parent="Difficultytext"]
+[node name="ColorRect" type="TextureRect" parent="Difficultytext"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -19.0
+offset_left = -34.0
 offset_top = -18.0
-offset_right = -19.0
+offset_right = 84.0
 offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.184314, 0.341176, 0.498039, 1)
+texture = ExtResource("4_f5t55")
+expand_mode = 1
 
 [node name="HideBacteria" type="CheckButton" parent="."]
+visible = false
 offset_left = 316.0
 offset_top = 281.0
 offset_right = 511.0
 offset_bottom = 313.0
 scale = Vector2(2.79745, 2.83876)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxTexture_owtw7")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_87jy3")
+theme_override_styles/normal = SubResource("StyleBoxTexture_35ipb")
 text = "Hide_Bacteria_Text"
 
-[node name="ColorRect" type="ColorRect" parent="HideBacteria"]
+[node name="ColorRect" type="TextureRect" parent="HideBacteria"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -250,7 +346,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.184314, 0.341176, 0.498039, 1)
 
 [node name="LanguageSelect" type="OptionButton" parent="."]
 offset_left = 822.0
@@ -258,6 +353,10 @@ offset_top = 437.0
 offset_right = 941.0
 offset_bottom = 467.0
 scale = Vector2(1.84644, 1.6154)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/hover = SubResource("StyleBoxTexture_upy8d")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3hkh2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fv0nt")
 selected = 0
 item_count = 2
 popup/item_0/text = "English (en)"

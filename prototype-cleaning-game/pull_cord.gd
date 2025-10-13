@@ -12,8 +12,10 @@ var Pull_cord_cleaned = false
 var alreadyGenerated = false
 
 signal completed
+signal pass_points(points, total_points, door1, door2)
 
 var total = 15
+var total_score = 15
 var pull_cord_score = 0
 var score_added = false
 
@@ -67,7 +69,8 @@ func _on_leave_pull_cord_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		#Globals.score += sink_score
+		pass_points.emit(pull_cord_score, total_score, 0, 0)
+		#Globals.score += pull_cord_score
 		score_added = true
 
 

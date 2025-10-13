@@ -13,10 +13,12 @@ var Closet_cleaned = false
 var alreadyGenerated = false
 
 var total = 5
+var total_score = 5
 var Closet_score = 0
 var score_added = false
 
 signal completed
+signal pass_points(points, total_points, door1, door2)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -65,6 +67,7 @@ func _on_leave_closet_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
+		pass_points.emit(Closet_score, total_score, 0, 0)
 		#Globals.score += Closet_score
 		score_added = true
 

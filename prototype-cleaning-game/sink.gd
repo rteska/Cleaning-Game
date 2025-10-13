@@ -14,8 +14,10 @@ var Sink_cleaned = false
 var alreadyGenerated = false
 
 signal completed
+signal pass_points(points, total_points, door1, door2)
 
 var total = 22
+var total_score = 22
 var sink_score = 0
 var score_added = false
 
@@ -77,6 +79,7 @@ func _on_leave_sink_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
+		pass_points.emit(sink_score, total_score, 0, 0)
 		#Globals.score += sink_score
 		score_added = true
 

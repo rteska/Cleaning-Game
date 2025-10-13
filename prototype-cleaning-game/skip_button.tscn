@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxtm2wfhcjjod"]
 
 [ext_resource type="Script" path="res://skip_button.gd" id="1_05drr"]
-[ext_resource type="Texture2D" uid="uid://c3rq730kp1acs" path="res://Art/Move_arrow.png" id="1_nrdtm"]
+[ext_resource type="Texture2D" uid="uid://c1m32bewy3lvi" path="res://New Art/Escape-Room-UI-elements-256x256_0018_arrow.png" id="2_rfl4v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwimf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -13,15 +13,15 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 script = ExtResource("1_05drr")
 
 [node name="Button" type="Button" parent="."]
-offset_left = -77.0
-offset_top = -125.0
-offset_right = 77.0
-offset_bottom = 105.0
+offset_left = -82.0
+offset_top = -118.0
+offset_right = 82.0
+offset_bottom = 119.0
 theme_override_styles/hover = SubResource("StyleBoxFlat_dwimf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_c4jj4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_nrdtm")
+texture = ExtResource("2_rfl4v")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -19.0
@@ -29,6 +29,7 @@ offset_top = 37.0
 offset_right = 55.0
 offset_bottom = 79.0
 rotation = -1.5835
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "Skip_text"
 
