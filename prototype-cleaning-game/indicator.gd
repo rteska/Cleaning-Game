@@ -13,3 +13,7 @@ func _process(delta: float) -> void:
 func change_sprite():
 	$Incomplete.hide()
 	$Complete.show()
+
+func reset_sprite():
+	$Incomplete.show()
+	$Complete.hide()

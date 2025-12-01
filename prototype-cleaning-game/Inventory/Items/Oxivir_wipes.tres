@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dw6mi3bkj4rho"]
+
+[ext_resource type="Texture2D" uid="uid://d74788f177ss" path="res://Art/Oxivir_wipes.png" id="1_8nwcx"]
+[ext_resource type="Script" path="res://Inventory/inventory_item.gd" id="1_vidi5"]
+
+[resource]
+script = ExtResource("1_vidi5")
+name = "Oxivir wipes"
+texture = ExtResource("1_8nwcx")
+cleans = ""
+combines_with = ""
+base_texture = ExtResource("1_8nwcx")

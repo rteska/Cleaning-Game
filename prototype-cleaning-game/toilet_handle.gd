@@ -12,6 +12,7 @@ var alreadyGenerated = false
 
 signal completed
 signal pass_points(points, total_points, door1, door2)
+signal hide_ultraviolet
 
 var total = 10
 var total_score = 10
@@ -37,6 +38,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(handle_bl.position.x, handle_tr.position.x), randf_range(handle_bl.position.y, handle_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		
@@ -48,7 +51,7 @@ func _on_main_spawn_bacteria() -> void:
 				if grandchildren is Area2D:
 					grandchildren.set_deferred("monitoring", true)
 					grandchildren.set_deferred("monitorable", true)
-			child.visible = true
+			#child.visible = true
 
 
 func _on_leave_toilet_handle_hide_bacteria() -> void:
@@ -57,13 +60,14 @@ func _on_leave_toilet_handle_hide_bacteria() -> void:
 			if grandchildren is Area2D:
 				grandchildren.set_deferred("monitoring", false)
 				grandchildren.set_deferred("monitorable", false)
-		child.visible = false
+		#child.visible = false
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		pass_points.emit(toilet_handle_score, total_score, 0, 0)
+		hide_ultraviolet.emit()
 		#Globals.score += sink_score
 		score_added = true
+	pass_points.emit(toilet_handle_score, total_score, 0, 0, self)
 
 
 func add_score():
@@ -73,3 +77,10 @@ func add_score():
 	
 func remove_score():
 	total -= 1
+
+
+func _on_main_reset_bacteria() -> void:
+	toilet_handle_score = 0
+	total = 10
+	score_added = false
+	alreadyGenerated = false

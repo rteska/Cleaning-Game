@@ -3,6 +3,7 @@ extends Control
 @onready var inv: Inventory = preload("res://Inventory/main_inventory.tres")
 @onready var item_stack_class = preload("res://item_stack_ui.tscn")
 @onready var player = preload("res://player.tscn")
+@onready var wipe = preload("res://wipe.tscn")
 @onready var slots: Array = $NinePatchRect/GridContainer.get_children()
 
 var item_in_hand: ItemStack
@@ -11,12 +12,20 @@ var is_open = false
 var selected_item: InvItem
 
 var already_called = false
+var set_tooltip = false
+
+var wipe_instance
+
+var index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	connect_slots()
 	inv.updated.connect(update)
 	update()
+	
+	
+	
 	#close()
 
 func _process(float) -> void:
@@ -26,6 +35,12 @@ func _process(float) -> void:
 	elif Input.is_action_just_released("interact"):
 		$NinePatchRect.visible = true
 		pass
+	
+	if !set_tooltip:
+		$Tooltip_delay.start()
+		set_tooltip = true
+	
+
 
 #Binds items to their slots
 func connect_slots():
@@ -40,17 +55,18 @@ func connect_slots():
 #Updates inventory ui, stack ui, and slots
 func update():
 	for i in range(min(inv.slots.size(), slots.size())):
-		var inventory_slot: InvSlot = inv.slots[i]
-		
-		if !inventory_slot.item: continue
-		
-		var item_stack_ui: ItemStack = slots[i].item_stack_ui
-		if !item_stack_ui:
-			item_stack_ui = item_stack_class.instantiate()
-			slots[i].insert(item_stack_ui)
+		if inv.slots[i] != null:
+			var inventory_slot: InvSlot = inv.slots[i]
 			
-		item_stack_ui.inventory_slot = inventory_slot
-		item_stack_ui.update()
+			if !inventory_slot.item: continue
+			
+			var item_stack_ui: ItemStack = slots[i].item_stack_ui
+			if !item_stack_ui:
+				item_stack_ui = item_stack_class.instantiate()
+				slots[i].insert(item_stack_ui)
+				
+			item_stack_ui.inventory_slot = inventory_slot
+			item_stack_ui.update()
 
 
 #Closes the inventory UI
@@ -76,12 +92,21 @@ func click_slot(slot):
 		if !item_in_hand: return #If there is no item in hand, return, else place item
 		insert_item_in_slot(slot)
 		return
-	if !item_in_hand: #Is there an item in hand. If not, take item
-		take_item_from_slot(slot)
+	if !item_in_hand && Globals.item_held == null: #Is there an item in hand. If not, take item
+		if !slot.item_stack_ui.inventory_slot.item.name == "Trash bin" && !slot.item_stack_ui.inventory_slot.item.name == "Oxivir wipes": #Make sure not to take wipe can or trash bin
+			take_item_from_slot(slot)
+		elif slot.item_stack_ui.inventory_slot.item.name == "Oxivir wipes":
+			take_wipe()
 		return
-	if slot.item_stack_ui.inventory_slot.item.combines_with == item_in_hand.inventory_slot.item.name: #Combine items
+	if (Globals.item_held.name == "Dirty wipe" || Globals.item_held.name == "Clean wipe") && slot.item_stack_ui.inventory_slot.item.name == "Trash bin":
+		remove_wipe()
+		return
+	if item_in_hand != null && slot.item_stack_ui.inventory_slot.item.combines_with == item_in_hand.inventory_slot.item.name: #Combine items
 		combine_items(slot)
 		return
+	
+	
+	
 	#swap(slot)
 	
 # Removes item from inventory slot
@@ -164,3 +189,23 @@ func _on_hold_delay_timeout() -> void:
 		already_called = false
 	else:
 		already_called = false
+
+func take_wipe():
+	wipe_instance = wipe.instantiate()
+	Globals.item_held = wipe_instance.get_current_wipe()
+	#item_in_hand = wipe_instance.get_current_wipe()
+	add_child(wipe_instance)
+	update_item_in_hand()
+
+func remove_wipe():
+	Globals.item_held = null
+	remove_child(wipe_instance)
+	wipe_instance.queue_free()
+	update_item_in_hand()
+
+
+func _on_tooltip_delay_timeout() -> void:
+	for slot in slots:
+		if inv.slots[index] != null:
+			slot.tooltip_text = inv.slots[index].item.name
+		index += 1

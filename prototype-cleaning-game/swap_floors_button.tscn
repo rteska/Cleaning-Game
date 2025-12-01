@@ -23,10 +23,10 @@ script = ExtResource("1_pvlfc")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 107.0
-offset_top = 561.0
-offset_right = 191.0
-offset_bottom = 633.0
+offset_left = 149.0
+offset_top = 667.0
+offset_right = 233.0
+offset_bottom = 739.0
 theme_override_font_sizes/font_size = 20
 theme_override_styles/hover = SubResource("StyleBoxFlat_3p5c8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fe4fe")

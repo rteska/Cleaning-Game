@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://j2b55xc26y3g"]
+[gd_scene load_steps=16 format=3 uid="uid://j2b55xc26y3g"]
 
 [ext_resource type="Script" path="res://interim_animation.gd" id="1_5xd5h"]
 [ext_resource type="Texture2D" uid="uid://ce7ixe0o2v2xt" path="res://New Art/escape room - flat images/mycie rak copy.png" id="1_dq378"]
 [ext_resource type="Texture2D" uid="uid://7hw42f5f6puw" path="res://New Art/escape room - flat images/lazienka papier toaletowy copy.png" id="2_a5v4u"]
 [ext_resource type="Texture2D" uid="uid://bl3jyxfalty72" path="res://New Art/escape room - flat images/lazienka mydlo copy.png" id="3_n45hf"]
 [ext_resource type="Texture2D" uid="uid://boueqxag7i3ce" path="res://New Art/escape room - flat images/widok pokoj poczatek copy.png" id="4_ot1v6"]
+[ext_resource type="Texture2D" uid="uid://3a55qk2lk2fv" path="res://New Art/title background.png" id="6_h0eq4"]
 [ext_resource type="AudioStream" uid="uid://bg4htg0qu6uic" path="res://Sounds/water-tap-sound-221388.mp3" id="6_xoh7r"]
 [ext_resource type="AudioStream" uid="uid://xmhqug207wrp" path="res://Sounds/heavy-cloth-rustle-106346.mp3" id="7_m0wam"]
 [ext_resource type="AudioStream" uid="uid://vl88ilfqbfqi" path="res://Sounds/hand-soap-106608.mp3" id="8_8xfvc"]
@@ -95,10 +96,54 @@ script = ExtResource("1_5xd5h")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(0.6, 0.6)
+position = Vector2(576, 374)
+scale = Vector2(0.6, 0.692593)
 sprite_frames = SubResource("SpriteFrames_ua4cw")
 animation = &"interim_scenes"
+
+[node name="Subtitles" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 692.0
+offset_right = 390.0
+offset_bottom = 732.0
+scale = Vector2(11.19, 1.14635)
+texture = ExtResource("6_h0eq4")
+expand_mode = 1
+
+[node name="WashingHands" type="Label" parent="."]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 692.0
+offset_right = 739.0
+offset_bottom = 741.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Washing hands again"
+horizontal_alignment = 1
+
+[node name="ReplaceToiletPaper" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 392.0
+offset_top = 689.0
+offset_right = 730.0
+offset_bottom = 738.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Replace toilet paper"
+horizontal_alignment = 1
+
+[node name="ReplaceSoap" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 375.0
+offset_top = 699.0
+offset_right = 775.0
+offset_bottom = 734.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Replace soap packet in dispenser"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -127,7 +172,7 @@ stream = ExtResource("8_8xfvc")
 volume_db = -10.0
 
 [node name="Skip_button" parent="." instance=ExtResource("9_t418c")]
-position = Vector2(1015, 89)
+position = Vector2(1051, 84)
 rotation = 1.58382
 scale = Vector2(0.695828, 0.751026)
 

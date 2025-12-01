@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cs6b6kxhfeqbv"]
+[gd_scene load_steps=20 format=3 uid="uid://cs6b6kxhfeqbv"]
 
 [ext_resource type="Texture2D" uid="uid://duqxe71lsp5rk" path="res://New Art/escape room - flat images/tylko wozek i korytarz copy.png" id="1_0hl2r"]
 [ext_resource type="Script" path="res://intro_animation.gd" id="1_8hmdl"]
 [ext_resource type="Texture2D" uid="uid://ce7ixe0o2v2xt" path="res://New Art/escape room - flat images/mycie rak copy.png" id="2_565gw"]
 [ext_resource type="Texture2D" uid="uid://ugpm8wr4r1nw" path="res://New Art/escape room - flat images/znak wet floor copy.png" id="3_hj6re"]
 [ext_resource type="Texture2D" uid="uid://by226sbk4t4jx" path="res://New Art/escape room - flat images/widok do pokoju (5) copy.png" id="5_dx75y"]
+[ext_resource type="Texture2D" uid="uid://3a55qk2lk2fv" path="res://New Art/title background.png" id="6_3hmub"]
 [ext_resource type="AudioStream" uid="uid://b4twy135wv3mw" path="res://Sounds/rolling-cart-002-86702.mp3" id="6_pvc7y"]
 [ext_resource type="AudioStream" uid="uid://bg4htg0qu6uic" path="res://Sounds/water-tap-sound-221388.mp3" id="7_3qvrq"]
 [ext_resource type="AudioStream" uid="uid://dxbjhsfmadvdw" path="res://Sounds/loud-thud-45719.mp3" id="8_fedsr"]
@@ -134,10 +135,67 @@ script = ExtResource("1_8hmdl")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(0.6, 0.6)
+position = Vector2(576, 374)
+scale = Vector2(0.6, 0.692593)
 sprite_frames = SubResource("SpriteFrames_bmlng")
 animation = &"Intro_scenes"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 682.0
+offset_right = 418.0
+offset_bottom = 722.0
+scale = Vector2(9.84699, 1.35611)
+texture = ExtResource("6_3hmub")
+expand_mode = 1
+
+[node name="RollingCart" type="Label" parent="."]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 688.0
+offset_right = 766.0
+offset_bottom = 730.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Walking down the hallway"
+horizontal_alignment = 1
+
+[node name="WashingHands" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 387.0
+offset_top = 691.0
+offset_right = 769.0
+offset_bottom = 726.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Washing hands (without gloves)"
+horizontal_alignment = 1
+
+[node name="WetFloorSign" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 397.0
+offset_top = 688.0
+offset_right = 749.0
+offset_bottom = 730.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Setting up wet floor sign"
+horizontal_alignment = 1
+
+[node name="KnockOnDoor" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 439.0
+offset_top = 690.0
+offset_right = 693.0
+offset_bottom = 732.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Knocking on door"
+horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -179,7 +237,7 @@ volume_db = -10.0
 bus = &"SFX"
 
 [node name="Skip_button" parent="." instance=ExtResource("10_dyvm8")]
-position = Vector2(1043, 83)
+position = Vector2(1053, 92)
 rotation = 1.58187
 scale = Vector2(0.800937, 0.716382)
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgtbas03j5j84"]
+[gd_scene load_steps=5 format=3 uid="uid://dgtbas03j5j84"]
 
 [ext_resource type="Script" path="res://end_screen.gd" id="1_0mr0r"]
 [ext_resource type="Texture2D" uid="uid://dqr442k20tl4c" path="res://New Art/escape room - flat images/test render wozek copy.png" id="1_t8558"]
 [ext_resource type="PackedScene" uid="uid://1o33582sbs5k" path="res://button.tscn" id="3_gyd7x"]
+[ext_resource type="PackedScene" uid="uid://bnsjtkuo5kbge" path="res://restart_button.tscn" id="4_w2sd2"]
 
 [node name="End_screen" type="Control"]
 layout_mode = 3
@@ -32,7 +33,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -566.0
-offset_top = -314.0
+offset_top = -365.0
 offset_right = 563.0
 offset_bottom = 311.0
 grow_horizontal = 2
@@ -40,7 +41,31 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.298039, 0.701961, 0.847059, 0.811765)
 
+[node name="TotalScore" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 21.0
+offset_top = 19.0
+offset_right = 1122.0
+offset_bottom = 589.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TotalScore"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TotalScore/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 46
+
+[node name="Next_page" parent="TotalScore" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("3_gyd7x")]
+position = Vector2(1040, 612)
+rotation = 1.5714
+scale = Vector2(0.453813, 0.53334)
+currentScene = NodePath("..")
+nextScene = NodePath("../../MarginContainer")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -99,8 +124,59 @@ theme_override_font_sizes/font_size = 23
 
 [node name="Good_video" type="VideoStreamPlayer" parent="Details_results"]
 layout_mode = 2
+bus = &"Video"
 
 [node name="Informational_video" type="VideoStreamPlayer" parent="Details_results"]
 layout_mode = 2
+bus = &"Video"
+
+[node name="Next_page" parent="Details_results" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("3_gyd7x")]
+position = Vector2(1038, 604)
+rotation = 1.57532
+scale = Vector2(0.499255, 0.490967)
+currentScene = NodePath("..")
+nextScene = NodePath("../../Credits")
+
+[node name="Credits_label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 23.0
+offset_top = 44.0
+offset_right = 353.0
+offset_bottom = 113.0
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+
+[node name="Credits" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 100.0
+offset_right = 69.0
+offset_bottom = 140.0
+scale = Vector2(1.993, 1.86266)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "
+Game Engineer: Rachel Teska
+Background Art/UI/UX: Balzac Zagańczyk, 
+                                           Mateusz Piotrowski
+QA Testing: Pawel Skubiszewski
+Sound Design: Rachel Teska
+Project Manager: Allegra Baeza"
+
+[node name="Restart_button" parent="Credits" instance=ExtResource("4_w2sd2")]
+position = Vector2(508.781, 282.929)
+rotation = 1.57005
+scale = Vector2(0.35941, 0.350539)
+skew = -0.000111222
+
+[node name="TextureRect" type="TextureRect" parent="Credits"]
+layout_mode = 2
 
 [connection signal="show_results" from="MarginContainer/Next_page" to="." method="show_second_results"]
+[connection signal="spawn_floor_bacteria" from="Details_results/Next_page" to="." method="_on_next_page_spawn_floor_bacteria"]
+[connection signal="restart_game" from="Credits/Restart_button" to="." method="_on_restart_button_restart_game"]

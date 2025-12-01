@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://gp86wyj3lxh0"]
+[gd_scene load_steps=38 format=3 uid="uid://gp86wyj3lxh0"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_4ghxe"]
 [ext_resource type="Texture2D" uid="uid://bnnq43ydl0xjn" path="res://New Art/hospital.png" id="2_n5k4k"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://g2pb72q5vjw6" path="res://New Art/title button2.png" id="5_h17i8"]
 [ext_resource type="Script" path="res://preview.gd" id="6_fpm2e"]
 [ext_resource type="Texture2D" uid="uid://boueqxag7i3ce" path="res://New Art/escape room - flat images/widok pokoj poczatek copy.png" id="6_w0cm7"]
+[ext_resource type="AudioStream" uid="uid://dt2f2ht4wmdsi" path="res://Sounds/future-design-344320.mp3" id="11_nqxfy"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6iecj"]
 texture = ExtResource("5_h17i8")
@@ -45,6 +46,9 @@ texture = ExtResource("5_h17i8")
 texture = ExtResource("5_h17i8")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d461l"]
+texture = ExtResource("5_h17i8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ay0yc"]
 texture = ExtResource("5_h17i8")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owtw7"]
@@ -143,8 +147,8 @@ _data = {
 script = ExtResource("1_4ghxe")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(0.3, 0.3)
+position = Vector2(576, 374)
+scale = Vector2(0.3, 0.346296)
 texture = ExtResource("2_n5k4k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -254,10 +258,10 @@ metadata/_edit_use_anchors_ = true
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 73.0
-offset_top = -106.0
-offset_right = 183.0
-offset_bottom = -43.0
+offset_left = 49.0
+offset_top = -80.0
+offset_right = 292.0
+offset_bottom = -17.0
 grow_vertical = 0
 pivot_offset = Vector2(50, 0)
 size_flags_horizontal = 4
@@ -273,37 +277,32 @@ visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 61.0
-offset_top = -276.0
-offset_right = 1083.0
-offset_bottom = 200.0
+offset_left = 43.0
+offset_top = -272.0
+offset_right = 1137.0
+offset_bottom = 236.0
 grow_vertical = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "Body_Text"
 autowrap_mode = 3
 
-[node name="ColorRect" type="TextureRect" parent="Bodytext"]
+[node name="TextureRect" type="TextureRect" parent="Bodytext"]
 show_behind_parent = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -24.0
-offset_top = -15.0
-offset_right = -24.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.02953, 1.05051)
+layout_mode = 0
+offset_left = -22.0
+offset_top = -16.0
+offset_right = 1098.0
+offset_bottom = 509.0
 texture = ExtResource("4_f5t55")
-expand_mode = 2
+expand_mode = 1
 
 [node name="Difficultytext" type="Label" parent="."]
 visible = false
-offset_left = 59.0
+offset_left = 57.0
 offset_top = 53.0
-offset_right = 1045.0
+offset_right = 1043.0
 offset_bottom = 282.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
@@ -326,12 +325,20 @@ expand_mode = 1
 
 [node name="HideBacteria" type="CheckButton" parent="."]
 visible = false
-offset_left = 316.0
-offset_top = 281.0
-offset_right = 511.0
-offset_bottom = 313.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -42.0
+offset_right = -54.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(2.79745, 2.83876)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_ay0yc")
 theme_override_styles/hover = SubResource("StyleBoxTexture_owtw7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_87jy3")
 theme_override_styles/normal = SubResource("StyleBoxTexture_35ipb")
@@ -348,16 +355,25 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="LanguageSelect" type="OptionButton" parent="."]
-offset_left = 822.0
-offset_top = 437.0
-offset_right = 941.0
-offset_bottom = 467.0
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 297.0
+offset_top = 141.0
+offset_right = 416.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.84644, 1.6154)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/hover = SubResource("StyleBoxTexture_upy8d")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_3hkh2")
 theme_override_styles/normal = SubResource("StyleBoxTexture_fv0nt")
 selected = 0
+allow_reselect = true
 item_count = 2
 popup/item_0/text = "English (en)"
 popup/item_1/text = "Espanol (es)"
@@ -481,10 +497,17 @@ text = "Level_select_text"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_nqxfy")
+volume_db = -20.0
+autoplay = true
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Difficulty" to="." method="_on_difficulty_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="HideBacteria" to="." method="_on_hide_bacteria_toggled"]
+[connection signal="item_selected" from="LanguageSelect" to="." method="_on_language_select_item_selected"]
 [connection signal="gui_input" from="LevelSelectBackground/LevelSelectScroll/LevelSelectHolder/LevelSelect" to="." method="_on_level_select_gui_input"]
 [connection signal="item_clicked" from="LevelSelectBackground/LevelSelectScroll/LevelSelectHolder/LevelSelect/ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="mouse_entered" from="LevelSelectBackground/LevelSelectScroll/LevelSelectHolder/LevelSelect/Preview1" to="LevelSelectBackground/LevelSelectScroll/LevelSelectHolder/LevelSelect/Preview1" method="_on_mouse_entered"]

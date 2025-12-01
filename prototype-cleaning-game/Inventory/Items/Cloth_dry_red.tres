@@ -6,9 +6,9 @@
 
 [resource]
 script = ExtResource("1_1doqs")
-name = "Cloth_dry_red"
+name = "Cloth dry red"
 texture = ExtResource("2_r87w4")
 cleans = "C_diff"
-combines_with = "Cleaner_red"
+combines_with = "Cleaner red"
 base_texture = ExtResource("2_r87w4")
 alt_item_image = ExtResource("1_1y2t7")

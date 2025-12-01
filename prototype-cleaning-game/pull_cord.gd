@@ -13,6 +13,7 @@ var alreadyGenerated = false
 
 signal completed
 signal pass_points(points, total_points, door1, door2)
+signal hide_ultraviolet
 
 var total = 15
 var total_score = 15
@@ -38,6 +39,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(loop_bl.position.x, loop_tr.position.x), randf_range(loop_bl.position.y, loop_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		for i in range(5): #Sparse amount on the right of the cord
@@ -46,6 +49,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(cord_bl.position.x, cord_tr.position.x), randf_range(cord_bl.position.y, cord_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		alreadyGenerated = true
@@ -56,7 +61,7 @@ func _on_main_spawn_bacteria() -> void:
 				if grandchildren is Area2D:
 					grandchildren.set_deferred("monitoring", true)
 					grandchildren.set_deferred("monitorable", true)
-			child.visible = true
+			#child.visible = true
 
 
 func _on_leave_pull_cord_hide_bacteria() -> void:
@@ -65,13 +70,14 @@ func _on_leave_pull_cord_hide_bacteria() -> void:
 			if grandchildren is Area2D:
 				grandchildren.set_deferred("monitoring", false)
 				grandchildren.set_deferred("monitorable", false)
-		child.visible = false
+		#child.visible = false
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		pass_points.emit(pull_cord_score, total_score, 0, 0)
+		hide_ultraviolet.emit()
 		#Globals.score += pull_cord_score
 		score_added = true
+	pass_points.emit(pull_cord_score, total_score, 0, 0, self)
 
 
 func add_score():
@@ -81,3 +87,10 @@ func add_score():
 	
 func remove_score():
 	total -= 1
+
+
+func _on_main_reset_bacteria() -> void:
+	pull_cord_score = 0
+	total = 15
+	score_added = false
+	alreadyGenerated = false

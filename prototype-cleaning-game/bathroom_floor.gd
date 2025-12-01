@@ -29,6 +29,7 @@ var score_added = false
 
 signal completed
 signal pass_points(points, total_points, door_points1, door_points2)
+signal hide_ultraviolet
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -48,6 +49,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(floor1_bl.position.x, floor1_tr.position.x), randf_range(floor1_bl.position.y, floor1_tr.position.y)) 
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 			
 		for i in range(5):
@@ -55,6 +58,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(floor2_bl.position.x, floor2_tr.position.x), randf_range(floor2_bl.position.y, floor2_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 			
 		for i in range(5): 
@@ -62,6 +67,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(floor3_bl.position.x, floor3_tr.position.x), randf_range(floor3_bl.position.y, floor3_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		for i in range(5): 
@@ -69,6 +76,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(floor4_bl.position.x, floor4_tr.position.x), randf_range(floor4_bl.position.y, floor4_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		for i in range(5): 
@@ -76,6 +85,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(floor5_bl.position.x, floor5_tr.position.x), randf_range(floor5_bl.position.y, floor5_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		for i in range(5): 
@@ -83,6 +94,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(floor6_bl.position.x, floor6_tr.position.x), randf_range(floor6_bl.position.y, floor6_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		for i in range(5): 
@@ -90,6 +103,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(floor7_bl.position.x, floor7_tr.position.x), randf_range(floor7_bl.position.y, floor7_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		alreadyGenerated = true
@@ -100,7 +115,7 @@ func _on_main_spawn_bacteria() -> void:
 				if grandchildren is Area2D:
 					grandchildren.set_deferred("monitoring", true)
 					grandchildren.set_deferred("monitorable", true)
-			child.visible = true
+			#child.visible = true
 
 #Hides the bacteria when leaving the scene	
 func _on_leave_bathroom_floor_hide_bacteria() -> void:
@@ -109,13 +124,16 @@ func _on_leave_bathroom_floor_hide_bacteria() -> void:
 			if grandchildren is Area2D:
 				grandchildren.set_deferred("monitoring", false)
 				grandchildren.set_deferred("monitorable", false)
-		child.visible = false
+		#child.visible = false
+	
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		pass_points.emit(bathroom_floor_score, total_score, 0, 0)
+		hide_ultraviolet.emit()
 		#Globals.score += chair_bed_score
 		score_added = true
+	pass_points.emit(bathroom_floor_score, total_score, 0, 0, self)
+	
 
 func add_score():
 	bathroom_floor_score += 1
@@ -124,3 +142,10 @@ func add_score():
 
 func remove_score():
 	total -= 1
+
+
+func _on_main_reset_bacteria() -> void:
+	bathroom_floor_score = 0
+	total = 35
+	score_added = false
+	alreadyGenerated = false

@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnsjtkuo5kbge"]
+
+[ext_resource type="Script" path="res://restart_button.gd" id="1_6wmus"]
+[ext_resource type="Texture2D" uid="uid://c1m32bewy3lvi" path="res://New Art/Escape-Room-UI-elements-256x256_0018_arrow.png" id="1_p316a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srkfp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jx5nb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrhx8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Restart_button" type="Node2D"]
+script = ExtResource("1_6wmus")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p316a")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -26.0
+offset_top = 86.0
+offset_right = 132.0
+offset_bottom = 141.0
+rotation = -1.56758
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Restart?"
+
+[node name="Button" type="Button" parent="."]
+offset_left = -81.0
+offset_top = -117.0
+offset_right = -73.0
+offset_bottom = -109.0
+scale = Vector2(20.1756, 29.4267)
+theme_override_styles/hover = SubResource("StyleBoxFlat_srkfp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jx5nb")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yrhx8")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

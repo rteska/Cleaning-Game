@@ -11,6 +11,9 @@ var rooms_truly_incorrect = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 var found_room = false
 var found_room_2 = false
 
+var temp_points = 0
+var temp_total = 0
+
 var test = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +42,81 @@ func add_room():
 			order_rooms_traversed.append(Globals.current_scene)
 	found_room = false
 
+
+
+func record_points(points: int, total_points: int, in_score: int, out_score: int, path: Node2D):
+	temp_points = points
+	temp_total = total_points
+	#print("")
+	#print(temp_points)
+	#print(temp_total)
+	
+	#$Timer.start()
+	var index = 0
+	
+	
+	for scene in correct_rooms_order: #Find the index of the scene
+		
+		if path == $"../Front_door":
+			Globals.rooms_points[0][0] = in_score
+			Globals.rooms_points[0][1] = 5
+			Globals.rooms_points[1][0] = out_score
+			Globals.rooms_points[1][1] = 5
+			break
+		elif path == $"../Bathroom_door_handle":
+			Globals.rooms_points[16][0] = in_score
+			Globals.rooms_points[16][1] = 10
+			Globals.rooms_points[17][0] = out_score
+			Globals.rooms_points[17][1] = 10
+			break
+		elif scene == path: 
+			Globals.rooms_points[index][0] = temp_points
+			Globals.rooms_points[index][1] = temp_total
+			break
+		#if Globals.previous_scene == $"../Front_door" && (Globals.current_scene == $"../Front_door/Closed" || Globals.current_scene == $"../Front_door/Open"):
+			#rooms_points[0][0] = in_score
+			#rooms_points[0][1] = 5
+			#rooms_points[1][0] = out_score
+			#rooms_points[1][1] = 5
+			#break
+		#elif Globals.previous_scene == $"../Bathroom_door_handle" && (Globals.current_scene == $"../Bathroom_door_handle/In" || Globals.current_scene == $"../Bathroom_door_handle/Out"):
+			#rooms_points[16][0] = in_score
+			#rooms_points[16][1] = 10
+			#rooms_points[17][0] = out_score
+			#rooms_points[17][1] = 10
+			#break
+		#elif Globals.current_scene == $"../Bathroom_floor" && Globals.rooms_points[33][0] == 0 && !bathroomfloor_scored:
+			#rooms_points[33][0] = points
+			#rooms_points[33][1] = total_points
+			#bathroomfloor_scored = true
+			#print("I am here 3")
+			#break
+		#elif Globals.previous_scene == $"../Main_room_floor2" && Globals.rooms_points[32][0] == 0 && !floor2_scored:
+			#rooms_points[32][0] = points
+			#rooms_points[32][1] = total_points
+			#floor2_scored = true
+			#print("I am here 2")
+			#break
+		#elif Globals.previous_scene == $"../Main_room_floor1" && Globals.rooms_points[31][0] == 0 && !floor1_scored:
+			#rooms_points[31][0] = points
+			#rooms_points[31][1] = total_points
+			#floor1_scored = true
+			#print("I am here 4")
+			#break
+		#elif scene == Globals.current_scene && Globals.rooms_points[index][0] == 0:
+			#rooms_points[index][0] = points
+			#rooms_points[index][1] = total_points
+			#print("I am here! 1")
+			#break
+		index += 1
+		
+		
+	#index = 0
+	
+	
+	#print(rooms_points[index])
+	
+
 #Compare lists for correct cleaning order and no missing rooms
 func compare_lists():
 	for i in correct_rooms_order.size(): #In the entire rooms list
@@ -60,22 +138,32 @@ func compare_lists():
 	
 	
 	#Testing purposes
-	print("Rooms incorrect")
-	for room in rooms_incorrect:
-		print(room)
-	print("")
-	print("Order of rooms traversed")
-	for room in order_rooms_traversed:
-		print(room)
-	print("")
-	print("Rooms missing")
-	for room in rooms_missing:
-		print(room)
-	pass_order_rooms_traversed()
-	pass_rooms_missed()
-	pass_rooms_points()
-	pass_correct_rooms_order()
-	pass_truly_incorrect()
+	#print("Rooms incorrect")
+	#for room in rooms_incorrect:
+		#print(room)
+	#print("")
+	#print("Order of rooms traversed")
+	#for room in order_rooms_traversed:
+		#print(room)
+	#print("")
+	#print("Rooms missing")
+	#for room in rooms_missing:
+		#print(room)
+	Globals.rooms_traversed = order_rooms_traversed
+	Globals.rooms_missed = rooms_missing
+	match(Globals.language_selected):
+		"en":
+			Globals.correct_rooms_order = correct_rooms_order
+		"es":
+			pass
+		_:
+			Globals.correct_rooms_order = correct_rooms_order
+	Globals.rooms_truly_missed = rooms_truly_incorrect
+	#pass_order_rooms_traversed()
+	#pass_rooms_missed()
+	#pass_correct_rooms_order()
+	#pass_rooms_points()
+	#pass_truly_incorrect()
 
 #Update list to reflect room cleaned
 func room_cleaned():
@@ -92,31 +180,7 @@ func room_cleaned():
 	#for check in rooms_cleaned:
 		#print(check)
 
-func record_points(points: int, total_points: int, in_score: int, out_score: int):
-	var index = -1
-	
-	for scene in correct_rooms_order: #Find the index of the scene
-		index += 1
-		if Globals.previous_scene == $"../Front_door":
-			rooms_points[0][0] = in_score
-			rooms_points[0][1] = 5
-			rooms_points[1][0] = out_score
-			rooms_points[1][1] = 5
-			break
-		elif Globals.previous_scene == $"../Bathroom_door_handle":
-			rooms_points[16][0] = in_score
-			rooms_points[16][1] = 10
-			rooms_points[17][0] = out_score
-			rooms_points[17][1] = 10
-			break
-		elif scene == Globals.previous_scene:
-			rooms_points[index][0] = points
-			rooms_points[index][1] = total_points
-			break
-	
-	
-	print(rooms_points[index])
-	
+
 
 
 func pass_order_rooms_traversed():
@@ -127,9 +191,28 @@ func pass_rooms_missed():
 	
 func pass_rooms_points():
 	Globals.rooms_points = rooms_points
+	#for i in rooms_points.size():
+		#print(rooms_points[i][0])
+	
+	#for i in Globals.rooms_points.size():
+		#print(Globals.rooms_points[i][0])
+	print("")
+	print(Globals.rooms_points[31][0])
+	print(Globals.rooms_points[32][0])
+	print(Globals.rooms_points[33][0])
+	
+	pass
 
 func pass_correct_rooms_order():
-	Globals.correct_rooms_order = correct_rooms_order
+	match(Globals.language_selected):
+		"en":
+			Globals.correct_rooms_order = correct_rooms_order
+		"es":
+			pass
+		_:
+			Globals.correct_rooms_order = correct_rooms_order
+	
+	
 	
 func pass_truly_incorrect():
 	Globals.rooms_truly_missed = rooms_truly_incorrect

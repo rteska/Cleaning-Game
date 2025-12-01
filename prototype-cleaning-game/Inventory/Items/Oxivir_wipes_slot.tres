@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="InvSlot" load_steps=3 format=3 uid="uid://c0bpv84xkexax"]
+
+[ext_resource type="Script" path="res://Inv_slot.gd" id="1_4x25r"]
+[ext_resource type="Resource" uid="uid://dw6mi3bkj4rho" path="res://Inventory/Items/Oxivir_wipes.tres" id="1_ddqub"]
+
+[resource]
+script = ExtResource("1_4x25r")
+item = ExtResource("1_ddqub")

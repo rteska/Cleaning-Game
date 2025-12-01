@@ -23,6 +23,7 @@ var score_added = false
 
 signal completed
 signal pass_points(points, total_points, door1, door2)
+signal hide_ultraviolet
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,6 +42,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(handle1_bl.position.x, handle1_tr.position.x), randf_range(handle1_bl.position.y, handle1_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 			
 		for i in range(5): #Create a concentrated bacteria cluster on the second handle
@@ -48,6 +51,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(handle2_bl.position.x, handle2_tr.position.x), randf_range(handle2_bl.position.y, handle2_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		for i in range(3): #Create a sparse bacteria cluster on the third handle
@@ -55,6 +60,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(handle3_bl.position.x, handle3_tr.position.x), randf_range(handle3_bl.position.y, handle3_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 			
 		for i in range(3): #Create a sparse bacteria cluster on the fourth handle
@@ -62,6 +69,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(handle4_bl.position.x, handle4_tr.position.x), randf_range(handle4_bl.position.y, handle4_tr.position.y)) 
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		alreadyGenerated = true
@@ -72,7 +81,7 @@ func _on_main_spawn_bacteria() -> void:
 				if grandchildren is Area2D:
 					grandchildren.set_deferred("monitoring", true)
 					grandchildren.set_deferred("monitorable", true)
-			child.visible = true
+			#child.visible = true
 
 #Hides the bacteria when leaving the scene	
 func _on_leave_nightstand_below_hide_bacteria() -> void:
@@ -81,13 +90,14 @@ func _on_leave_nightstand_below_hide_bacteria() -> void:
 			if grandchildren is Area2D:
 				grandchildren.set_deferred("monitoring", false)
 				grandchildren.set_deferred("monitorable", false)
-		child.visible = false
+		#child.visible = false
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		pass_points.emit(nightstand_below_score, total_score, 0, 0)
+		hide_ultraviolet.emit()
 		#Globals.score += nightstand_below_score
 		score_added = true
+	pass_points.emit(nightstand_below_score, total_score, 0, 0, self)
 
 func add_score():
 	nightstand_below_score += 1
@@ -96,3 +106,10 @@ func add_score():
 
 func remove_score():
 	total -= 1
+
+
+func _on_main_reset_bacteria() -> void:
+	nightstand_below_score = 0
+	total = 16
+	score_added = false
+	alreadyGenerated = false

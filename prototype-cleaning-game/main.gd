@@ -45,8 +45,14 @@ signal add_room_to_list
 signal start_interim_cutscene
 signal start_end_cutscene
 signal calc_final_lists
+signal stop_timer
 
 signal floor_traversed
+
+signal start_beginning_music
+
+signal reset_bacteria
+signal reset_heatmap
 
 @onready var inv: Inventory = preload("res://Inventory/main_inventory.tres")
 var curr_scene = null
@@ -450,12 +456,14 @@ func _on_room_transition_cooldown_timeout() -> void:
 func _on_leave_button_end_game() -> void:
 	start_end_cutscene.emit()
 	calc_final_lists.emit()
+	stop_timer.emit()
 	$Canvas_inventory.visible = false
 	$Player.visible = false
 	$PatientRoom1.visible = false
 	$End_animation.visible = true
 	$Score.visible = false
 	$Swap_floors_button.visible = false
+	$Countdown_timer.visible = false
 
 
 
@@ -468,7 +476,9 @@ func _on_interim_animation_return_visibility() -> void:
 func end_music():
 	$BackgroundMusic.stop()
 	$Background_sound.stop()
-	$End_screen.visible = true
+	$EndMusic.play()
+	$UltravioletReveal.visible = true
+	
 
 func start_interim_setup():
 	if !played_interim_cutscene:
@@ -508,5 +518,33 @@ func _on_swap_floors_button_swap_floors() -> void:
 	
 	
 
-	
+
+func _on_start_page_translate(language: Variant) -> void:
+	TranslationServer.set_locale(language)
+	$Canvas_inventory/BodyText_Game.text = tr("Body_Text")
+
+
+func _on_end_screen_stop_music() -> void:
+	$EndMusic.stop()
+
+
+func _on_end_screen_restart_game() -> void:
+	$End_screen.visible = false
+	$Start_page.visible = true
+	Globals.score = 0
+	Globals.item_held = null
+	Globals.current_scene = null
+	Globals.previous_scene = null
+	Globals.rooms_points = [[0, 5], [0, 5], [0, 7], [0, 15], [0, 15], [0, 10], [0, 30], [0, 5], [0, 22], [0, 5], [0, 30], [0, 10], [0, 15], [0, 16], [0, 40], [0, 10], [0, 10], [0, 10], [0, 10], [0, 5], [0, 22], [0, 15], [0, 15], [0, 19], [0, 5], [0, 10], [0, 15], [0, 10], [0, 15], [0, 5], [0, 20], [0, 35], [0, 15], [0, 35]]
+	Globals.rooms_traversed = []
+	Globals.rooms_missed = []
+	Globals.rooms_truly_missed = []
+	Globals.correct_rooms_order = []
+	Globals.info_button_on = false
+	Globals.difficulty_mode = false
+	played_interim_cutscene = false
+	played_end_cutscene = false
+	start_beginning_music.emit()
+	reset_bacteria.emit()
+	reset_heatmap.emit()
 	

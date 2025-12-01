@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=10 format=3 uid="uid://dwiv2lfc7s5cb"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=9 format=3 uid="uid://dwiv2lfc7s5cb"]
 
 [ext_resource type="Script" path="res://Inv_slot.gd" id="2_cduvh"]
 [ext_resource type="Script" path="res://inventory.gd" id="2_i3f25"]
-[ext_resource type="Resource" uid="uid://csaxyb0l66f3f" path="res://Inventory/Items/Cleaner_blue_slot.tres" id="3_khqfp"]
+[ext_resource type="Resource" uid="uid://c0bpv84xkexax" path="res://Inventory/Items/Oxivir_wipes_slot.tres" id="3_0m6yo"]
 [ext_resource type="Resource" uid="uid://dwvwc7fo4atsh" path="res://Inventory/Items/Cleaner_red_slot.tres" id="3_ygidr"]
-[ext_resource type="Resource" uid="uid://n0kak43e6vif" path="res://Inventory/Items/Cloth_dry_blue_slot.tres" id="4_hldfh"]
 [ext_resource type="Resource" uid="uid://cj2t1dy6yxiws" path="res://Inventory/Items/Cloth_dry_red_slot.tres" id="4_wp1gv"]
 [ext_resource type="Resource" uid="uid://bf33shij3h3kx" path="res://Inventory/Items/Mop_slot.tres" id="7_rpawk"]
 [ext_resource type="Resource" uid="uid://cnv0f5sfb5fon" path="res://Inventory/Items/Bucket_slot.tres" id="8_5828j"]
@@ -12,4 +11,4 @@
 
 [resource]
 script = ExtResource("2_i3f25")
-slots = Array[ExtResource("2_cduvh")]([ExtResource("3_khqfp"), ExtResource("4_hldfh"), ExtResource("3_ygidr"), ExtResource("4_wp1gv"), ExtResource("7_rpawk"), ExtResource("8_5828j"), ExtResource("8_h6aoe")])
+slots = Array[ExtResource("2_cduvh")]([ExtResource("3_0m6yo"), null, ExtResource("3_ygidr"), ExtResource("4_wp1gv"), ExtResource("7_rpawk"), ExtResource("8_5828j"), ExtResource("8_h6aoe")])

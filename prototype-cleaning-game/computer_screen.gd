@@ -19,6 +19,7 @@ var score_added = false
 
 signal completed
 signal pass_points(points, total_points, door1, door2)
+signal hide_ultraviolet
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -37,6 +38,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(screen_bl.position.x, screen_tr.position.x), randf_range(screen_bl.position.y, screen_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 			
 		for i in range(10): #Create a bacteria cluster on the mouse
@@ -44,6 +47,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(mouse_bl.position.x, mouse_tr.position.x), randf_range(mouse_bl.position.y, mouse_tr.position.y)) 
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		for i in range(10): #Create a bacteria cluster on the keyboard
@@ -51,6 +56,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(keyboard_bl.position.x, keyboard_tr.position.x), randf_range(keyboard_bl.position.y, keyboard_tr.position.y)) 
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		alreadyGenerated = true
 	
@@ -60,7 +67,7 @@ func _on_main_spawn_bacteria() -> void:
 				if grandchildren is Area2D:
 					grandchildren.set_deferred("monitoring", true)
 					grandchildren.set_deferred("monitorable", true)
-			child.visible = true
+			#child.visible = true
 
 #Hides the bacteria when leaving the scene	
 func _on_leave_computer_screen_hide_bacteria() -> void:
@@ -69,13 +76,14 @@ func _on_leave_computer_screen_hide_bacteria() -> void:
 			if grandchildren is Area2D:
 				grandchildren.set_deferred("monitoring", false)
 				grandchildren.set_deferred("monitorable", false)
-		child.visible = false
+		#child.visible = false
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		pass_points.emit(Computer_screen_score, total_score, 0, 0)
+		hide_ultraviolet.emit()
 		#Globals.score += Computer_screen_score
 		score_added = true
+	pass_points.emit(Computer_screen_score, total_score, 0, 0, self)
 
 func add_score():
 	Computer_screen_score += 1
@@ -84,3 +92,10 @@ func add_score():
 
 func remove_score():
 	total -= 1
+
+
+func _on_main_reset_bacteria() -> void:
+	total = 22
+	Computer_screen_score = 0
+	score_added = false
+	alreadyGenerated = false

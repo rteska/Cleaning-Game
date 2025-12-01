@@ -15,6 +15,7 @@ var alreadyGenerated = false
 
 signal completed
 signal pass_points(points, total_points, door1, door2)
+signal hide_ultraviolet
 
 var total = 19
 var total_score = 19
@@ -40,6 +41,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(railing1_bl.position.x, railing1_tr.position.x), randf_range(railing1_bl.position.y, railing1_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 			
 		for i in range(7): #Concentrated amount on the second handle
@@ -48,6 +51,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(railing2_bl.position.x, railing2_tr.position.x), randf_range(railing2_bl.position.y, railing2_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		for i in range(5): #Sparse amount on curain rod
@@ -56,6 +61,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(railing3_bl.position.x, railing3_tr.position.x), randf_range(railing3_bl.position.y, railing3_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		alreadyGenerated = true
@@ -66,7 +73,7 @@ func _on_main_spawn_bacteria() -> void:
 				if grandchildren is Area2D:
 					grandchildren.set_deferred("monitoring", true)
 					grandchildren.set_deferred("monitorable", true)
-			child.visible = true
+			#child.visible = true
 
 
 func _on_leave_shower_curtain_rod_hide_bacteria() -> void:
@@ -75,13 +82,14 @@ func _on_leave_shower_curtain_rod_hide_bacteria() -> void:
 			if grandchildren is Area2D:
 				grandchildren.set_deferred("monitoring", false)
 				grandchildren.set_deferred("monitorable", false)
-		child.visible = false
+		#child.visible = false
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		pass_points.emit(shower_curtain_rod_score, total_score, 0, 0)
+		hide_ultraviolet.emit()
 		#Globals.score += shower_handle_score
 		score_added = true
+	pass_points.emit(shower_curtain_rod_score, total_score, 0, 0, self)
 
 
 func add_score():
@@ -91,3 +99,10 @@ func add_score():
 	
 func remove_score():
 	total -= 1
+
+
+func _on_main_reset_bacteria() -> void:
+	shower_curtain_rod_score = 0
+	total = 19
+	score_added = false
+	alreadyGenerated = false

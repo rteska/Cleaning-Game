@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://b21koa6ft10pe"]
+[gd_scene load_steps=145 format=3 uid="uid://b21koa6ft10pe"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_u3rmy"]
 [ext_resource type="Texture2D" uid="uid://dbrpn5mh08dt0" path="res://Art/Door_closed.png" id="2_qqx4w"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://nnvxc2h6ijs7" path="res://indicator.tscn" id="14_ai1i5"]
 [ext_resource type="PackedScene" uid="uid://gp86wyj3lxh0" path="res://hud.tscn" id="14_klcq4"]
 [ext_resource type="Texture2D" uid="uid://bi8qetp360hi2" path="res://Art/Door_to_bathroom.png" id="15_3ievj"]
+[ext_resource type="AudioStream" uid="uid://c8hqpkjoki10j" path="res://Sounds/vlog-music-beat-advertising-promo-podcast-background-intro-274290.mp3" id="15_maqyc"]
 [ext_resource type="PackedScene" uid="uid://daogtf4o2sjqw" path="res://cursor.tscn" id="15_su7o2"]
 [ext_resource type="PackedScene" uid="uid://blybpqug72ibk" path="res://player.tscn" id="16_6thqb"]
 [ext_resource type="Texture2D" uid="uid://boueqxag7i3ce" path="res://New Art/escape room - flat images/widok pokoj poczatek copy.png" id="16_bdfux"]
@@ -113,6 +114,7 @@
 [ext_resource type="PackedScene" uid="uid://dgtbas03j5j84" path="res://end_screen.tscn" id="104_rkvjs"]
 [ext_resource type="Script" path="res://patient_room_1_tracker.gd" id="104_td332"]
 [ext_resource type="PackedScene" uid="uid://cfqspbfdfecym" path="res://swap_floors_button.tscn" id="108_oacyx"]
+[ext_resource type="PackedScene" uid="uid://dtoc5xlebd8t3" path="res://ultraviolet_reveal.tscn" id="114_dhh6r"]
 
 [sub_resource type="Animation" id="Animation_kkojn"]
 length = 0.001
@@ -272,6 +274,15 @@ size = Vector2(200.426, 198.634)
 [node name="Main" type="Node"]
 script = ExtResource("1_u3rmy")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.990932, 0.971818, 0.749044, 1)
+
 [node name="Score" parent="." instance=ExtResource("3_3nf87")]
 visible = false
 
@@ -279,6 +290,7 @@ visible = false
 visible = false
 
 [node name="CartButton" type="ColorRect" parent="Canvas_inventory"]
+visible = false
 offset_left = 15.0
 offset_top = 561.0
 offset_right = 55.0
@@ -306,16 +318,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -373.0
-offset_top = 348.0
-offset_right = -170.0
-offset_bottom = 376.0
+offset_left = -324.0
+offset_top = 281.0
+offset_right = -121.0
+offset_bottom = 309.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Inventory_animation" type="AnimationPlayer" parent="Canvas_inventory"]
+active = false
 libraries = {
 "": SubResource("AnimationLibrary_c4vi7")
 }
@@ -326,10 +339,10 @@ script = ExtResource("13_pvycw")
 wait_time = 0.75
 
 [node name="InformationButton" type="ColorRect" parent="Canvas_inventory"]
-offset_left = 16.0
-offset_top = 484.0
-offset_right = 56.0
-offset_bottom = 524.0
+offset_left = 36.0
+offset_top = 667.0
+offset_right = 76.0
+offset_bottom = 707.0
 scale = Vector2(1.88313, 1.73739)
 color = Color(0, 0.736811, 0.934272, 1)
 script = ExtResource("6_j821f")
@@ -387,7 +400,7 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 76.0
 offset_top = -269.0
-offset_right = 1098.0
+offset_right = 1027.0
 offset_bottom = 207.0
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -402,7 +415,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -19.0
 offset_top = -30.0
-offset_right = 45.0
+offset_right = 82.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -411,10 +424,10 @@ expand_mode = 2
 
 [node name="X_button" type="Button" parent="Canvas_inventory/BodyText_Game"]
 layout_mode = 0
-offset_left = 1024.0
-offset_top = -20.0
-offset_right = 1055.0
-offset_bottom = 12.0
+offset_left = 978.0
+offset_top = -9.0
+offset_right = 1009.0
+offset_bottom = 23.0
 theme_override_styles/hover = SubResource("StyleBoxFlat_4vc1e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4vbss")
 theme_override_styles/normal = SubResource("StyleBoxFlat_m6fnf")
@@ -444,6 +457,10 @@ stream = ExtResource("29_eslky")
 volume_db = -25.0
 parameters/looping = true
 
+[node name="EndMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_maqyc")
+volume_db = -20.0
+
 [node name="Correct_Incorrect" parent="." instance=ExtResource("35_01srr")]
 
 [node name="PatientRoom1" type="Node2D" parent="."]
@@ -457,6 +474,15 @@ metadata/_edit_group_ = true
 position = Vector2(576.5, 322.5)
 scale = Vector2(0.600521, 0.602778)
 texture = ExtResource("21_57t6q")
+
+[node name="ColorRect" type="ColorRect" parent="PatientRoom1/Outside_room"]
+offset_left = 534.0
+offset_top = 489.0
+offset_right = 574.0
+offset_bottom = 529.0
+scale = Vector2(2.07268, 0.199648)
+mouse_filter = 2
+color = Color(0.72549, 0.447059, 0.392157, 1)
 
 [node name="Door_interact" type="Node2D" parent="PatientRoom1/Outside_room"]
 position = Vector2(436, 320)
@@ -525,14 +551,14 @@ position = Vector2(132, 362)
 scale = Vector2(1.37253, 1.49633)
 
 [node name="Turn_south" parent="PatientRoom1/Face_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(1054, 70)
+position = Vector2(1054, 183)
 rotation = 1.56042
 scale = Vector2(0.47311, 0.576715)
 currentScene = NodePath("..")
 nextScene = NodePath("../../Face_south")
 
 [node name="Turn_north" parent="PatientRoom1/Face_east" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(85, 94)
+position = Vector2(83, 174)
 rotation = -1.57191
 scale = Vector2(0.476177, 0.568348)
 currentScene = NodePath("..")
@@ -556,7 +582,7 @@ offset_right = 507.0
 offset_bottom = 437.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.79873, 0.191372)
+scale = Vector2(1.83672, 0.242162)
 color = Color(0.831373, 0.52549, 0.45098, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="PatientRoom1/Face_east"]
@@ -571,7 +597,7 @@ offset_right = 627.0
 offset_bottom = 438.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.242287, 0.207027)
+scale = Vector2(0.267601, 0.207027)
 color = Color(0.831373, 0.52549, 0.45098, 1)
 
 [node name="Wall_east" type="Node2D" parent="PatientRoom1"]
@@ -609,8 +635,17 @@ nextScene = NodePath("../../Face_east")
 offset_left = 111.0
 offset_top = 169.0
 offset_right = 151.0
-offset_bottom = 209.0
+offset_bottom = 195.0
 rotation = 1.33423
+scale = Vector2(0.982383, 12.1244)
+color = Color(0.780392, 0.498039, 0.435294, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="PatientRoom1/Wall_east"]
+offset_left = -28.0
+offset_top = 242.0
+offset_right = 12.0
+offset_bottom = 269.0
+rotation = 1.57031
 scale = Vector2(0.982383, 12.1244)
 color = Color(0.780392, 0.498039, 0.435294, 1)
 
@@ -1284,14 +1319,14 @@ shape = SubResource("RectangleShape2D_3aeax")
 position = Vector2(-89, -40)
 
 [node name="Turn_north" parent="PatientRoom1/Face_west" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(472, -265)
+position = Vector2(472, -113)
 rotation = 1.58234
 scale = Vector2(0.557947, 0.691029)
 currentScene = NodePath("..")
 nextScene = NodePath("../../Face_north")
 
 [node name="Turn_south" parent="PatientRoom1/Face_west" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(-468, -237)
+position = Vector2(-474, -117)
 rotation = -1.57046
 scale = Vector2(0.617259, 0.707009)
 currentScene = NodePath("..")
@@ -1431,14 +1466,14 @@ position = Vector2(-379, 65)
 position = Vector2(499, 96)
 
 [node name="Turn_east" parent="PatientRoom1/Face_north" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(488, -299)
+position = Vector2(488, -183)
 rotation = 1.55506
 scale = Vector2(0.547797, 0.649717)
 currentScene = NodePath("..")
 nextScene = NodePath("../../Face_east")
 
 [node name="Turn_west" parent="PatientRoom1/Face_north" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(-467, -280)
+position = Vector2(-464, -180)
 rotation = -1.56841
 scale = Vector2(0.545515, 0.659282)
 currentScene = NodePath("..")
@@ -1566,7 +1601,7 @@ position = Vector2(0.855377, -1.87224)
 shape = SubResource("RectangleShape2D_shobl")
 
 [node name="Turn_east" parent="PatientRoom1/Face_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(-451, -269)
+position = Vector2(-455, -162)
 rotation = -1.56712
 scale = Vector2(0.526803, 0.701616)
 currentScene = NodePath("..")
@@ -1584,8 +1619,8 @@ currentScene = NodePath("..")
 nextScene = NodePath("../../Bathroom_entry")
 
 [node name="Turn_west" parent="PatientRoom1/Face_south" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
-position = Vector2(460, -289)
-rotation = 1.5451
+position = Vector2(467, -166)
+rotation = 1.57827
 scale = Vector2(0.624387, 0.690983)
 currentScene = NodePath("..")
 nextScene = NodePath("../../Face_west")
@@ -2377,7 +2412,7 @@ position = Vector2(303, 180)
 position = Vector2(368, 153)
 
 [node name="Floor7_bl" type="Node2D" parent="PatientRoom1/Main_room_floor1"]
-position = Vector2(-274, 277)
+position = Vector2(-275, 259)
 
 [node name="Floor7_tr" type="Node2D" parent="PatientRoom1/Main_room_floor1"]
 position = Vector2(-153, 185)
@@ -2547,6 +2582,16 @@ visible = false
 [node name="Leave_button" parent="." instance=ExtResource("101_mtqjb")]
 visible = false
 
+[node name="UltravioletReveal" parent="." instance=ExtResource("114_dhh6r")]
+visible = false
+
+[node name="Next_results" parent="UltravioletReveal" node_paths=PackedStringArray("currentScene", "nextScene") instance=ExtResource("8_vodrk")]
+position = Vector2(1082, 175)
+rotation = 1.57702
+scale = Vector2(0.447311, 0.477887)
+currentScene = NodePath("..")
+nextScene = NodePath("../../End_screen")
+
 [node name="End_screen" parent="." instance=ExtResource("104_rkvjs")]
 visible = false
 
@@ -2559,6 +2604,68 @@ visible = false
 [connection signal="floor_traversed" from="." to="PatientRoom1/PatientRoom1Tracker" method="add_room"]
 [connection signal="hide_main_room_floor_1_bacteria" from="." to="PatientRoom1/Main_room_floor1" method="_on_leave_main_room_floor_1_hide_bacteria"]
 [connection signal="hide_main_room_floor_2_bacteria" from="." to="PatientRoom1/Main_room_floor2" method="_on_leave_main_room_floor_2_hide_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Wall_east/Computer_monitor_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Wall_east/Computer_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Wall_east/Chair_bed_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Computer_screen" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Computer" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Chair_bed" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Wall_south/Nightstand_above_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Wall_south/Nightstand_below_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Wall_south/Side_table_above_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Wall_south/Rail_controls_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Nightstand_above" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Nightstand_above/Phone_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Phone" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Nightstand_below" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Side_table_above" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Rail_controls" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Wall_north/Chair_desk_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Wall_north/Closet_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Chair_desk_close" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Closet" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Face_west/Front_door_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Face_west/Front_light_switch_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Front_door" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Light_switch" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Face_north/Trash_bin_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Face_north/Sharps_bin_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Face_north/Desk_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Sharps_bin" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Trash_bin" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Desk" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_east/Sink_interactable/Sink_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_east/Mirror_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_east/Soap_dispenser_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_east/Shower_curtain_rod_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_east/Shower_head_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_east/Shower_handle_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Sink" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Mirror" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Soap_dispenser" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Shower_handle" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Shower_head" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Shower_curtain_railing" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_south/Toilet_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_south/Bathroom_trash_bin_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_south/Pull_cord_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_south/Toilet_roll_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_south/Toilet_handle_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_south/Toilet_bar_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Toilet" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Toilet_handle" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_trash_bin" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Toilet_bar" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Toilet_roll" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Pull_cord" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_north/Bathroom_door_handle_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_north/Bathroom_light_switch_ind" method="reset_sprite"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_light_switch" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_door_handle" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Main_room_floor1" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Main_room_floor2" method="_on_main_reset_bacteria"]
+[connection signal="reset_bacteria" from="." to="PatientRoom1/Bathroom_floor" method="_on_main_reset_bacteria"]
+[connection signal="reset_heatmap" from="." to="UltravioletReveal" method="reset_all"]
 [connection signal="spawn_bathroom_door_handle_bacteria" from="." to="PatientRoom1/Bathroom_door_handle" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_bathroom_light_switch_bacteria" from="." to="PatientRoom1/Bathroom_light_switch" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_bathroom_trash_bin_bacteria" from="." to="PatientRoom1/Bathroom_trash_bin" method="_on_main_spawn_bacteria"]
@@ -2589,8 +2696,10 @@ visible = false
 [connection signal="spawn_toilet_handle_bacteria" from="." to="PatientRoom1/Toilet_handle" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_toilet_roll_bacteria" from="." to="PatientRoom1/Toilet_roll" method="_on_main_spawn_bacteria"]
 [connection signal="spawn_trash_bin_bacteria" from="." to="PatientRoom1/Trash_bin" method="_on_main_spawn_bacteria"]
+[connection signal="start_beginning_music" from="." to="Start_page" method="start_music"]
 [connection signal="start_end_cutscene" from="." to="End_animation" method="start_animation"]
 [connection signal="start_interim_cutscene" from="." to="Interim_animation" method="start_animation"]
+[connection signal="stop_timer" from="." to="Countdown_timer" method="stop_timer"]
 [connection signal="pressed" from="Canvas_inventory/CartButton/Cart_button" to="Canvas_inventory/Inventory_animation" method="_on_cart_button_pressed"]
 [connection signal="pressed" from="Canvas_inventory/InformationButton/Info_button" to="Canvas_inventory/InformationButton" method="button_clicked"]
 [connection signal="pressed" from="Canvas_inventory/InformationButton/Info_button" to="Canvas_inventory/InformationButton/Info_button" method="_on_pressed"]
@@ -2598,6 +2707,9 @@ visible = false
 [connection signal="pressed" from="Canvas_inventory/BodyText_Game/X_button" to="Canvas_inventory/InformationButton" method="_on_x_button_pressed"]
 [connection signal="pressed" from="Canvas_inventory/BodyText_Game/X_button" to="Canvas_inventory/InformationButton/Info_button" method="_on_x_button_pressed"]
 [connection signal="start_game" from="Start_page" to="Intro_animation" method="start_animation"]
+[connection signal="translate" from="Start_page" to="." method="_on_start_page_translate"]
+[connection signal="translate" from="Start_page" to="Leave_button" method="_on_start_page_translate"]
+[connection signal="translate" from="Start_page" to="Swap_floors_button" method="_on_start_page_translate"]
 [connection signal="add_point_bathroom_door" from="Player" to="PatientRoom1/Bathroom_door_handle" method="add_score"]
 [connection signal="add_point_bathroom_floor" from="Player" to="PatientRoom1/Bathroom_floor" method="add_score"]
 [connection signal="add_point_bathroom_light_switch" from="Player" to="PatientRoom1/Bathroom_light_switch" method="add_score"]
@@ -2674,16 +2786,19 @@ visible = false
 [connection signal="input_event" from="PatientRoom1/Wall_east/Chair_bed" to="." method="_on_chair_bed_input_event"]
 [connection signal="completed" from="PatientRoom1/Computer_screen" to="PatientRoom1/Wall_east/Computer_monitor_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Computer_screen" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Computer_screen" to="UltravioletReveal" method="_on_computer_screen_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Computer_screen" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Computer_screen/Return_wall_east" to="PatientRoom1/Computer_screen" method="_on_leave_computer_screen_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Computer_screen/Return_wall_east" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Computer" to="PatientRoom1/Wall_east/Computer_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Computer" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Computer" to="UltravioletReveal" method="_on_computer_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Computer" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Computer/Return_wall_east" to="PatientRoom1/Computer" method="_on_leave_computer_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Computer/Return_wall_east" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Chair_bed" to="PatientRoom1/Wall_east/Chair_bed_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Chair_bed" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Chair_bed" to="UltravioletReveal" method="_on_chair_bed_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Chair_bed" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Chair_bed/Return_wall_east" to="PatientRoom1/Chair_bed" method="_on_leave_chair_bed_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Chair_bed/Return_wall_east" to="." method="start_interim_setup"]
@@ -2693,27 +2808,32 @@ visible = false
 [connection signal="input_event" from="PatientRoom1/Wall_south/Rail_controls" to="." method="_on_rail_controls_input_event"]
 [connection signal="completed" from="PatientRoom1/Nightstand_above" to="PatientRoom1/Wall_south/Nightstand_above_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Nightstand_above" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Nightstand_above" to="UltravioletReveal" method="_on_nightstand_above_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Nightstand_above" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="input_event" from="PatientRoom1/Nightstand_above/Phone" to="." method="_on_phone_input_event"]
 [connection signal="hideBacteria" from="PatientRoom1/Nightstand_above/Return_wall_south" to="PatientRoom1/Nightstand_above" method="_on_leave_nightstand_above_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Nightstand_above/Return_wall_south" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Phone" to="PatientRoom1/Nightstand_above/Phone_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Phone" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Phone" to="UltravioletReveal" method="_on_phone_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Phone" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Phone/Return_nightstand_above" to="PatientRoom1/Phone" method="_on_leave_phone_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Phone/Return_nightstand_above" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Nightstand_below" to="PatientRoom1/Wall_south/Nightstand_below_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Nightstand_below" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Nightstand_below" to="UltravioletReveal" method="_on_nightstand_below_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Nightstand_below" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Nightstand_below/Return_wall_south" to="PatientRoom1/Nightstand_below" method="_on_leave_nightstand_below_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Nightstand_below/Return_wall_south" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Side_table_above" to="PatientRoom1/Wall_south/Side_table_above_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Side_table_above" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Side_table_above" to="UltravioletReveal" method="_on_side_table_above_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Side_table_above" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Side_table_above/Return_wall_south" to="PatientRoom1/Side_table_above" method="_on_leave_side_table_above_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Side_table_above/Return_wall_south" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Rail_controls" to="PatientRoom1/Wall_south/Rail_controls_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Rail_controls" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Rail_controls" to="UltravioletReveal" method="_on_rail_controls_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Rail_controls" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Rail_controls/Return_wall_south" to="PatientRoom1/Rail_controls" method="_on_leave_rail_controls_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Rail_controls/Return_wall_south" to="." method="start_interim_setup"]
@@ -2724,11 +2844,13 @@ visible = false
 [connection signal="completed" from="PatientRoom1/Chair_desk_close" to="PatientRoom1/Face_east/Chair_desk/Chair_desk_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Chair_desk_close" to="PatientRoom1/Wall_north/Chair_desk_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Chair_desk_close" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Chair_desk_close" to="UltravioletReveal" method="_on_chair_desk_close_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Chair_desk_close" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Chair_desk_close/Leave_chair_desk" to="PatientRoom1/Chair_desk_close" method="_on_leave_chair_desk_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Chair_desk_close/Leave_chair_desk" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Closet" to="PatientRoom1/Wall_north/Closet_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Closet" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Closet" to="UltravioletReveal" method="_on_closet_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Closet" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Closet/Return_wall_north" to="PatientRoom1/Closet" method="_on_leave_closet_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Closet/Return_wall_north" to="." method="start_interim_setup"]
@@ -2736,6 +2858,7 @@ visible = false
 [connection signal="input_event" from="PatientRoom1/Face_west/Front_light_switch" to="." method="_on_front_light_switch_input_event"]
 [connection signal="completed" from="PatientRoom1/Front_door" to="PatientRoom1/Face_west/Front_door_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Front_door" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Front_door" to="UltravioletReveal" method="_on_front_door_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Front_door" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Front_door/Closed/To_out" to="PatientRoom1/Front_door" method="on_leave_closed_front_door_hide_bacteria"]
 [connection signal="potential_add_room" from="PatientRoom1/Front_door/Closed/To_out" to="PatientRoom1/PatientRoom1Tracker" method="add_room"]
@@ -2744,6 +2867,7 @@ visible = false
 [connection signal="interim_cutscene" from="PatientRoom1/Front_door/Return_in_face_west" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Light_switch" to="PatientRoom1/Face_west/Front_light_switch_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Light_switch" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Light_switch" to="UltravioletReveal" method="_on_light_switch_hide_ultraviolet"]
 [connection signal="pass_score" from="PatientRoom1/Light_switch" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Light_switch/Return_face_north" to="PatientRoom1/Light_switch" method="_on_leave_light_switch_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Light_switch/Return_face_north" to="." method="start_interim_setup"]
@@ -2752,16 +2876,19 @@ visible = false
 [connection signal="input_event" from="PatientRoom1/Face_north/Desk" to="." method="_on_desk_input_event"]
 [connection signal="completed" from="PatientRoom1/Sharps_bin" to="PatientRoom1/Face_north/Sharps_bin_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Sharps_bin" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Sharps_bin" to="UltravioletReveal" method="_on_sharps_bin_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Sharps_bin" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Sharps_bin/Return_north" to="PatientRoom1/Sharps_bin" method="_on_leave_sharps_bin_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Sharps_bin/Return_north" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Trash_bin" to="PatientRoom1/Face_north/Trash_bin_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Trash_bin" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Trash_bin" to="UltravioletReveal" method="_on_trash_bin_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Trash_bin" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Trash_bin/Return_north" to="PatientRoom1/Trash_bin" method="_on_leave_trash_bin_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Trash_bin/Return_north" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Desk" to="PatientRoom1/Face_north/Desk_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Desk" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Desk" to="UltravioletReveal" method="_on_desk_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Desk" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Desk/Return_north" to="PatientRoom1/Desk" method="_on_leave_desk_top_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Desk/Return_north" to="." method="start_interim_setup"]
@@ -2776,31 +2903,37 @@ visible = false
 [connection signal="input_event" from="PatientRoom1/Bathroom_east/Shower_handle" to="." method="_on_shower_handle_input_event"]
 [connection signal="completed" from="PatientRoom1/Sink" to="PatientRoom1/Bathroom_east/Sink_interactable/Sink_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Sink" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Sink" to="UltravioletReveal" method="_on_sink_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Sink" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Sink/Leave_sink" to="PatientRoom1/Sink" method="_on_leave_sink_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Sink/Leave_sink" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Mirror" to="PatientRoom1/Bathroom_east/Mirror_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Mirror" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Mirror" to="UltravioletReveal" method="_on_mirror_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Mirror" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Mirror/Return_bathroom_east" to="PatientRoom1/Mirror" method="_on_leave_mirror_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Mirror/Return_bathroom_east" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Soap_dispenser" to="PatientRoom1/Bathroom_east/Soap_dispenser_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Soap_dispenser" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Soap_dispenser" to="UltravioletReveal" method="_on_soap_dispenser_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Soap_dispenser" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Soap_dispenser/Return_bathroom_east" to="PatientRoom1/Soap_dispenser" method="_on_leave_soap_dispenser_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Soap_dispenser/Return_bathroom_east" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Shower_handle" to="PatientRoom1/Bathroom_east/Shower_handle_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Shower_handle" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Shower_handle" to="UltravioletReveal" method="_on_shower_handle_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Shower_handle" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Shower_handle/Return_bathroom_east" to="PatientRoom1/Shower_handle" method="_on_leave_shower_handle_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Shower_handle/Return_bathroom_east" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Shower_head" to="PatientRoom1/Bathroom_east/Shower_head_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Shower_head" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Shower_head" to="UltravioletReveal" method="_on_shower_head_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Shower_head" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Shower_head/Return_bathroom_east" to="PatientRoom1/Shower_head" method="_on_leave_shower_head_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Shower_head/Return_bathroom_east" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Shower_curtain_railing" to="PatientRoom1/Bathroom_east/Shower_curtain_rod_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Shower_curtain_railing" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Shower_curtain_railing" to="UltravioletReveal" method="_on_shower_curtain_railing_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Shower_curtain_railing" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Shower_curtain_railing/Return_bathroom_east" to="PatientRoom1/Shower_curtain_railing" method="_on_leave_shower_curtain_rod_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Shower_curtain_railing/Return_bathroom_east" to="." method="start_interim_setup"]
@@ -2812,31 +2945,37 @@ visible = false
 [connection signal="input_event" from="PatientRoom1/Bathroom_south/Toilet_bar" to="." method="_on_toilet_bar_input_event"]
 [connection signal="completed" from="PatientRoom1/Toilet" to="PatientRoom1/Bathroom_south/Toilet_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Toilet" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Toilet" to="UltravioletReveal" method="_on_toilet_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Toilet" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Toilet/Return_bathroom_south" to="PatientRoom1/Toilet" method="_on_leave_toilet_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Toilet/Return_bathroom_south" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Toilet_handle" to="PatientRoom1/Bathroom_south/Toilet_handle_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Toilet_handle" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Toilet_handle" to="UltravioletReveal" method="_on_toilet_handle_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Toilet_handle" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Toilet_handle/Return_bathroom_south" to="PatientRoom1/Toilet_handle" method="_on_leave_toilet_handle_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Toilet_handle/Return_bathroom_south" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Bathroom_trash_bin" to="PatientRoom1/Bathroom_south/Bathroom_trash_bin_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Bathroom_trash_bin" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Bathroom_trash_bin" to="UltravioletReveal" method="_on_bathroom_trash_bin_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Bathroom_trash_bin" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Bathroom_trash_bin/Return_bathroom_south" to="PatientRoom1/Bathroom_trash_bin" method="_on_leave_bathroom_trash_bin_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Bathroom_trash_bin/Return_bathroom_south" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Toilet_bar" to="PatientRoom1/Bathroom_south/Toilet_bar_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Toilet_bar" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Toilet_bar" to="UltravioletReveal" method="_on_toilet_bar_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Toilet_bar" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Toilet_bar/Return_bathroom_south" to="PatientRoom1/Toilet_bar" method="_on_leave_toilet_bar_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Toilet_bar/Return_bathroom_south" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Toilet_roll" to="PatientRoom1/Bathroom_south/Toilet_roll_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Toilet_roll" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Toilet_roll" to="UltravioletReveal" method="_on_toilet_roll_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Toilet_roll" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Toilet_roll/Return_bathroom_south" to="PatientRoom1/Toilet_roll" method="_on_leave_toilet_roll_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Toilet_roll/Return_bathroom_south" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Pull_cord" to="PatientRoom1/Bathroom_south/Pull_cord_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Pull_cord" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Pull_cord" to="UltravioletReveal" method="_on_pull_cord_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Pull_cord" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Pull_cord/Return_bathroom_south" to="PatientRoom1/Pull_cord" method="_on_leave_pull_cord_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Pull_cord/Return_bathroom_south" to="." method="start_interim_setup"]
@@ -2844,35 +2983,75 @@ visible = false
 [connection signal="input_event" from="PatientRoom1/Bathroom_north/Bathroom_light_switch" to="." method="_on_bathroom_light_switch_input_event"]
 [connection signal="completed" from="PatientRoom1/Bathroom_light_switch" to="PatientRoom1/Bathroom_north/Bathroom_light_switch_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Bathroom_light_switch" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Bathroom_light_switch" to="UltravioletReveal" method="_on_bathroom_light_switch_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Bathroom_light_switch" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Bathroom_light_switch/Return_bathroom_north" to="PatientRoom1/Bathroom_light_switch" method="_on_leave_bathroom_light_switch_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Bathroom_light_switch/Return_bathroom_north" to="." method="start_interim_setup"]
 [connection signal="completed" from="PatientRoom1/Bathroom_door_handle" to="PatientRoom1/Bathroom_north/Bathroom_door_handle_ind" method="change_sprite"]
 [connection signal="completed" from="PatientRoom1/Bathroom_door_handle" to="PatientRoom1/PatientRoom1Tracker" method="room_cleaned"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Bathroom_door_handle" to="UltravioletReveal" method="_on_bathroom_door_handle_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Bathroom_door_handle" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Bathroom_door_handle/In/To_out" to="PatientRoom1/Bathroom_door_handle" method="on_leave_in_bathroom_door_hide_bacteria"]
 [connection signal="potential_add_room" from="PatientRoom1/Bathroom_door_handle/In/To_out" to="PatientRoom1/PatientRoom1Tracker" method="add_room"]
 [connection signal="hideBacteria" from="PatientRoom1/Bathroom_door_handle/Out/To_in" to="PatientRoom1/Bathroom_door_handle" method="on_leave_out_bathroom_door_hide_bacteria"]
 [connection signal="hideBacteria" from="PatientRoom1/Bathroom_door_handle/Return_bathroom_north" to="PatientRoom1/Bathroom_door_handle" method="_on_leave_bathroom_door_hide_bacteria"]
 [connection signal="interim_cutscene" from="PatientRoom1/Bathroom_door_handle/Return_bathroom_north" to="." method="start_interim_setup"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Main_room_floor1" to="UltravioletReveal" method="_on_main_room_floor_1_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Main_room_floor1" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Main_room_floor1/Go_west" to="PatientRoom1/Main_room_floor1" method="_on_leave_main_room_floor_1_hide_bacteria"]
 [connection signal="potential_add_room" from="PatientRoom1/Main_room_floor1/Go_west" to="PatientRoom1/PatientRoom1Tracker" method="add_room"]
 [connection signal="spawn_floor_bacteria" from="PatientRoom1/Main_room_floor1/Go_west" to="PatientRoom1/Main_room_floor2" method="_on_main_spawn_bacteria"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Main_room_floor2" to="UltravioletReveal" method="_on_main_room_floor_2_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Main_room_floor2" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Main_room_floor2/Go_east" to="PatientRoom1/Main_room_floor2" method="_on_leave_main_room_floor_2_hide_bacteria"]
 [connection signal="spawn_floor_bacteria" from="PatientRoom1/Main_room_floor2/Go_east" to="PatientRoom1/Main_room_floor1" method="_on_main_spawn_bacteria"]
 [connection signal="hideBacteria" from="PatientRoom1/Main_room_floor2/Go_bathroom" to="PatientRoom1/Main_room_floor2" method="_on_leave_main_room_floor_2_hide_bacteria"]
 [connection signal="potential_add_room" from="PatientRoom1/Main_room_floor2/Go_bathroom" to="PatientRoom1/PatientRoom1Tracker" method="add_room"]
 [connection signal="spawn_floor_bacteria" from="PatientRoom1/Main_room_floor2/Go_bathroom" to="PatientRoom1/Bathroom_floor" method="_on_main_spawn_bacteria"]
+[connection signal="hide_ultraviolet" from="PatientRoom1/Bathroom_floor" to="UltravioletReveal" method="_on_bathroom_floor_hide_ultraviolet"]
 [connection signal="pass_points" from="PatientRoom1/Bathroom_floor" to="PatientRoom1/PatientRoom1Tracker" method="record_points"]
 [connection signal="hideBacteria" from="PatientRoom1/Bathroom_floor/Go_room" to="PatientRoom1/Bathroom_floor" method="_on_leave_bathroom_floor_hide_bacteria"]
 [connection signal="spawn_floor_bacteria" from="PatientRoom1/Bathroom_floor/Go_room" to="PatientRoom1/Main_room_floor2" method="_on_main_spawn_bacteria"]
 [connection signal="timeout" from="Room_transition_cooldown" to="." method="_on_room_transition_cooldown_timeout"]
+[connection signal="countdown_finished" from="Countdown_timer" to="." method="_on_leave_button_end_game"]
 [connection signal="start_game" from="Intro_animation" to="." method="start_game"]
 [connection signal="start_information_button" from="Intro_animation" to="Canvas_inventory/InformationButton" method="game_started"]
 [connection signal="return_visibility" from="Interim_animation" to="." method="_on_interim_animation_return_visibility"]
 [connection signal="show_results" from="End_animation" to="." method="end_music"]
-[connection signal="show_results" from="End_animation" to="End_screen" method="show_results"]
 [connection signal="end_game" from="Leave_button" to="." method="_on_leave_button_end_game"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Computer_screen" method="_on_leave_computer_screen_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Computer" method="_on_leave_computer_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Chair_bed" method="_on_leave_chair_bed_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Nightstand_above" method="_on_leave_nightstand_above_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Phone" method="_on_leave_phone_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Nightstand_below" method="_on_leave_nightstand_below_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Side_table_above" method="_on_leave_side_table_above_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Rail_controls" method="_on_leave_rail_controls_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Chair_desk_close" method="_on_leave_chair_desk_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Closet" method="_on_leave_closet_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Front_door" method="_on_leave_front_door_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Light_switch" method="_on_leave_light_switch_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Sharps_bin" method="_on_leave_sharps_bin_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Trash_bin" method="_on_leave_trash_bin_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Desk" method="_on_leave_desk_top_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Sink" method="_on_leave_sink_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Mirror" method="_on_leave_mirror_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Soap_dispenser" method="_on_leave_soap_dispenser_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Shower_handle" method="_on_leave_shower_handle_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Shower_head" method="_on_leave_shower_head_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Shower_curtain_railing" method="_on_leave_shower_curtain_rod_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Toilet" method="_on_leave_toilet_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Toilet_handle" method="_on_leave_toilet_handle_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Bathroom_trash_bin" method="_on_leave_bathroom_trash_bin_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Toilet_bar" method="_on_leave_toilet_bar_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Toilet_roll" method="_on_leave_toilet_roll_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Pull_cord" method="_on_leave_pull_cord_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Bathroom_light_switch" method="_on_leave_bathroom_light_switch_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Bathroom_door_handle" method="_on_leave_bathroom_door_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Main_room_floor1" method="_on_leave_main_room_floor_1_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Main_room_floor2" method="_on_leave_main_room_floor_2_hide_bacteria"]
+[connection signal="leave_room" from="Leave_button" to="PatientRoom1/Bathroom_floor" method="_on_leave_bathroom_floor_hide_bacteria"]
+[connection signal="show_results" from="UltravioletReveal/Next_results" to="End_screen" method="show_results"]
+[connection signal="restart_game" from="End_screen" to="." method="_on_end_screen_restart_game"]
+[connection signal="stop_music" from="End_screen" to="." method="_on_end_screen_stop_music"]
 [connection signal="swap_floors" from="Swap_floors_button" to="." method="_on_swap_floors_button_swap_floors"]

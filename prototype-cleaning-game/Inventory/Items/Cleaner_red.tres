@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_xamxn")
-name = "Cleaner_red"
+name = "Cleaner red"
 texture = ExtResource("2_errbj")
 cleans = "C_diff"
-combines_with = "Cloth_dry_red"
+combines_with = "Cloth dry red"
 base_texture = ExtResource("2_errbj")

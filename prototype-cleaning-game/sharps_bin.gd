@@ -14,6 +14,7 @@ var alreadyGenerated = false
 
 signal completed
 signal pass_points(points, total_points, door1, door2)
+signal hide_ultraviolet
 
 var total = 15
 var total_score = 15
@@ -39,6 +40,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(lid_bl.position.x, lid_tr.position.x), randf_range(lid_bl.position.y, lid_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		for i in range(5): #Sparse amount on the bin
@@ -47,6 +50,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(bin_bl.position.x, bin_tr.position.x), randf_range(bin_bl.position.y, bin_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 			
 			
@@ -58,7 +63,7 @@ func _on_main_spawn_bacteria() -> void:
 				if grandchildren is Area2D:
 					grandchildren.set_deferred("monitoring", true)
 					grandchildren.set_deferred("monitorable", true)
-			child.visible = true
+			#child.visible = true
 
 
 func _on_leave_sharps_bin_hide_bacteria() -> void:
@@ -67,14 +72,15 @@ func _on_leave_sharps_bin_hide_bacteria() -> void:
 			if grandchildren is Area2D:
 				grandchildren.set_deferred("monitoring", false)
 				grandchildren.set_deferred("monitorable", false)
-		child.visible = false
+		#child.visible = false
 	
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		pass_points.emit(sharps_bin_score, total_score, 0, 0)
+		hide_ultraviolet.emit()
 		#Globals.score += sharps_bin_score
 		score_added = true
+	pass_points.emit(sharps_bin_score, total_score, 0, 0, self)
 
 
 func add_score():
@@ -84,3 +90,10 @@ func add_score():
 	
 func remove_score():
 	total -= 1
+
+
+func _on_main_reset_bacteria() -> void:
+	sharps_bin_score = 0
+	total = 15
+	score_added = false
+	alreadyGenerated = false

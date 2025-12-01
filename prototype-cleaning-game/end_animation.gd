@@ -19,6 +19,10 @@ func _process(delta: float) -> void:
 func start_animation(): #Washing hands
 	$ColorRect/Fade.play("fade_in")
 	$OpenDoorSFX.play()
+	count = 0
+	$AnimatedSprite2D.set_frame(0)
+	$LeavingRoom.visible = true
+	$WashingHands.visible = false
 	pass
 
 
@@ -33,6 +37,8 @@ func _on_fade_animation_finished(anim_name: StringName) -> void:
 			1: #Opening the door to leave
 				$AnimatedSprite2D.set_frame(1)
 				$WashHandsSFX.play()
+				$LeavingRoom.visible = false
+				$WashingHands.visible = true
 				$ColorRect/Fade.play("fade_in")
 				count += 1
 			2:
@@ -41,6 +47,8 @@ func _on_fade_animation_finished(anim_name: StringName) -> void:
 			3: #Results screen
 				$RollingCartSFX.play()
 				$AnimatedSprite2D.set_frame(2)
+				$WashingHands.visible = false
+				$WalkingAway.visible = true
 				$ColorRect/Fade.play("fade_in")
 				count += 1
 	else:

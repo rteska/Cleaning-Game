@@ -12,6 +12,7 @@ var alreadyGenerated = false
 
 signal completed
 signal pass_points(points, total_points, door1, door2)
+signal hide_ultraviolet
 
 var total = 10
 var total_score = 10
@@ -37,6 +38,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(controls_bl.position.x, controls_tr.position.x), randf_range(controls_bl.position.y, controls_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 			
@@ -49,7 +52,7 @@ func _on_main_spawn_bacteria() -> void:
 				if grandchildren is Area2D:
 					grandchildren.set_deferred("monitoring", true)
 					grandchildren.set_deferred("monitorable", true)
-			child.visible = true
+			#child.visible = true
 
 
 func _on_leave_rail_controls_hide_bacteria() -> void:
@@ -58,14 +61,15 @@ func _on_leave_rail_controls_hide_bacteria() -> void:
 			if grandchildren is Area2D:
 				grandchildren.set_deferred("monitoring", false)
 				grandchildren.set_deferred("monitorable", false)
-		child.visible = false
+		#child.visible = false
 	
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		pass_points.emit(rail_controls_score, total_score, 0, 0)
+		hide_ultraviolet.emit()
 		#Globals.score += rail_controls_score
 		score_added = true
+	pass_points.emit(rail_controls_score, total_score, 0, 0, self)
 
 
 func add_score():
@@ -75,3 +79,10 @@ func add_score():
 	
 func remove_score():
 	total -= 1
+
+
+func _on_main_reset_bacteria() -> void:
+	rail_controls_score = 0
+	total = 10
+	score_added = false
+	alreadyGenerated = false

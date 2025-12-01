@@ -10,9 +10,12 @@
 custom_minimum_size = Vector2(203, 28)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 203.0
-offset_bottom = 28.0
-scale = Vector2(3.6615, 3.28115)
+offset_left = 6.0
+offset_top = 4.0
+offset_right = 209.0
+offset_bottom = 32.0
+rotation = -9.66131e-05
+scale = Vector2(3.2992, 3.28691)
 mouse_filter = 1
 script = ExtResource("1_uipdm")
 
@@ -70,4 +73,9 @@ bus = &"SFX"
 [node name="Hold_delay" type="Timer" parent="."]
 wait_time = 0.25
 
+[node name="Tooltip_delay" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="Hold_delay" to="." method="_on_hold_delay_timeout"]
+[connection signal="timeout" from="Tooltip_delay" to="." method="_on_tooltip_delay_timeout"]

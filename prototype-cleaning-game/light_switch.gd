@@ -18,6 +18,7 @@ var score_added = false
 
 signal completed
 signal pass_score(points, total_points, door_points1, door_points2)
+signal hide_ultraviolet
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,6 +37,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(switch_bl.position.x, switch_tr.position.x), randf_range(switch_bl.position.y, switch_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 			
 		for i in range(2): #Create a sparse bacteria cluster on the panel
@@ -43,6 +46,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(panel_bl.position.x, panel_tr.position.x), randf_range(panel_bl.position.y, panel_tr.position.y)) 
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 		
 		alreadyGenerated = true
@@ -53,7 +58,7 @@ func _on_main_spawn_bacteria() -> void:
 				if grandchildren is Area2D:
 					grandchildren.set_deferred("monitoring", true)
 					grandchildren.set_deferred("monitorable", true)
-			child.visible = true
+			#child.visible = true
 
 #Hides the bacteria when leaving the scene	
 func _on_leave_light_switch_hide_bacteria() -> void:
@@ -62,13 +67,14 @@ func _on_leave_light_switch_hide_bacteria() -> void:
 			if grandchildren is Area2D:
 				grandchildren.set_deferred("monitoring", false)
 				grandchildren.set_deferred("monitorable", false)
-		child.visible = false
+		#child.visible = false
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		pass_score.emit(Light_switch_score, total_score, 0, 0)
+		hide_ultraviolet.emit()
 		#Globals.score += Light_switch_score
 		score_added = true
+	pass_score.emit(Light_switch_score, total_score, 0, 0, self)
 
 func add_score():
 	Light_switch_score += 1
@@ -77,3 +83,10 @@ func add_score():
 
 func remove_score():
 	total -= 1
+
+
+func _on_main_reset_bacteria() -> void:
+	Light_switch_score = 0
+	total = 7
+	score_added = false
+	alreadyGenerated = false

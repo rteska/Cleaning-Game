@@ -3,6 +3,8 @@ extends Control
 var minutes
 var seconds
 
+signal countdown_finished
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -19,3 +21,10 @@ func _process(delta: float) -> void:
 
 func start_timer():
 	$Timer.start()
+
+
+func _on_timer_timeout() -> void:
+	countdown_finished.emit()
+
+func stop_timer():
+	$Timer.stop()

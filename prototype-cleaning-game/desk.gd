@@ -16,6 +16,7 @@ var score_added = false
 
 signal completed
 signal pass_points(points, total_points, door1, door2)
+signal hide_ultraviolet
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,6 +35,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(desk_top_bl.position.x, desk_top_tr.position.x), randf_range(desk_top_bl.position.y, desk_top_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			add_child(bacteria)
 			
 		
@@ -45,7 +48,7 @@ func _on_main_spawn_bacteria() -> void:
 				if grandchildren is Area2D:
 					grandchildren.set_deferred("monitoring", true)
 					grandchildren.set_deferred("monitorable", true)
-			child.visible = true
+			#child.visible = true
 
 #Hides the bacteria when leaving the scene	
 func _on_leave_desk_top_hide_bacteria() -> void:
@@ -54,13 +57,14 @@ func _on_leave_desk_top_hide_bacteria() -> void:
 			if grandchildren is Area2D:
 				grandchildren.set_deferred("monitoring", false)
 				grandchildren.set_deferred("monitorable", false)
-		child.visible = false
+		#child.visible = false
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		pass_points.emit(desk_top_score, total_score, 0, 0)
+		hide_ultraviolet.emit()
 		#Globals.score += desk_top_score
 		score_added = true
+	pass_points.emit(desk_top_score, total_score, 0, 0, self)
 
 func add_score():
 	desk_top_score += 1
@@ -69,3 +73,10 @@ func add_score():
 
 func remove_score():
 	total -= 1
+
+
+func _on_main_reset_bacteria() -> void:
+	desk_top_score = 0
+	total = 10
+	score_added = false
+	alreadyGenerated = false

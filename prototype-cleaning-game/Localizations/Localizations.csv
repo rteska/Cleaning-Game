@@ -1,29 +1,30 @@
 ﻿key,en,es
-Title,Clean the Hospital,
-Start_Button,Levels,
-Difficulty_Button,Difficulty,
-Instructions_Button,Instructions,
-Back_Button,Back,
-Body_Text,"Use the left mouse button to interact with the environment around you.
+Title,Clean the Hospital,Test
+Start_Button,Levels,Test
+Difficulty_Button,Difficulty,Test
+Instructions_Button,Instructions,Test
+Back_Button,Back,Test
+Body_Text,"Use the left mouse button to interact with the environment around you and use your items.
 
-Click on the button in the bottom left to open your inventory. 
 Click on the ""i"" to open the instructions and the ""x"" to close them.
+Click on the ""floors"" button to view the floors and return to normal view.
+
 Red dots indicate something needs to be cleaned. Green dots indicate it has been cleaned.
+Floors are the exception. They will appear later in the game once you have cleaned a good portion of the room.
 
-Simply click on your inventory items to move and use them.
+Your goal is to clean the entire room using the proper chemicals.
+You gain points for proper cleaning and sanitization and you will receive a score at the end.
 
-Your goal is to clean the entire room using the proper chemicals and cloths. 
-You gain points for proper cleaning and sanitization, and will receive a score at the end.
+BE CAREFUL: Improper combinations of chemicals and bacteria will deduct points.
+Missing areas also deducts these points.
 
-BE CAREFUL: Improper combinations of cloth and bacteria will make you lose points. 
-
-Missing objects also deducts these points.
-
-TIP: You can combine items!",
+TIP: You can combine items!",Test
 Difficulty_Text,"Really test your skills and make the bacteria invisible!
 
-Just click on the button below to increase the difficulty.",
-Hide_Bacteria_Text,Hide bacteria,
-Links_text,Links to Chemicals,
-Level_select_text,Click a room image to start the game!,
-Skip_text,Skip?,
+Just click on the button below to increase the difficulty.",Test
+Hide_Bacteria_Text,Hide bacteria,Test
+Links_text,Links to Chemicals,Test
+Level_select_text,Click a room image to start the game!,Test
+Skip_text,Skip?,Test
+Leave_Button_Text,Leave?,Test
+Swap_Floors_Button_Text,Floors,Test

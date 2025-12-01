@@ -1,0 +1,371 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtoc5xlebd8t3"]
+
+[ext_resource type="Script" path="res://ultraviolet_reveal.gd" id="1_52fqc"]
+[ext_resource type="Texture2D" uid="uid://dlep7plbir1yv" path="res://New Art/escape room map top.png" id="1_euexf"]
+[ext_resource type="Texture2D" uid="uid://3a55qk2lk2fv" path="res://New Art/title background.png" id="3_kctmr"]
+
+[node name="UltravioletReveal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_52fqc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.455817, 0.455817, 0.455817, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 748.0
+texture = ExtResource("1_euexf")
+expand_mode = 1
+
+[node name="Closet" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 34.0
+offset_right = 77.0
+offset_bottom = 74.0
+rotation = 0.147345
+scale = Vector2(3.39447, 2.03399)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="ComputerScreen" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 73.0
+offset_right = 224.0
+offset_bottom = 113.0
+rotation = 0.00971441
+scale = Vector2(2.18783, 0.832909)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="Computer" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 106.0
+offset_right = 225.0
+offset_bottom = 146.0
+rotation = 0.00971441
+scale = Vector2(2.18783, 0.832909)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="ChairBed" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 78.0
+offset_right = 528.0
+offset_bottom = 118.0
+rotation = 0.516394
+scale = Vector2(2.40177, 2.62597)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="ChairDesk" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 254.0
+offset_right = 119.0
+offset_bottom = 294.0
+rotation = -1.04046
+scale = Vector2(2.32278, 3.10527)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="Desk" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 372.0
+offset_right = 132.0
+offset_bottom = 412.0
+rotation = -1.57246
+scale = Vector2(1.68042, 1.46535)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="SharpsBin" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 550.0
+offset_right = 138.0
+offset_bottom = 590.0
+rotation = -1.57246
+scale = Vector2(0.948265, 1.25882)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="TrashBin" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 589.0
+offset_right = 139.0
+offset_bottom = 629.0
+rotation = -1.57246
+scale = Vector2(0.948265, 1.25882)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="SideTable" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 369.0
+offset_right = 418.0
+offset_bottom = 409.0
+rotation = -1.57246
+scale = Vector2(1.67411, 1.36221)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="RemoteControls" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 331.0
+offset_right = 501.0
+offset_bottom = 371.0
+rotation = -1.57246
+scale = Vector2(0.424158, 1.94271)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="NightstandBelow" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 519.0
+offset_top = 264.0
+offset_right = 559.0
+offset_bottom = 304.0
+rotation = -1.57246
+scale = Vector2(1.01323, 0.347343)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="NightstandAbove" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 241.0
+offset_right = 575.0
+offset_bottom = 281.0
+rotation = -1.57246
+scale = Vector2(0.945057, 1.53313)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="Phone" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 279.0
+offset_right = 580.0
+offset_bottom = 319.0
+rotation = -1.57246
+scale = Vector2(0.945534, 1.25147)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="FrontDoor" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 243.0
+offset_top = 707.0
+offset_right = 283.0
+offset_bottom = 747.0
+rotation = -1.57246
+scale = Vector2(0.560075, 0.841782)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="LightSwitch" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 715.0
+offset_right = 340.0
+offset_bottom = 755.0
+rotation = -1.57246
+scale = Vector2(0.560075, 0.841782)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="BathroomDoor" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 502.0
+offset_top = 593.0
+offset_right = 542.0
+offset_bottom = 633.0
+rotation = -1.14709
+scale = Vector2(0.560075, 0.841782)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="BathroomLightSwitch" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 469.0
+offset_right = 668.0
+offset_bottom = 509.0
+rotation = 0.0133781
+scale = Vector2(0.560075, 0.841782)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="Mirror" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 662.0
+offset_top = 386.0
+offset_right = 702.0
+offset_bottom = 426.0
+rotation = -1.57925
+scale = Vector2(0.314879, 2.14121)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="Sink" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 666.0
+offset_top = 455.0
+offset_right = 706.0
+offset_bottom = 495.0
+rotation = -1.57925
+scale = Vector2(1.55513, 2.05393)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="SoapDispenser" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 405.0
+offset_right = 816.0
+offset_bottom = 445.0
+rotation = -1.57925
+scale = Vector2(0.555504, 0.656023)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="ShowerBar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 912.0
+offset_top = 544.0
+offset_right = 952.0
+offset_bottom = 584.0
+rotation = -1.57925
+scale = Vector2(0.261193, 5.64465)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="ShowerHandle" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 393.0
+offset_right = 979.0
+offset_bottom = 433.0
+rotation = -1.57925
+scale = Vector2(0.290594, 1.07771)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="ShowerHead" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 948.0
+offset_top = 473.0
+offset_right = 988.0
+offset_bottom = 513.0
+rotation = -1.57925
+scale = Vector2(0.875623, 1.1468)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="Toilet" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 974.0
+offset_top = 633.0
+offset_right = 1014.0
+offset_bottom = 673.0
+rotation = -1.57925
+scale = Vector2(1.46568, 1.91198)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="ToiletHandle" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1081.0
+offset_top = 633.0
+offset_right = 1121.0
+offset_bottom = 673.0
+rotation = -1.57925
+scale = Vector2(1.28004, 0.331657)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="BathroomTrash" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1035.0
+offset_top = 686.0
+offset_right = 1075.0
+offset_bottom = 726.0
+rotation = -1.57925
+scale = Vector2(1.14195, 0.613425)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="PullCord" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1016.0
+offset_top = 662.0
+offset_right = 1056.0
+offset_bottom = 702.0
+rotation = -1.57925
+scale = Vector2(0.548282, 0.361783)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="PaperToiletRoll" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 686.0
+offset_right = 1105.0
+offset_bottom = 726.0
+rotation = -1.57925
+scale = Vector2(0.931181, 0.923478)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="ToiletBar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 699.0
+offset_right = 927.0
+offset_bottom = 739.0
+rotation = -1.57925
+scale = Vector2(0.217252, 4.60694)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="MainFloor1" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 300.0
+offset_right = 275.0
+offset_bottom = 340.0
+rotation = -1.57925
+scale = Vector2(2.25725, 6.5317)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="MainFloor2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 667.0
+offset_right = 197.0
+offset_bottom = 707.0
+rotation = -1.57925
+scale = Vector2(5.3735, 8.23099)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="BathroomFloor" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 649.0
+offset_top = 683.0
+offset_right = 689.0
+offset_bottom = 723.0
+rotation = -1.57925
+scale = Vector2(3.09757, 7.93176)
+color = Color(1, 0, 0, 0.494118)
+
+[node name="TitleBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 729.0
+offset_top = 15.0
+offset_right = 1063.0
+offset_bottom = 73.0
+texture = ExtResource("3_kctmr")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TitleBackground"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 8.0
+offset_right = 234.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Heatmap"
+horizontal_alignment = 1
+vertical_alignment = 1

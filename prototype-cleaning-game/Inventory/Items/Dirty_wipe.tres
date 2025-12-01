@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://bqr836bvbu6nw"]
+
+[ext_resource type="Script" path="res://Inventory/inventory_item.gd" id="1_2r21t"]
+[ext_resource type="Texture2D" uid="uid://w587gmmv5w20" path="res://Art/Dirty_wipe.png" id="2_7rfax"]
+
+[resource]
+script = ExtResource("1_2r21t")
+name = "Dirty wipe"
+texture = ExtResource("2_7rfax")
+cleans = ""
+combines_with = "Trash bin"

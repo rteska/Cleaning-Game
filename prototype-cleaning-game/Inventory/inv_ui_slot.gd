@@ -10,6 +10,7 @@ var index: int
 
 signal change_cursor_slot
 
+
 # Updates slots UI
 func insert(isg: ItemStack):
 	item_stack_ui = isg
@@ -17,6 +18,7 @@ func insert(isg: ItemStack):
 	
 	if !item_stack_ui.inventory_slot || inventory.slots[index] == item_stack_ui.inventory_slot:
 		return
+	
 	
 	inventory.insert_slot(index, item_stack_ui.inventory_slot)
 

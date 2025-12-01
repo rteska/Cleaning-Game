@@ -20,6 +20,7 @@ var score_added = false
 
 signal completed
 signal pass_points(points, total_points, door_in, door_out)
+signal hide_ultraviolet
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,6 +39,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(out_handle_bl.position.x, out_handle_tr.position.x), randf_range(out_handle_bl.position.y, out_handle_tr.position.y))
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			$Open.add_child(bacteria)
 			
 		for i in range(5): #Create a bacteria cluster on the inside handle
@@ -45,6 +48,8 @@ func _on_main_spawn_bacteria() -> void:
 			
 			bacteria.rotate_random()
 			bacteria.position = Vector2(randf_range(in_handle_bl.position.x, in_handle_tr.position.x), randf_range(in_handle_bl.position.y, in_handle_tr.position.y)) 
+			if Globals.difficulty_mode:
+				bacteria.visible = false
 			$Closed.add_child(bacteria)
 		
 		
@@ -108,9 +113,10 @@ func _on_leave_front_door_hide_bacteria() -> void:
 	
 	if total == 0 && !score_added:
 		completed.emit()
-		pass_points.emit(Door_handles_score, total_score, in_score, out_score)
+		hide_ultraviolet.emit()
 		#Globals.score += Door_handles_score
 		score_added = true
+	pass_points.emit(Door_handles_score, total_score, in_score, out_score, self)
 
 func add_score():
 	Door_handles_score += 1
@@ -124,3 +130,12 @@ func add_score():
 
 func remove_score():
 	total -= 1
+
+
+func _on_main_reset_bacteria() -> void:
+	Door_handles_score = 0
+	in_score = 0
+	out_score = 0
+	total = 10
+	score_added = false
+	alreadyGenerated = false

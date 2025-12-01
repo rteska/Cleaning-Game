@@ -5,6 +5,11 @@ var string_to_replace = "_"
 var counter = 0
 var positive_count = 0
 var negative_count = 0
+var player_score = 0
+var total_score = 0
+
+signal stop_music
+signal restart_game
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +26,17 @@ func show_results():
 		#$MarginContainer/HBoxContainer/Results1.text += "Yes\n"
 	#else:
 		#$MarginContainer/HBoxContainer/Results1.text += "No\n"
+	
+	#Calculate total score
+	for i in Globals.rooms_points.size():
+		player_score += Globals.rooms_points[i][0]
+		total_score += Globals.rooms_points[i][1]
+		
+	
+	#Display total score
+	$TotalScore/HBoxContainer/Label.text = "Total score: " + str(player_score) + "/" + str(total_score)
+	
+	
 	
 	for i in range(17): #Show results for areas 0-16
 		if str(Globals.correct_rooms_order[i].name) == "Closed":
@@ -50,6 +66,7 @@ func show_results():
 			$MarginContainer/HBoxContainer/Results2.text += " No\n"
 
 func show_second_results():
+	stop_music.emit()
 	#See if there needs to be a comment about the amount of rooms missed
 	for i in Globals.rooms_missed.size():
 		counter += 1
@@ -86,7 +103,7 @@ func show_second_results():
 			counter += 1
 	
 	if counter > 17:
-		$Details_results/HBoxContainer/Label.text += "Some areas were done out of order. Review your sources as to what order to need to clean places in.\n"
+		$Details_results/HBoxContainer/Label.text += "Some areas were done out of order. Review your sources as to what order you need to clean places in.\n"
 		negative_count += 1
 	else:
 		$Details_results/HBoxContainer/Label.text += "You did a lot of the areas in order. Solid work!\n"
@@ -101,3 +118,18 @@ func show_second_results():
 		#$Details_results/Good_video.play()
 		
 	
+
+
+func _on_restart_button_restart_game() -> void:
+	$TotalScore.visible = true
+	$Details_results.visible = false
+	$Credits_label.visible = false
+	$TotalScore/HBoxContainer/Label.text = ""
+	$MarginContainer/HBoxContainer/Results1.text = ""
+	$MarginContainer/HBoxContainer/Results2.text = ""
+	$Details_results/HBoxContainer/Label.text = ""
+	restart_game.emit()
+
+
+func _on_next_page_spawn_floor_bacteria() -> void:
+	$Credits_label.visible = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://tjsnaagn6pqf"]
+[gd_scene load_steps=15 format=3 uid="uid://tjsnaagn6pqf"]
 
 [ext_resource type="Texture2D" uid="uid://cyvhio4hb13r2" path="res://New Art/escape room - flat images/widok do pokoju drzwi uchylone copy.png" id="1_jmw4f"]
 [ext_resource type="Script" path="res://end_animation.gd" id="1_syscy"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cwxqeovtccukv" path="res://Sounds/door-open-close-45475.mp3" id="6_4j7gv"]
 [ext_resource type="AudioStream" uid="uid://b4twy135wv3mw" path="res://Sounds/rolling-cart-002-86702.mp3" id="6_y2cct"]
 [ext_resource type="PackedScene" uid="uid://cxtm2wfhcjjod" path="res://skip_button.tscn" id="8_mkok4"]
+[ext_resource type="Texture2D" uid="uid://3a55qk2lk2fv" path="res://New Art/title background.png" id="9_n17qc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ng6r0"]
 animations = [{
@@ -90,12 +91,64 @@ grow_vertical = 2
 script = ExtResource("1_syscy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(0.6, 0.6)
+position = Vector2(576, 374)
+scale = Vector2(0.6, 0.692593)
 sprite_frames = SubResource("SpriteFrames_ng6r0")
 animation = &"finale_scenes"
 
+[node name="SubTitles" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 697.0
+offset_right = 451.0
+offset_bottom = 737.0
+scale = Vector2(8.49021, 1.11452)
+texture = ExtResource("9_n17qc")
+expand_mode = 1
+
+[node name="LeavingRoom" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 447.0
+offset_top = 700.0
+offset_right = 616.0
+offset_bottom = 728.0
+scale = Vector2(1.61552, 1.49348)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Leaving the room"
+horizontal_alignment = 1
+
+[node name="WashingHands" type="Label" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 412.0
+offset_top = 704.0
+offset_right = 719.0
+offset_bottom = 732.0
+scale = Vector2(1.09938, 1.24964)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "Washing hands for the last time"
+horizontal_alignment = 1
+
+[node name="WalkingAway" type="Label" parent="."]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = 417.0
+offset_top = 698.0
+offset_right = 757.0
+offset_bottom = 740.0
+scale = Vector2(0.965754, 0.907853)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Moving onto next room"
+horizontal_alignment = 1
+
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -122,7 +175,8 @@ stream = ExtResource("6_y2cct")
 volume_db = -10.0
 
 [node name="Skip_button" parent="." instance=ExtResource("8_mkok4")]
-position = Vector2(1025, 86)
+z_index = 3
+position = Vector2(1024, 88)
 rotation = 1.57571
 scale = Vector2(0.746933, 0.790433)
 

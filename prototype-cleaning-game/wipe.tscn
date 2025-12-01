@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dx7pg3b0ix7es"]
+
+[ext_resource type="Script" path="res://wipe.gd" id="1_6c00k"]
+[ext_resource type="Texture2D" uid="uid://bkwllbj178ege" path="res://Art/Clean_wipe.png" id="1_d0euv"]
+[ext_resource type="Resource" uid="uid://c53ppymbc3lww" path="res://Inventory/Items/Clean_wipe.tres" id="2_0i1si"]
+[ext_resource type="Texture2D" uid="uid://w587gmmv5w20" path="res://Art/Dirty_wipe.png" id="2_b0j7j"]
+[ext_resource type="Resource" uid="uid://bqr836bvbu6nw" path="res://Inventory/Items/Dirty_wipe.tres" id="3_g8y3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yknby"]
+
+[node name="Wipe" type="Node2D"]
+script = ExtResource("1_6c00k")
+clean_wipe_item = ExtResource("2_0i1si")
+dirty_wipe_item = ExtResource("3_g8y3g")
+
+[node name="Clean" type="Sprite2D" parent="."]
+texture = ExtResource("1_d0euv")
+
+[node name="Dirty" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_b0j7j")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_yknby")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

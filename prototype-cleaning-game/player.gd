@@ -164,8 +164,8 @@ func _process(delta: float) -> void:
 func _on_area_entered(area: Area2D) -> void:
 	curr_area = area
 	if item_held != null && !Globals.info_button_on && (area.get_name() == "Staph" || area.get_name() == "Enterococcus" || area.get_name() == "Candida"): #are we holding an item at all
-		if (Input.is_action_pressed("interact")) && (str(item_held.texture.get_path().get_file()).contains("Cloth_wet_blue") || str(item_held.texture.get_path().get_file()).contains("Cloth_wet_red")): #Do we interact with either of these items?
-			if area.get_name() == "Staph" && str(item_held.texture.get_path().get_file()).contains("Cloth_wet_blue"): #Blue cloth on Staph cells
+		if (Input.is_action_pressed("interact")) && (str(item_held.texture.get_path().get_file()).contains("Clean_wipe") || str(item_held.texture.get_path().get_file()).contains("Cloth_wet_red")): #Do we interact with either of these items?
+			if area.get_name() == "Staph" && str(item_held.texture.get_path().get_file()).contains("Clean_wipe"): #Blue cloth on Staph cells
 				area.get_parent().queue_free()
 				for scene in scenes_list:
 					if Globals.current_scene == scene:
@@ -202,7 +202,7 @@ func _on_area_entered(area: Area2D) -> void:
 						index = 0
 						break
 					index += 1
-			elif area.get_name() == "Enterococcus" && str(item_held.texture.get_path().get_file()).contains("Cloth_wet_blue"): #Blue cloth on C diff. cells
+			elif area.get_name() == "Enterococcus" && str(item_held.texture.get_path().get_file()).contains("Clean_wipe"): #Blue cloth on C diff. cells
 				area.get_parent().queue_free()
 				for scene in scenes_list:
 					if Globals.current_scene == scene:
@@ -239,7 +239,7 @@ func _on_area_entered(area: Area2D) -> void:
 					#remove_point_front_door.emit()
 					#incorrect.emit()
 					#$WipeIncorrectSFX.play()
-			elif area.get_name() == "Spray_area" && (str(item_held.texture.get_path().get_file()).contains("Cloth_wet_blue") || str(item_held.texture.get_path().get_file()).contains("Cloth_wet_red")): #Hit spray
+			elif area.get_name() == "Spray_area" && (str(item_held.texture.get_path().get_file()).contains("Clean_wipe") || str(item_held.texture.get_path().get_file()).contains("Cloth_wet_red")): #Hit spray
 				area.get_parent().queue_free()
 		elif (Input.is_action_pressed("interact")) && (str(item_held.texture.get_path().get_file()).contains("Mop_item")): #Is it holding the mop?
 			if area.get_name() == "Candida" && str(item_held.texture.get_path().get_file()).contains("Mop_item"): #Is the mop over Candida cells?
